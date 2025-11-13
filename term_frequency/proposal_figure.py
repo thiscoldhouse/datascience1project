@@ -1,4 +1,4 @@
-from nltk.corpus import stopwords
+
 import pandas as pd
 import numpy as np
 from nltk.collocations import BigramCollocationFinder
@@ -10,11 +10,13 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
 
-stop = stopwords.words('english')
-stop.extend((
-    'elsevier', 'rights', 'reserved', 'mesh', 'taylor', 'francis', 'copyright', 'llc', 'bt', 'lftb', 'springer', 'ieee', 'information', 'misinformation'
-))
-stop = [w.lower() for w in stop]
+from config import (
+    before_color,
+    after_color,
+    before_years,
+    after_years,
+    stop
+)
 
 
 def tokenize(text):
@@ -68,7 +70,12 @@ def clean_text_with_bigrams(text,
     return result
 
 
-def get_highest_divergence_terms(df, before_years, after_years, topn):
+def get_highest_divergence_terms(
+        df,
+        before_years,
+        after_years,
+        topn
+):
     bow1 = df[df['Year'].isin(before_years)]
     bow2 = df[df['Year'].isin(after_years)]
 
@@ -111,6 +118,9 @@ def get_highest_divergence_terms(df, before_years, after_years, topn):
     
 
 def word_density_plot(df, top_n=5):
+    """
+    Function on longer in use but leaving for EDA convenience
+    """
     side1 = AFTER[:top_n]
     side2 = BEFORE[:top_n]
     
@@ -128,42 +138,35 @@ def word_density_plot(df, top_n=5):
             )
         ].groupby('Year')['Abstract'].count()
     )
-    # top_citations_found = pd.DataFrame(
-    #     top_citations[
-    #         top_citations['Abstract'].str.contains('|'.join(words), case=False)
-    #         ].groupby('Year')['Abstract'].count()
-    # )
     counts = pd.DataFrame(
         df.groupby('Year')['Abstract'].count()
     )
-    #counts_tc = pd.DataFrame(top_citations.groupby('Year')['Abstract'].count())
     merged = found1.merge(counts, on='Year')
     merged.columns = ('abstract_count_1', 'abstract_count_all')
     merged = merged.merge(found2, on='Year')
     merged.columns = ('abstract_count_1', 'abstract_count_all', 'abstract_count_2')
-    #merged_tc = top_citations_found.merge(counts_tc, on="Year")
-    
     final = pd.DataFrame({
         'post-trump': merged['abstract_count_1']/merged['abstract_count_all'] * 100,
         'pre-trump': merged['abstract_count_2']/merged['abstract_count_all'] * 100,        
-        #'top citations': merged_tc['Abstract_x']/merged_tc['Abstract_y'] * 100
     })
     return final
 
 
-def make_figure(dftotal, before_years, after_years, topn=5):
+def make_figure(
+        dftotal,
+        before_years,
+        after_years,
+        topn=9,
+        destination=None
+):
     fig = plt.figure(figsize=(32, 24))
     gs = gridspec.GridSpec(2, 2, width_ratios=[8,1])
-    # Left column (two stacked plots)
     axes = [
         fig.add_subplot(gs[0, 0]),
         fig.add_subplot(gs[1, 0]),
         fig.add_subplot(gs[:, 1]),
     ]
     
-    before_color = '#DB9D47'
-    after_color = "#8CC084"
-
     bow1 = dftotal[dftotal['Year'].isin(before_years)]
     bow2 = dftotal[dftotal['Year'].isin(after_years)]
 
@@ -329,18 +332,24 @@ def make_figure(dftotal, before_years, after_years, topn=5):
 
     plt.suptitle(f"How 2016 changed misinfomation research", fontsize=18)    
     sns.despine()
+    if destination is not None:
+        plt.savefig(destination)
     plt.show()
 
-def make_figure_wrapper(path_to_csv):
+def make_figure_wrapper(path_to_csv, destination):
     df = pd.read_csv(path_to_csv)
     df['text'] = df['Title'] + '. ' + df['Abstract']
-    make_figure(
+    fig = make_figure(
         df,
-        [2011,2012,2013,2014,2015],
-        [2017, 2018,2019,2020,2021,2022,2023,2024],
-        topn=9
+        before_years,
+        after_years,
+        topn=9,
+        destination=destination
     )
 
 if __name__ == '__main__':
-    make_figure_wrapper('../data/scopus_citations/data.csv')
+    make_figure_wrapper(
+        'input/data.csv',
+        'output/fig.pdf'
+    )
     
