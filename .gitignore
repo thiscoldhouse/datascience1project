@@ -2,5 +2,4 @@
 feed.rss
 __pycache__/
 .ipynb_checkpoints/
-input/
 output/
