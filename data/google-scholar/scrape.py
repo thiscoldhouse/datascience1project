@@ -13,22 +13,29 @@ from collections import Counter
 import pdb
 import pprint
 
-search_data_fname = 'data.json'
+search_data_dir = 'search_data/{fname}'
 papers_dir = 'papers_data/'
 
 
 def get_raw_data_from_web():
-    search = scholarly.search_pubs_custom_url(
-        '/scholar?q=%22mediabiasfactcheck.com'
-    )
+    print('Fetching...')
+    # search = scholarly.search_pubs_custom_url(
+    #     '/scholar?q=misinformation&hl=en&as_sdt=0%2C46&as_ylo=2015&as_yhi=2020'
+    # )
+    search = scholarly.search_pubs('teeth')
+    print('Fetched!')
     data = []
     for i, item in enumerate(search):
-        data.append(item)        
-        if i % 20 == 0:
+        data.append(item)
+        if i==0:
+            continue
+        if i % 20 == 0 or i+1 == len(search):
             print(f'Saving progress at {i}')
             all_data = load_data_from_file()
             all_data.extend(data)
-            with open(search_data_fname, 'w+') as f:
+            with open(
+                    search_data_dir.format(fname='{i}.json'), 'w+'
+            ) as f:
                 f.write(json.dumps(all_data))
             data = []
             
@@ -38,6 +45,7 @@ def load_data_from_file():
     with open(search_data_fname, 'r') as f:
         return json.loads(f.read())
 
+    
 def get_pdf_text_from_url(pdf_url):
     headers = {
         'User-Agent': 'Mozilla/5.0 (X11; Windows; Windows x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36'
@@ -104,10 +112,10 @@ def load_paper_data_from_files():
                 
 def main():
     get_raw_data_from_web()
-    data = load_data_from_file()
-    extract_data_from_google_scholar_query(data)
-    data = load_paper_data_from_files()
-    results = []
+    # data = load_data_from_file()
+    # extract_data_from_google_scholar_query(data)
+    # data = load_paper_data_from_files()
+    # results = []
 
     
 if __name__ == '__main__':
