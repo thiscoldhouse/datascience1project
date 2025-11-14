@@ -44,7 +44,7 @@ class CreateDB:
                     if keyword not in paper.keywords:
                         paper.keywords.append(keyword)
                         
-                self.session.commit()
+        self.session.commit()
 
     def get_paper(self, doi, title, abstract):
         if doi is None:
