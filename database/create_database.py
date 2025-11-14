@@ -21,6 +21,7 @@ class CreateDB:
                     row[col_to_i['DOI']],
                     row[col_to_i['Title']],
                     row[col_to_i['Abstract']],
+                    row[col_to_i['Year']],                    
                 )
                 
                 if paper is None:
@@ -46,7 +47,7 @@ class CreateDB:
                         
         self.session.commit()
 
-    def get_paper(self, doi, title, abstract):
+    def get_paper(self, doi, title, abstract, year):
         if doi is None:
             return 
         paper = self.session.query(Paper).filter(
@@ -58,7 +59,8 @@ class CreateDB:
             paper = Paper(
                 doi=doi,
                 title=title,
-                abstract=abstract
+                abstract=abstract,
+                year=int(year)
             )
         else:
             paper = paper[0]

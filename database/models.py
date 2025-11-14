@@ -22,6 +22,7 @@ class Paper(Base):
     title = Column(String, nullable=False)
     abstract = Column(Text, nullable=True)
     keywords = Column(Text, nullable=True)
+    year = Column(Integer, nullable=False)
     authors = relationship(
         "Author",
         secondary=PaperAuthor,
