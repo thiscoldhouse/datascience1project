@@ -23,6 +23,7 @@ class Paper(Base):
     abstract = Column(Text, nullable=True)
     keywords = Column(Text, nullable=True)
     year = Column(Integer, nullable=False)
+    community = Column(Integer, nullable=True)
     authors = relationship(
         "Author",
         secondary=PaperAuthor,

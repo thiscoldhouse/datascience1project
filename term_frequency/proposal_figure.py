@@ -266,7 +266,6 @@ def make_figure(
         'post-trump': merged['abstract_count_1']/merged['abstract_count_all'] * 100,
         'pre-trump': merged['abstract_count_2']/merged['abstract_count_all'] * 100,
         'year': merged['Year']
-        #'top citations': merged_tc['Abstract_x']/merged_tc['Abstract_y'] * 100
     })
     
     axes[0].plot(
