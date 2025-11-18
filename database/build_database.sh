@@ -1,6 +1,7 @@
 set -e
 
 mkdir -p output
+mkdir -p ../networks/input
 
 rm -f output/papers.db
 alembic upgrade head
