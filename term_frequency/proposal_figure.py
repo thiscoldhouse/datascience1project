@@ -15,7 +15,8 @@ from config import (
     after_color,
     before_years,
     after_years,
-    stop
+    stop,
+    agg_plot_colors
 )
 
 
@@ -309,7 +310,7 @@ def make_figure(
     agg.plot(
         ax=axes[1], kind="area", stacked=True,
         alpha=0.8, figsize=(12,7),
-        color=["#8CC084", "#DB9D47", "#593C8F"],
+        color=agg_plot_colors
         linewidth=0,
     )
     agg['total'] = dftotal[

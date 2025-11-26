@@ -1,4 +1,6 @@
-from models import Paper, Author, Keyword, SessionFactory
+from models import Paper, Author, Keyword, SessionFactory, Citation
+import urllib
+import requests
 import json
 import csv
 
@@ -127,6 +129,78 @@ class CreateDB:
                     )
                 yield keyword
 
+    def get_citations(self):
+        dois = set([
+            p.doi for p in self.session.query(Paper).all()
+        ])
+        papers_to_fetch = self.session.query(Paper).filter(
+            Paper.citations_fetched!=True
+        ).all()
+
+        for i, paper in enumerate(papers_to_fetch):
+            if i % 50 == 0:
+                self.session.commit()
+                print(f'On {i} of {len(papers_to_fetch)}')
+                
+            citations = self.get_citations_in_paper(
+                paper.doi
+            )
+            for doi in citations:
+                if doi in dois:
+                    self.session.add(
+                        Citation(
+                            citing_paper_doi=paper.doi,
+                            cited_paper_doi=doi,
+                        )
+                    )
+            paper.citations_fetched = True
+            self.session.add(paper)
+        self.session.commit()
+
+    def get_citations_in_paper(self, doi):        
+        if doi is None or doi == '':
+            return []
+        try:
+            url = 'https://opencitations.net/index/coci/api/v1/references/{doi}'
+            url = url.format(
+                doi=urllib.parse.quote_plus(doi)
+            )
+            r = requests.get(
+                url,
+                allow_redirects=True,
+                headers = {
+                    'User-Agent': 'Alejandro Ruiz (mailto:alejandro.ruiz@uvm.edu)'
+                },
+            )
+            if r.status_code != 200:
+                print('Something went wrong')
+                print(f'Status code {r.status_code} for url {url}')
+                return []
+
+            data = None
+            try:
+                data = r.json()
+            except Exception as e:
+                print('===============')
+                print('Status code is 200 but response is not json')
+                print('url :', url)
+                print('Response:')
+                print(r.text[:200])
+                print('===============')
+            dois = []
+            for row in data:
+                yield row['cited']
+        except Exception as e:
+            print('****************')
+            print('****************')            
+            print('Warning! Unexpected error getting citations')
+            print(e)
+            print('****************')
+            print('****************')
+            return []
+        
+
             
 if __name__ == '__main__':
-    CreateDB().main()
+    #CreateDB().main()
+    CreateDB().get_citations()

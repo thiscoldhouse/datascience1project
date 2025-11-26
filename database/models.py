@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Table, Text, Enum
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Table, Text, Enum, Boolean
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 
 Base = declarative_base()
@@ -24,6 +24,8 @@ class Paper(Base):
     keywords = Column(Text, nullable=True)
     year = Column(Integer, nullable=False)
     community = Column(Integer, nullable=True)
+    citation_count = Column(Integer, nullable=True)
+    citations_fetched = Column(Boolean, default=False)
     authors = relationship(
         "Author",
         secondary=PaperAuthor,
@@ -35,6 +37,17 @@ class Paper(Base):
         back_populates="papers"
     )
 
+    citations = relationship(
+        "Citation",
+        foreign_keys="Citation.citing_paper_doi",
+        back_populates="citing"
+    )
+    cited_by = relationship(
+        "Citation",
+        foreign_keys="Citation.cited_paper_doi",
+        back_populates="cited"
+    )
+    
     def __repr__(self):
         return f"<paper({self.title})>"
 
@@ -80,6 +93,31 @@ class Keyword(Base):
                 f'{value} not in {keyword_types}'
             )
         self._keyword_type = value
+
+class Citation(Base):
+    __tablename__ = "citation"
+    id = Column(Integer, primary_key=True)
+    citing_paper_doi = Column(
+        Integer,
+        ForeignKey("paper.doi"),
+        nullable=False
+    )
+    cited_paper_doi  = Column(
+        Integer,
+        ForeignKey("paper.doi"),
+        nullable=False
+    )
+    citing = relationship(
+        "Paper",
+        foreign_keys=[citing_paper_doi],
+        back_populates="citations"
+    )
+    cited = relationship(
+        "Paper",
+        foreign_keys=[cited_paper_doi],
+        back_populates="cited_by"
+    )
+        
 
 
 engine = create_engine(

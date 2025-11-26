@@ -1,5 +1,5 @@
 import networkx as nx
-from nltk import bigrams as find_bigrams, word_tokenize, sent_tokenize
+from nltk import bigrams as find_bigrams, word_tokenize, sent_tokenize, trigrams as find_trigrams
 import textwrap
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
@@ -30,17 +30,24 @@ SessionFactory = sessionmaker(bind=engine)
 RESOLUTION = 1
 TOP_N = 2
 n_terms = 10
+N_INITIAL_COMMUNITIES = 10
 colors = [
-    '#DB9D47', '#8CC084', '#1B512D', '#433A3F', '#666A86', '#6A041D', '#28190E', '#090446', '#E86A92', '#009DDC', '#FFDDD2', '#A72608', '#63D2FF'
+    '#DB9D47', '#593C8F', '#1B512D', '#666A86', '#6A041D', '#090446',  '#8CC084', '#E86A92', '#009DDC', '#FFDDD2', '#A72608', '#63D2FF','#433A3F', '#28190E',
 ]
 MIN_COMMUNITY_PAPERS = 10
-tables_dest = 'output/tables.md'
-graph_dest = 'output/graph.pdf'
+tables_dests = (
+    'output/tables0.md',
+    'output/tables1.md'
+)
+graph_dests = (
+    'output/communities-graph.pdf',
+    'output/first-communities.pdf'
+)
 
 from nltk.corpus import stopwords
 stop = stopwords.words('english')
 stop.extend((
-    'elsevier', 'rights', 'reserved', 'mesh', 'taylor', 'francis', 'copyright', 'llc', 'bt', 'lftb', 'springer', 'ieee', 'information', 'misinformation'
+    'elsevier', 'rights', 'reserved', 'mesh', 'taylor', 'francis', 'copyright', 'llc', 'bt', 'lftb', 'springer', 'ieee', 'information', 'misinformation', 'claimscan', 
 ))
 stop = [w.lower() for w in stop]
 delete_title = 'Medical misinformation: vet the message!'
@@ -152,7 +159,12 @@ def community_tfidf():
     return results
 
 
-def make_graph(top_n=5, relabel=False, min_group_count=MIN_COMMUNITY_PAPERS):
+def make_graph(
+        top_n=5,
+        relabel=False,
+        min_group_count=MIN_COMMUNITY_PAPERS,
+        n_initial_communities=N_INITIAL_COMMUNITIES
+):
     if relabel is True:
         label_papers_by_community()
         
@@ -197,7 +209,12 @@ def make_graph(top_n=5, relabel=False, min_group_count=MIN_COMMUNITY_PAPERS):
     df.columns = ('community', 'year')
 
     community_to_tfidf = community_tfidf()
-    community_to_bigrams = list(community_bigrams())
+    community_to_bigrams = list(
+        community_ngrams(ngram_finder=find_bigrams)
+    )
+    community_to_trigrams = list(
+        community_ngrams(ngram_finder=find_trigrams)
+    )
     
     plotdf = df.groupby('year').apply(
         lambda X: pd.Series({
@@ -234,33 +251,141 @@ def make_graph(top_n=5, relabel=False, min_group_count=MIN_COMMUNITY_PAPERS):
         'Community': [
             c for c in communities
         ],
-        f'Top {n_terms} TF-IDF': [
-            '\n'.join(community_to_tfidf[c][:n_terms])
+        f'TF-IDF': [
+            ', '.join(community_to_tfidf[c][:n_terms])
             for c in communities
-        ]
-    })
-    bigrams_table = pd.DataFrame({
-        'Community': [
-            c for c in communities
         ],
-        f'Top {n_terms} Bigrams': [
-            '\n'.join(community_to_bigrams[c][:n_terms])
+        f'Bigrams': [
+            ', '.join(community_to_bigrams[c][:n_terms])
             for c in communities
-        ]
+        ],
+        f'Trigrams': [
+            ', '.join(community_to_trigrams[c][:n_terms])
+            for c in communities
+        ],
     })
-
     
-    with open(tables_dest, 'w') as f:
-        f.write('\n\n\n\n'.join([
-            tfidf_table.to_markdown(index=False),
-            bigrams_table.to_markdown(index=False)
-        ]))
+    with open(tables_dests[0], 'w') as f:
+        f.write(
+            tfidf_table.to_markdown(index=False)
+        )
         
-    plt.savefig(graph_dest)
+    plt.savefig(graph_dests[0])
     plt.show()
 
+    # ============= #
+    # TODO: lots of repeated code below
+    # should be consolidated
+    # Uncomment to run the same analysis as
+    # above but on a single year
+    # ============= #
+
+    # communities = []
+    # year = 2023
+    # annual_comm = (
+    #     session.query(
+    #         Paper.community,
+    #         functions.count(Paper.doi),
+    #     ).
+    #     filter(Paper.year==int(year)).                
+    #     group_by(Paper.community).
+    #     having(
+    #         functions.count(Paper.doi)
+    #         >
+    #         min_group_count
+    #     ).
+    #     order_by(
+    #         desc(functions.count(Paper.doi)),
+    #     )
+    # ).all()
+
+    # communities.extend([
+    #     c[0] for c in annual_comm
+    # ])
+
+    # communities = communities[:n_initial_communities]
+    # print(communities)
         
-def community_bigrams():
+    # communities = list(set(communities))
+    # data = {}
+    # papers = session.query(
+    #     Paper.community,
+    #     Paper.year
+    # ).filter(Paper.community.in_(communities)).all()
+    
+    # df = pd.DataFrame(papers)
+    # df.columns = ('community', 'year')
+
+    # community_to_tfidf = community_tfidf()
+    # community_to_bigrams = list(
+    #     community_ngrams(ngram_finder=find_bigrams)
+    # )
+    # community_to_trigrams = list(
+    #     community_ngrams(ngram_finder=find_trigrams)
+    # )
+    
+    # plotdf = df.groupby('year').apply(
+    #     lambda X: pd.Series({
+    #         community: len(X[X.community==community])
+    #         for community in communities
+    #     })
+    # )
+    # for i, column in enumerate(plotdf.columns):
+    #     if column not in communities:
+    #         del plotdf[column]
+    #     else:
+    #         new_name =': '.join((
+    #             str(int(plotdf.columns[i])),
+    #             ', '.join([
+    #                     tfidf
+    #                     for tfidf in community_to_tfidf[column]
+    #                 ][:5])
+    #         ))
+    #         plotdf.rename(
+    #             columns={
+    #                 plotdf.columns[i]: new_name
+    #             },
+    #             inplace=True
+    #         )            
+            
+    # plotdf.plot(        
+    #     kind="area",
+    #     stacked=True,
+    #     color=colors
+    # )
+    # tfidf_table = pd.DataFrame({
+    #     'Community': [
+    #         c for c in communities
+    #     ],
+    #     f'TF-IDF': [
+    #         ', '.join(community_to_tfidf[c][:n_terms])
+    #         for c in communities
+    #     ],
+    #     f'Bigrams': [
+    #         ', '.join(community_to_bigrams[c][:n_terms])
+    #         for c in communities
+    #     ],
+    #     f'Trigrams': [
+    #         ', '.join(community_to_trigrams[c][:n_terms])
+    #         for c in communities
+    #     ],
+    # })
+    
+    # with open(tables_dests[1], 'w') as f:
+    #     f.write(
+    #         tfidf_table.to_markdown(index=False)
+    #     )
+        
+    # plt.savefig(graph_dests[1])
+    # plt.title(f'Top {n_initial_communities} communities from year {year}')
+    # plt.show()
+
+
+        
+def community_ngrams(ngram_finder=None):
+    if ngram_finder is None:
+        ngram_finder = find_bigrams
+        
     session = SessionFactory()
     texts = (
         session.query(
@@ -276,7 +401,7 @@ def community_bigrams():
     
     for text in texts:
         text = text[0]
-        result = find_bigrams(word_tokenize(text.lower()))
+        result = ngram_finder(word_tokenize(text.lower()))
         bigrams = []
         for bg in result:
             if any([
@@ -296,7 +421,7 @@ def community_bigrams():
 
         
 if __name__ == '__main__':
-    make_graph(top_n=TOP_N, relabel=False)
+    make_graph(top_n=TOP_N, n_initial_communities=N_INITIAL_COMMUNITIES, relabel=False)
             
             
         
