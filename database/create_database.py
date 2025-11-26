@@ -46,7 +46,8 @@ class CreateDB:
                 for keyword in keywords:
                     if keyword not in paper.keywords:
                         paper.keywords.append(keyword)
-                        
+
+        self.get_citations()
         self.session.commit()
 
     def get_paper(self, doi, title, abstract, year):
@@ -199,8 +200,7 @@ class CreateDB:
             print('****************')
             return []
         
-
             
 if __name__ == '__main__':
-    #CreateDB().main()
-    CreateDB().get_citations()
+    CreateDB().main()
+    
