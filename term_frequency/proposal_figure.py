@@ -15,8 +15,11 @@ from config import (
     after_color,
     before_years,
     after_years,
+    text_color,
     stop,
-    agg_plot_colors
+    agg_plot_colors,
+    destination,
+    background_color
 )
 
 
@@ -160,13 +163,24 @@ def make_figure(
         topn=9,
         destination=None
 ):
-    fig = plt.figure(figsize=(32, 24))
+    fig = plt.figure(
+        figsize=(32, 24),
+        facecolor=background_color
+    )
     gs = gridspec.GridSpec(2, 2, width_ratios=[8,1])
     axes = [
         fig.add_subplot(gs[0, 0]),
         fig.add_subplot(gs[1, 0]),
         fig.add_subplot(gs[:, 1]),
     ]
+    for ax in axes:
+        ax.set_facecolor(background_color)
+        ax.title.set_color(text_color)
+        ax.xaxis.label.set_color(text_color)
+        ax.yaxis.label.set_color(text_color)
+        ax.tick_params(colors=text_color)
+
+    
     
     bow1 = dftotal[dftotal['Year'].isin(before_years)]
     bow2 = dftotal[dftotal['Year'].isin(after_years)]
@@ -295,10 +309,12 @@ def make_figure(
     
     axes[0].set(xlabel = "Year")
     axes[0].set(ylabel="% of papers")
-    axes[0].legend([
-        f"Contains at least one of: {', '.join(before[:3])},...",
-        f"Contains at least one of: {', '.join(after[:3])},...",        
-    ])
+    axes[0].legend(
+        [f"Contains at least one of: {', '.join(before[:3])},...",
+         f"Contains at least one of: {', '.join(after[:3])},...",],
+        facecolor=background_color,
+    )
+                   
 
     agg = counts.groupby('Year').apply(lambda x: pd.Series({
         f"Contains at least one of: {', '.join(before[:3])},..." : ((x['has_before']) & (~x['has_after'])).sum(),
@@ -310,7 +326,7 @@ def make_figure(
     agg.plot(
         ax=axes[1], kind="area", stacked=True,
         alpha=0.8, figsize=(12,7),
-        color=agg_plot_colors
+        color=agg_plot_colors,
         linewidth=0,
     )
     agg['total'] = dftotal[
@@ -329,9 +345,23 @@ def make_figure(
     )
     axes[1].set(xlabel = "Year")
     axes[1].set(ylabel="Number of papers")
-
-    plt.suptitle(f"How 2016 changed misinfomation research", fontsize=18)    
+    axes[1].get_legend().get_frame().set_facecolor(
+        background_color
+    )
+    plt.suptitle(
+        f"How 2016 changed misinfomation research",
+        fontsize=18,
+        color=text_color
+    )    
     sns.despine()
+
+    for ax in axes:
+        leg = ax.get_legend()
+        if leg is None:
+            continue
+        for text in leg.get_texts():
+            text.set_color(text_color)
+            
     if destination is not None:
         plt.savefig(destination)
     plt.show()
@@ -350,6 +380,6 @@ def make_figure_wrapper(path_to_csv, destination):
 if __name__ == '__main__':
     make_figure_wrapper(
         'input/data.csv',
-        'output/fig.pdf'
+        destination,
     )
     
