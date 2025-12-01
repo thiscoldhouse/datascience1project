@@ -11,6 +11,20 @@ import numpy as np
 import pandas as pd
 import os
 import sys
+from config import(
+    RESOLUTION,
+    TOP_N,
+    n_terms,
+    N_INITIAL_COMMUNITIES,
+    colors,
+    MIN_COMMUNITY_PAPERS,
+    tables_dests,
+    graph_dests,
+    stop,
+    delete_title,
+    background_color,
+    text_color
+)
 
 sys.path.append(
     os.path.join(
@@ -26,35 +40,9 @@ engine = create_engine(
 )
 SessionFactory = sessionmaker(bind=engine)
 
-# -- move to config.py -- #
-RESOLUTION = 1
-TOP_N = 2
-n_terms = 10
-N_INITIAL_COMMUNITIES = 10
-colors = [
-    '#DB9D47', '#593C8F', '#1B512D', '#666A86', '#6A041D', '#090446',  '#8CC084', '#E86A92', '#009DDC', '#FFDDD2', '#A72608', '#63D2FF','#433A3F', '#28190E',
-]
-MIN_COMMUNITY_PAPERS = 10
-tables_dests = (
-    'output/tables0.md',
-    'output/tables1.md'
-)
-graph_dests = (
-    'output/communities-graph.pdf',
-    'output/first-communities.pdf'
-)
-
-from nltk.corpus import stopwords
-stop = stopwords.words('english')
-stop.extend((
-    'elsevier', 'rights', 'reserved', 'mesh', 'taylor', 'francis', 'copyright', 'llc', 'bt', 'lftb', 'springer', 'ieee', 'information', 'misinformation', 'claimscan', 
-))
-stop = [w.lower() for w in stop]
-delete_title = 'Medical misinformation: vet the message!'
-
-# -- #
 
 def cleanup():
+    """Must be run the first time that networks are made"""
     session = SessionFactory()
     delete_papers = session.query(Paper).filter(
         func.lower(Paper.title)==delete_title.lower()
@@ -64,12 +52,7 @@ def cleanup():
     session.commit()
 
 def label_papers_by_community(resolution=RESOLUTION):
-    """
-    Small world
-
-    https://sci-hub.ru/https://doi.org/10.1108/AJIM-09-2014-0116
-    """
-    cleanup()
+    #cleanup()
     session = SessionFactory()
     G = nx.Graph()
     G.add_nodes_from([
@@ -238,14 +221,28 @@ def make_graph(
                     plotdf.columns[i]: new_name
                 },
                 inplace=True
-            )            
-            
+            )
 
+    fig, ax = plt.subplots(figsize=(12,8))
+    fig.patch.set_facecolor(background_color)
     plotdf.plot(        
         kind="area",
         stacked=True,
-        color=colors
+        color=colors,
+        ax=ax
     )
+
+    ax.set_facecolor(background_color)
+    ax.tick_params(colors=text_color)
+    leg = ax.get_legend()
+    leg.get_frame().set_facecolor(background_color)
+    leg.get_frame().set_edgecolor(background_color)
+    leg.get_frame().set_edgecolor(background_color)
+    for text in leg.get_texts():
+        text.set_color(text_color)
+    for spine in ax.spines.values():
+        spine.set_color(text_color)        
+    
     
     tfidf_table = pd.DataFrame({
         'Community': [
