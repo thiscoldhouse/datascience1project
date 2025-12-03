@@ -174,6 +174,9 @@ def make_figure(
         fig.add_subplot(gs[:, 1]),
     ]
     for ax in axes:
+        for spine in ax.spines.values():
+            spine.set_color(text_color)        
+
         ax.set_facecolor(background_color)
         ax.title.set_color(text_color)
         ax.xaxis.label.set_color(text_color)
@@ -233,7 +236,7 @@ def make_figure(
     barplotdf["divergence"] = barplotdf["divergence"] * 100
     
     axes[2].barh(barplotdf["word"], barplotdf["divergence"], color=colors)
-    axes[2].axvline(0, color="black", linewidth=1)
+    axes[2].axvline(0, color=text_color, linewidth=1)
     axes[2].set_title("ΔFrequency x 100")
     axes[2].invert_yaxis()    
     
@@ -301,7 +304,7 @@ def make_figure(
     )
     axes[0].axvline(
         x=2016,
-        color='black',
+        color=text_color,
         linestyle='-',
         linewidth=1,
         alpha=0.8,
@@ -338,7 +341,7 @@ def make_figure(
     
     axes[1].axvline(
         x=2016,
-        color='black',
+        color=text_color,
         linestyle='-',
         linewidth=1,
         alpha=0.8,

@@ -1,11 +1,11 @@
 RESOLUTION = 1
 TOP_N = 2
-n_terms = 10
+n_terms_for_table = 10
 N_INITIAL_COMMUNITIES = 10
 MIN_COMMUNITY_PAPERS = 10
 tables_dests = (
-    'output/tables0.md',
-    'output/tables1.md'
+    'output/tables0.tex',
+    'output/tables1.tex'
 )
 graph_dests = (
     'output/communities-graph.pdf',

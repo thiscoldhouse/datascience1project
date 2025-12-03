@@ -14,7 +14,7 @@ import sys
 from config import(
     RESOLUTION,
     TOP_N,
-    n_terms,
+    n_terms_for_table as n_terms,
     N_INITIAL_COMMUNITIES,
     colors,
     MIN_COMMUNITY_PAPERS,
@@ -66,7 +66,6 @@ def label_papers_by_community(resolution=RESOLUTION):
             for paper2 in author.papers[i+1:]:
                 G.add_edge(paper1.doi, paper2.doi)
                 
-    # rework network to penalize hubs
     G_final = nx.Graph()
     G_final.add_nodes_from([
         p.doi for p in session.query(Paper).all()
@@ -94,7 +93,7 @@ def label_papers_by_community(resolution=RESOLUTION):
             
     session.commit()
 
-def community_tfidf():
+def community_tfidf(n=1):
     session = SessionFactory()
     texts = (
         session.query(
@@ -112,11 +111,9 @@ def community_tfidf():
         ' '.join(str(text[0]).split()).lower()
         for text in texts 
     ]
-    #texts = ['-'.join(b) for b in bigrams(texts)]
-
     vectorizer = TfidfVectorizer(
         stop_words=stop,
-        ngram_range=(1,1),
+        ngram_range=(1,2),
     )
     X = vectorizer.fit_transform(texts)
     terms = np.array(vectorizer.get_feature_names_out())
@@ -218,7 +215,7 @@ def make_graph(
             ))
             plotdf.rename(
                 columns={
-                    plotdf.columns[i]: new_name
+                    plotdf.columns[i]: f'Communitiy #{new_name}'
                 },
                 inplace=True
             )
@@ -234,6 +231,134 @@ def make_graph(
 
     ax.set_facecolor(background_color)
     ax.tick_params(colors=text_color)
+    ax.xaxis.label.set_color(text_color)
+    ax.yaxis.label.set_color(text_color)
+
+    leg = ax.get_legend()
+    leg.get_frame().set_facecolor(background_color)
+    leg.get_frame().set_edgecolor(background_color)
+    leg.get_frame().set_edgecolor(background_color)
+    for text in leg.get_texts():
+        text.set_color(text_color)
+    for spine in ax.spines.values():
+        spine.set_color(text_color)
+        
+    
+    
+    tfidf_table = pd.DataFrame({
+        'Community': [
+            c for c in communities
+        ],
+        f'TF-IDF (unigram-trigram)': [
+            ', '.join(community_to_tfidf[c][:n_terms])
+            for c in communities
+        ],
+        f'Top bigrams': [
+            ', '.join(community_to_bigrams[c][:n_terms])
+            for c in communities
+        ],
+        f'Top trigrams': [
+            ', '.join(community_to_trigrams[c][:n_terms])
+            for c in communities
+        ],
+    })
+    
+    with open(tables_dests[0], 'w') as f:
+        f.write(
+            tfidf_table.to_latex(index=False)
+        )
+        
+    plt.savefig(graph_dests[0])
+    #plt.show()
+
+    # ============= #
+    # TODO: lots of repeated code below
+    # that should be consolidated.
+    # It runs the same analysis as above
+    # but on a single year
+    # ============= #
+
+    communities = []
+    year = 2023
+    annual_comm = (
+        session.query(
+            Paper.community,
+            functions.count(Paper.doi),
+        ).
+        filter(Paper.year==int(year)).                
+        group_by(Paper.community).
+        having(
+            functions.count(Paper.doi)
+            >
+            min_group_count
+        ).
+        order_by(
+            desc(functions.count(Paper.doi)),
+        )
+    ).all()
+
+    communities.extend([
+        c[0] for c in annual_comm
+    ])
+
+    communities = communities[:n_initial_communities]
+    communities = list(set(communities))
+    data = {}
+    papers = session.query(
+        Paper.community,
+        Paper.year
+    ).filter(Paper.community.in_(communities)).all()
+    
+    df = pd.DataFrame(papers)
+    df.columns = ('community', 'year')
+
+    community_to_tfidf = community_tfidf()
+    community_to_bigrams = list(
+        community_ngrams(ngram_finder=find_bigrams)
+    )
+    community_to_trigrams = list(
+        community_ngrams(ngram_finder=find_trigrams)
+    )
+
+    fig, ax = plt.subplots(figsize=(12,8))
+    fig.patch.set_facecolor(background_color)
+
+    plotdf = df.groupby('year').apply(
+        lambda X: pd.Series({
+            community: len(X[X.community==community])
+            for community in communities
+        })
+    )
+    for i, column in enumerate(plotdf.columns):
+        if column not in communities:
+            del plotdf[column]
+        else:
+            new_name =': '.join((
+                str(int(plotdf.columns[i])),
+                ', '.join([
+                        tfidf
+                        for tfidf in community_to_tfidf[column]
+                    ][:5])
+            ))
+            plotdf.rename(
+                columns={
+                    plotdf.columns[i]: new_name
+                },
+                inplace=True
+            )            
+    
+    plotdf.plot(        
+        kind="area",
+        stacked=True,
+        color=colors,
+        ax=ax
+    )
+
+    ax.set_facecolor(background_color)
+    ax.tick_params(colors=text_color)
+    ax.xaxis.label.set_color(text_color)
+    ax.yaxis.label.set_color(text_color)
+    
     leg = ax.get_legend()
     leg.get_frame().set_facecolor(background_color)
     leg.get_frame().set_edgecolor(background_color)
@@ -248,134 +373,27 @@ def make_graph(
         'Community': [
             c for c in communities
         ],
-        f'TF-IDF': [
+        f'TF-IDF (unigram-trigram)': [
             ', '.join(community_to_tfidf[c][:n_terms])
             for c in communities
         ],
-        f'Bigrams': [
+        f'Top bigrams': [
             ', '.join(community_to_bigrams[c][:n_terms])
             for c in communities
         ],
-        f'Trigrams': [
+        f'Top trigrams': [
             ', '.join(community_to_trigrams[c][:n_terms])
             for c in communities
         ],
     })
     
-    with open(tables_dests[0], 'w') as f:
+    with open(tables_dests[1], 'w') as f:
         f.write(
-            tfidf_table.to_markdown(index=False)
+            tfidf_table.to_latex(index=False)
         )
         
-    plt.savefig(graph_dests[0])
-    plt.show()
-
-    # ============= #
-    # TODO: lots of repeated code below
-    # should be consolidated
-    # Uncomment to run the same analysis as
-    # above but on a single year
-    # ============= #
-
-    # communities = []
-    # year = 2023
-    # annual_comm = (
-    #     session.query(
-    #         Paper.community,
-    #         functions.count(Paper.doi),
-    #     ).
-    #     filter(Paper.year==int(year)).                
-    #     group_by(Paper.community).
-    #     having(
-    #         functions.count(Paper.doi)
-    #         >
-    #         min_group_count
-    #     ).
-    #     order_by(
-    #         desc(functions.count(Paper.doi)),
-    #     )
-    # ).all()
-
-    # communities.extend([
-    #     c[0] for c in annual_comm
-    # ])
-
-    # communities = communities[:n_initial_communities]
-    # print(communities)
-        
-    # communities = list(set(communities))
-    # data = {}
-    # papers = session.query(
-    #     Paper.community,
-    #     Paper.year
-    # ).filter(Paper.community.in_(communities)).all()
-    
-    # df = pd.DataFrame(papers)
-    # df.columns = ('community', 'year')
-
-    # community_to_tfidf = community_tfidf()
-    # community_to_bigrams = list(
-    #     community_ngrams(ngram_finder=find_bigrams)
-    # )
-    # community_to_trigrams = list(
-    #     community_ngrams(ngram_finder=find_trigrams)
-    # )
-    
-    # plotdf = df.groupby('year').apply(
-    #     lambda X: pd.Series({
-    #         community: len(X[X.community==community])
-    #         for community in communities
-    #     })
-    # )
-    # for i, column in enumerate(plotdf.columns):
-    #     if column not in communities:
-    #         del plotdf[column]
-    #     else:
-    #         new_name =': '.join((
-    #             str(int(plotdf.columns[i])),
-    #             ', '.join([
-    #                     tfidf
-    #                     for tfidf in community_to_tfidf[column]
-    #                 ][:5])
-    #         ))
-    #         plotdf.rename(
-    #             columns={
-    #                 plotdf.columns[i]: new_name
-    #             },
-    #             inplace=True
-    #         )            
-            
-    # plotdf.plot(        
-    #     kind="area",
-    #     stacked=True,
-    #     color=colors
-    # )
-    # tfidf_table = pd.DataFrame({
-    #     'Community': [
-    #         c for c in communities
-    #     ],
-    #     f'TF-IDF': [
-    #         ', '.join(community_to_tfidf[c][:n_terms])
-    #         for c in communities
-    #     ],
-    #     f'Bigrams': [
-    #         ', '.join(community_to_bigrams[c][:n_terms])
-    #         for c in communities
-    #     ],
-    #     f'Trigrams': [
-    #         ', '.join(community_to_trigrams[c][:n_terms])
-    #         for c in communities
-    #     ],
-    # })
-    
-    # with open(tables_dests[1], 'w') as f:
-    #     f.write(
-    #         tfidf_table.to_markdown(index=False)
-    #     )
-        
-    # plt.savefig(graph_dests[1])
-    # plt.title(f'Top {n_initial_communities} communities from year {year}')
-    # plt.show()
+    plt.savefig(graph_dests[1])
+    #plt.show()
 
 
         
