@@ -1,0 +1,62 @@
+
+\subsection*{\texttt{paper}}
+\begin{tabular}{llp{0.45\linewidth}}
+\textbf{doi (PK)} & VARCHAR & Unique paper identifier \\[0.3em]
+\textbf{title} & VARCHAR & Paper title \\[0.3em]
+\textbf{abstract} & TEXT & Abstract text (nullable) \\[0.3em]
+\textbf{year} & INTEGER & Publication year \\[0.3em]
+\textbf{community} & INTEGER & Community label (optional) \\
+\end{tabular}
+
+\vspace{0.6em}
+
+\subsection*{\texttt{author}}
+\begin{tabular}{llp{0.45\linewidth}}
+\textbf{id (PK)} & INTEGER & Unique author identifier \\[0.3em]
+\textbf{name} & VARCHAR & Author name \\
+\end{tabular}
+
+\vspace{0.6em}
+
+\subsection*{\texttt{keyword}}
+\begin{tabular}{llp{0.45\linewidth}}
+\textbf{id (PK)} & INTEGER & Unique keyword identifier \\[0.3em]
+\textbf{keyword} & VARCHAR & Keyword text \\
+\end{tabular}
+
+\vspace{0.6em}
+
+\subsection*{\texttt{paper\_author}}
+\begin{tabular}{llp{0.45\linewidth}}
+\textbf{paper\_id} & VARCHAR & DOI of the paper \\
+& & \hspace*{1em}(FK to \texttt{paper.doi}) \\[0.3em]
+
+\textbf{author\_id} & INTEGER & Author ID \\
+& & \hspace*{1em}(FK to \texttt{author.id}) \\
+\end{tabular}
+
+\vspace{0.6em}
+
+\subsection*{\texttt{paper\_keyword}}
+\begin{tabular}{llp{0.45\linewidth}}
+\textbf{paper\_id} & VARCHAR & DOI of the paper \\
+& & \hspace*{1em}(FK to \texttt{paper.doi}) \\[0.3em]
+
+\textbf{keyword\_id} & INTEGER & Keyword ID \\
+& & \hspace*{1em}(FK to \texttt{keyword.id}) \\
+\end{tabular}
+
+\vspace{0.6em}
+
+\subsection*{\texttt{citation}}
+\begin{tabular}{llp{0.45\linewidth}}
+\textbf{id (PK)} & INTEGER & Unique citation identifier \\[0.3em]
+
+\textbf{citing\_paper\_doi} & VARCHAR &
+DOI of the citing paper \\
+& & \hspace*{1em}(FK to \texttt{paper.doi}) \\[0.3em]
+
+\textbf{cited\_paper\_doi} & VARCHAR &
+DOI of the cited paper \\
+& & \hspace*{1em}(FK to \texttt{paper.doi}) \\
+\end{tabular}
