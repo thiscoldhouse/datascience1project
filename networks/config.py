@@ -1,6 +1,6 @@
 RESOLUTION = 1
 TOP_N = 2
-n_terms_for_table = 10
+n_terms_for_table = 20
 N_INITIAL_COMMUNITIES = 10
 MIN_COMMUNITY_PAPERS = 10
 tables_dests = (
@@ -29,13 +29,13 @@ after_color = "#8CC084"
 text_color = 'black'
 
 colors = [
-    '#DB9D47',
+    '#6A041D',
     '#593C8F',
     '#1B512D',
-    '#666A86',
-    '#6A041D',
-    '#090446',
+    '#DB9D47',
     '#8CC084',
+    '#090446',
+    '#666A86',
     '#E86A92',
     '#009DDC',
     '#FFDDD2',
@@ -47,26 +47,26 @@ colors = [
 
 
 
-# ------------ presentation ---------#
+# # ------------ presentation ---------#
 
-text_color = 'white'
-background_color = '#0F1219'
-before_color = '#FFFFFF'
-after_color = "#D33F49"
-colors = [
-    "#D33F49",
-    '#FFFFFF',
-    "#648381",
-    "#FBAF00",
-    "#574F2A",
-    "#EC4E20",
-    "#00A9A5",
-    "#CED097",
-    "#C52184",
-    "#7C77B9",
-    "#9A348E",
-    "#50A2A7",
-    "#FFC4EB",
-    "#D58936",
-    "#C2CFB2"
-]
+# text_color = 'white'
+# background_color = '#0F1219'
+# before_color = '#FFFFFF'
+# after_color = "#D33F49"
+# colors = [
+#     "#D33F49",
+#     '#FFFFFF',
+#     "#648381",
+#     "#FBAF00",
+#     "#574F2A",
+#     "#EC4E20",
+#     "#00A9A5",
+#     "#CED097",
+#     "#C52184",
+#     "#7C77B9",
+#     "#9A348E",
+#     "#50A2A7",
+#     "#FFC4EB",
+#     "#D58936",
+#     "#C2CFB2"
+# ]

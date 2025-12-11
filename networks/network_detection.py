@@ -138,13 +138,20 @@ def community_tfidf(n=1):
 
     return results
 
-
 def make_graph(
         top_n=5,
         relabel=False,
         min_group_count=MIN_COMMUNITY_PAPERS,
         n_initial_communities=N_INITIAL_COMMUNITIES
 ):
+    def make_label(terms, n=2):
+        label = ''
+        for i, term in enumerate(terms):
+            if i == n:
+                label = f'{label}\n'
+            label = f'{label}{term}, '
+        return label[:-1]
+            
     if relabel is True:
         label_papers_by_community()
         
@@ -206,13 +213,15 @@ def make_graph(
         if column not in communities:
             del plotdf[column]
         else:
-            new_name =': '.join((
-                str(int(plotdf.columns[i])),
-                ', '.join([
+            new_name =': '.join(
+                (
+                    str(int(plotdf.columns[i])),
+                    make_label([
                         tfidf
                         for tfidf in community_to_tfidf[column]
                     ][:5])
-            ))
+                )
+            )
             plotdf.rename(
                 columns={
                     plotdf.columns[i]: f'Communitiy #{new_name}'
@@ -221,29 +230,16 @@ def make_graph(
             )
 
     fig, ax = plt.subplots(figsize=(12,8))
+    axes = [ax]
     fig.patch.set_facecolor(background_color)
     plotdf.plot(        
         kind="area",
         stacked=True,
         color=colors,
-        ax=ax
+        ax=ax,
+        xlabel='Year',
+        ylabel='# of papers',
     )
-
-    ax.set_facecolor(background_color)
-    ax.tick_params(colors=text_color)
-    ax.xaxis.label.set_color(text_color)
-    ax.yaxis.label.set_color(text_color)
-
-    leg = ax.get_legend()
-    leg.get_frame().set_facecolor(background_color)
-    leg.get_frame().set_edgecolor(background_color)
-    leg.get_frame().set_edgecolor(background_color)
-    for text in leg.get_texts():
-        text.set_color(text_color)
-    for spine in ax.spines.values():
-        spine.set_color(text_color)
-        
-    
     
     tfidf_table = pd.DataFrame({
         'Community': [
@@ -252,15 +248,15 @@ def make_graph(
         f'TF-IDF (unigram-trigram)': [
             ', '.join(community_to_tfidf[c][:n_terms])
             for c in communities
-        ],
-        f'Top bigrams': [
-            ', '.join(community_to_bigrams[c][:n_terms])
-            for c in communities
-        ],
-        f'Top trigrams': [
-            ', '.join(community_to_trigrams[c][:n_terms])
-            for c in communities
-        ],
+        ]
+        # f'Top bigrams': [
+        #     ', '.join(community_to_bigrams[c][:n_terms])
+        #     for c in communities
+        # ],
+        # f'Top trigrams': [
+        #     ', '.join(community_to_trigrams[c][:n_terms])
+        #     for c in communities
+        # ],
     })
     
     with open(tables_dests[0], 'w') as f:
@@ -268,9 +264,6 @@ def make_graph(
             tfidf_table.to_latex(index=False)
         )
         
-    plt.savefig(graph_dests[0])
-    #plt.show()
-
     # ============= #
     # TODO: lots of repeated code below
     # that should be consolidated.
@@ -321,6 +314,7 @@ def make_graph(
     )
 
     fig, ax = plt.subplots(figsize=(12,8))
+    axes.append(ax)
     fig.patch.set_facecolor(background_color)
 
     plotdf = df.groupby('year').apply(
@@ -333,13 +327,15 @@ def make_graph(
         if column not in communities:
             del plotdf[column]
         else:
-            new_name =': '.join((
-                str(int(plotdf.columns[i])),
-                ', '.join([
+            new_name =': '.join(
+                (
+                    str(int(plotdf.columns[i])),
+                    make_label([
                         tfidf
                         for tfidf in community_to_tfidf[column]
                     ][:5])
-            ))
+                )
+            )
             plotdf.rename(
                 columns={
                     plotdf.columns[i]: new_name
@@ -351,22 +347,38 @@ def make_graph(
         kind="area",
         stacked=True,
         color=colors,
-        ax=ax
+        ax=ax,
+        xlabel='Year',
+        ylabel='# of papers',
+        
     )
 
-    ax.set_facecolor(background_color)
-    ax.tick_params(colors=text_color)
-    ax.xaxis.label.set_color(text_color)
-    ax.yaxis.label.set_color(text_color)
-    
-    leg = ax.get_legend()
-    leg.get_frame().set_facecolor(background_color)
-    leg.get_frame().set_edgecolor(background_color)
-    leg.get_frame().set_edgecolor(background_color)
-    for text in leg.get_texts():
-        text.set_color(text_color)
-    for spine in ax.spines.values():
-        spine.set_color(text_color)        
+    for i, ax in enumerate(axes):
+        ax.xaxis.label.set_fontsize(22)
+        ax.yaxis.label.set_fontsize(22)
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.set_facecolor(background_color)
+        ax.tick_params(colors=text_color, labelsize=22)
+        ax.xaxis.label.set_color(text_color)
+        ax.yaxis.label.set_color(text_color)
+        leg = ax.get_legend()
+        leg.get_frame().set_facecolor(background_color)
+        leg.get_frame().set_edgecolor(background_color)
+        leg.get_frame().set_edgecolor(background_color)
+        leg.get_frame().set_alpha(0)
+        leg.handlelength = 2
+        leg.handleheight = .6
+        leg.handletextpad = .5
+        leg.labelspacing = .4
+        for text in leg.get_texts():
+            text.set_color(text_color)
+            text.set_fontsize(14)
+        for spine in ax.spines.values():
+            spine.set_color(text_color)
+
+        fig = ax.get_figure()
+        fig.savefig(graph_dests[i])                    
     
     
     tfidf_table = pd.DataFrame({
@@ -391,10 +403,6 @@ def make_graph(
         f.write(
             tfidf_table.to_latex(index=False)
         )
-        
-    plt.savefig(graph_dests[1])
-    #plt.show()
-
 
         
 def community_ngrams(ngram_finder=None):

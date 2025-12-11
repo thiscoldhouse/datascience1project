@@ -164,7 +164,7 @@ def make_figure(
         destination=None
 ):
     fig = plt.figure(
-        figsize=(32, 24),
+        figsize=(20, 15),
         facecolor=background_color
     )
     gs = gridspec.GridSpec(2, 2, width_ratios=[8,1])
@@ -328,7 +328,7 @@ def make_figure(
     agg = agg.sort_index()    
     agg.plot(
         ax=axes[1], kind="area", stacked=True,
-        alpha=0.8, figsize=(12,7),
+        alpha=0.8, figsize=(9, 6),
         color=agg_plot_colors,
         linewidth=0,
     )
@@ -352,7 +352,7 @@ def make_figure(
         background_color
     )
     plt.suptitle(
-        f"How 2016 changed misinfomation research",
+        f"Misinformation Research Before and After 2016",
         fontsize=18,
         color=text_color
     )    

@@ -7,6 +7,7 @@ sys.path.append(
         '../database'
     )
 )
+import matplotlib
 import matplotlib.pyplot as plt
 from models import Paper, Author, Citation
 import pandas as pd
@@ -107,7 +108,7 @@ def citation_flows():
 
     fig, axes = plt.subplots(
         1, 2,
-        figsize=(16, 8),
+        figsize=(18, 9),
         facecolor=background_color
     )
     ax1, ax2 = axes
@@ -132,11 +133,12 @@ def citation_flows():
     ax2.set_yticks(np.arange(heatmapdf.shape[0]))
     ax2.set_xticklabels(heatmapdf.columns)
     ax2.set_yticklabels(heatmapdf.index)
+    matplotlib.rcParams.update({'font.size': 24})
     plt.setp(
         ax2.get_xticklabels(),
         rotation=45,
         ha="right",
-        rotation_mode="anchor"
+        rotation_mode="anchor",
     )
     for i in range(heatmapdf.shape[0]):
         for j in range(heatmapdf.shape[1]):
@@ -153,15 +155,16 @@ def citation_flows():
     cbar.set_label("Citations", color=text_color)
     cbar.ax.yaxis.set_tick_params(
         color=text_color,
-        labelcolor=text_color
+        labelcolor=text_color,
+        labelsize=18,
     )
     for spine in cbar.ax.spines.values():
         spine.set_edgecolor(text_color)
         spine.set_linewidth(2)
 
-    ax2.set_xlabel("Source Community")
-    ax2.set_ylabel("Target Community")
-    ax2.set_title("Citations: Source to Target")
+    ax2.set_xlabel("Source Community", fontsize=24)
+    ax2.set_ylabel("Target Community", fontsize=24)
+    ax2.set_title("Citations: Source to Target", fontsize=24)
 
     # ======== graph ========= #
     
@@ -176,7 +179,6 @@ def citation_flows():
             weight=int(row[1].weight)
         )
 
-    #pos = nx.spring_layout(G)
     pos = nx.circular_layout(G)
     node_sizes = [
         len(
@@ -186,7 +188,7 @@ def citation_flows():
         ) for c in G.nodes()        
     ]
     node_sizes = [
-        int(s * 8)
+        int(s * 22)
         for s in node_sizes
     ]
     nx.draw_networkx_nodes(
@@ -203,13 +205,12 @@ def citation_flows():
         G,
         pos,
         ax=ax1,
-        font_size=12,
+        font_size=22,
         font_color="black"
     )
     weights = [G[u][v]["weight"] for u, v in G.edges()]
-    total = sum(weights)
     weights = [
-        w/total*10  for w in weights
+        np.log(w)  for w in weights
     ]    
     nx.draw_networkx_edges(
         G,
@@ -218,7 +219,6 @@ def citation_flows():
         arrows=True,
         width=weights,
         arrowsize=20,
-        arrowstyle='-|>',
         min_source_margin=20,
         min_target_margin=20,
         connectionstyle='arc3,rad=0.3',
@@ -232,7 +232,7 @@ def citation_flows():
         ax.title.set_color(text_color)
         ax.xaxis.label.set_color(text_color)
         ax.yaxis.label.set_color(text_color)
-        ax.tick_params(colors=text_color)
+        ax.tick_params(colors=text_color, labelsize=20)
         for ax in axes:
             leg = ax.get_legend()
             if leg is None:

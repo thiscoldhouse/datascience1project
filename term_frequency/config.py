@@ -21,14 +21,14 @@ agg_plot_colors = [
     "#593C8F" # purple
 ]
 
-# ------------ presentation ---------#
+# # ------------ presentation ---------#
 
-text_color = 'white'
-background_color = '#0F1219'
-before_color = '#FFFFFF'
-after_color = "#D33F49"
-agg_plot_colors = [
-    "#D33F49",
-    '#FFFFFF',
-    "#648381",
-]
+# text_color = 'white'
+# background_color = '#0F1219'
+# before_color = '#FFFFFF'
+# after_color = "#D33F49"
+# agg_plot_colors = [
+#     "#D33F49",
+#     '#FFFFFF',
+#     "#648381",
+# ]
