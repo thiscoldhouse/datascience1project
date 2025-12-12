@@ -4,10 +4,16 @@ mkdir -p output
 mkdir -p ../networks/input
 mkdir -p ../citations/input
 mkdir -p ../1432/input
+mkdir -p ../term_frequency/input
 
 rm -f output/papers.db
 alembic upgrade head
 python create_database.py
+
+cd ../term_frequency/input
+rm -rf data.csv
+ln -s ../../data/scopus_citations/data.csv data.csv
+cd -
 
 cd ../networks/input
 rm -f papers.db
