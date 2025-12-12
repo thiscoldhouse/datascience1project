@@ -1,6 +1,6 @@
 To build this project from scratch and run all the analysis, run `./run.sh`.
 
-** Warning: This is intended to be run only once. It will overwrite anything that you have already done **
+*Warning: This is intended to be run only once. It will overwrite anything that you have already done*
 
 # Code
 
