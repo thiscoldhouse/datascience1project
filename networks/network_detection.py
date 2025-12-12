@@ -52,7 +52,7 @@ def cleanup():
     session.commit()
 
 def label_papers_by_community(resolution=RESOLUTION):
-    #cleanup()
+    cleanup()
     session = SessionFactory()
     G = nx.Graph()
     G.add_nodes_from([
@@ -444,7 +444,22 @@ def community_ngrams(ngram_finder=None):
 
         
 if __name__ == '__main__':
-    make_graph(top_n=TOP_N, n_initial_communities=N_INITIAL_COMMUNITIES, relabel=False)
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--relabel",
+        help="0 or 1. If 1, rerun community detection and update the database with the results. Default is 0 (false).",
+        type=int
+    )
+    args = parser.parse_args()
+    relabel = args.relabel
+    if relabel == 1:
+        relabel = True
+        print('Warning: Relabeling modifies the database. Exit now if you\'re unsure.')
+    else:
+        relabel = False
+        
+    make_graph(top_n=TOP_N, n_initial_communities=N_INITIAL_COMMUNITIES, relabel=relabel)
             
             
         

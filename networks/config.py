@@ -1,3 +1,4 @@
+
 RESOLUTION = 1
 TOP_N = 2
 n_terms_for_table = 20
@@ -18,6 +19,8 @@ stop.extend((
     'elsevier', 'rights', 'reserved', 'mesh', 'taylor', 'francis', 'copyright', 'llc', 'bt', 'lftb', 'springer', 'ieee', 'information', 'misinformation', 'claimscan', 
 ))
 stop = [w.lower() for w in stop]
+
+# Junk paper that appears duplicated 22 times.
 delete_title = 'Medical misinformation: vet the message!'
 
 
