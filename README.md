@@ -1,4 +1,4 @@
-To build this project from scratch and run all the analysis (with the exception of `/predict`, run `./run.sh`.
+To build this project from scratch and run all the analysis (with the exception of `/predict`), run `./run.sh`.
 
 *Warning: This is intended to be run only once. It will overwrite anything that you have already done*
 
