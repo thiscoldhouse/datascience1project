@@ -1,6 +1,6 @@
 To build this project from scratch and run all the analysis (with the exception of `/predict`, run `./run.sh`.
 
-** Warning: This is intended to be run only once. It will overwrite anything that you have already done **
+*Warning: This is intended to be run only once. It will overwrite anything that you have already done*
 
 # Code
 
@@ -13,7 +13,7 @@ To build this project from scratch and run all the analysis (with the exception 
   
 ## Workflows
 
-Work that has nowhere to live yet should go in /misc, then spin into its own folder (like `metaphorometer` has done). 
+Work that has nowhere to live yet should go in `/misc`, then spin into its own folder (like `metaphorometer` has done). 
 
 With the exception of `/prediction`, all important code folders are organized so that there are four kinds of files:
 
