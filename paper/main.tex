@@ -43,16 +43,22 @@
 % ------------------------------------------------------------
 \section{Introduction}
 
-There is no question that people say, and have always said, things that are not true, whether social media or otherwise. That people do often believe these things, both to their individual and our social detriment, is similarly indisputable. The term ``misinformation'' has come into common use to describe this phenomenon, in both formal and informal settings. In the academic literature, it has come to represent a new scientific paradigm, one that, like all paradigms, comes with its own history and assumptions\cite{kuhn_structure_1962}.
+There is no question that people say, and have always said, things that are not true, whether on social media or otherwise. That people do often believe these things, both to their individual and our social detriment, is similarly indisputable. Since 2016, in both formal and inforaml settings,we have described this phenomenon with the term ``misinformation'' (see Figure \ref{fig:twitter}). In the academic literature, it has come to represent a new scientific paradigm, one that, like all paradigms, comes with its own history and assumptions\cite{kuhn_structure_1962}.
 
 As always, with a new paradigm's success comes a re-interpretation previously-known facts. ``Misinformation'' has, for example, been used to describe events in Rome \cite{posetti_short_2018}, and even the activities of fish and other animals\cite{fahimipour_wild_2023}. The paradigm's penetration into public life means that such studies can garner attention in the popular press\cite{times_evolution_2025}.
 
-Previous work shows that the modern misinformation paradigm dates to roughly 2016, and that its existence is intertwined with the rise of social media \cite{broda_misinformation_2024}\cite{donovan_express_2025}. These histories tend to begin as we did, with a general statement on the vast history of people saying and believing untrue things. They often cite technological upheavals in media as important factors. We build upon those accounts of the post-paradigm history here. By analyzing academic papers with the keyword ``misinformation'' in metadata published between 2011 and 2023, we identify pre-2016 patterns unaccounted for in these histories. 
+Previous work shows that the modern misinformation paradigm dates to roughly 2016, and that its existence is intertwined with the rise of social media \cite{broda_misinformation_2024}\cite{donovan_express_2025}. These histories tend to begin as we did, with a general statement on the vast history of people saying and believing untrue things. They often cite technological upheavals in media as important factors, then specifically turn their focus to social media. We build upon those accounts of the post-paradigm history here. By analyzing academic papers with the keyword ``misinformation'' in metadata published between 2011 and 2023, we identify pre-2016 patterns unaccounted for in these histories. 
 
-We fill this gap by identifying an academic tradition that predates today's misinformation research, and stretches back to the so-called ``memory wars'' of Satanic Panic in the 1980s and 90s. It is a distinguishable body of work, one whose research output has remained steady while other work on misinformation has greatly expanded around it, and is easily missed in the sheer volume of post-2016 research. Still, we show that today's misinformation research owes more to this lineage than is generally acknowledged, and that this prior paradigm, while still distinct, is increasingly influenced by the modern paradigm.
+We fill this gap by identifying an academic tradition that predates today's misinformation research, and stretches back to the ``memory wars'' and the Satanic Panic in the 1980s and 90s. It is a related but distinct body of work, one whose research output has remained steady while other work on misinformation has greatly expanded around it, and is easily missed in the sheer volume of post-2016 research. Still, we show that today's misinformation research owes more to this lineage than is generally acknowledged, and that this prior paradigm, while still distinct, is increasingly influenced by the modern one.
 
 We conclude by noting the historical parallels between both the historical contexts of these paradigms and the paradigms themselves. Both came about in moments of mass panic about evil forces doing harm to children, fueled by a changing media and political context. We are by no means the first to note the historical parallels between Qanon and the Satanic Panic, and we are much indebted to prior scholarship on this issue\cite{hearst_qanon_2022}. Instead, our contribution is to note that, just as \citet{hearst_qanon_2022} finds that modern conspiricism has roots in the Satanic Panic, so too can we trace the modern scientific response back to that of the 1980s. We hope that, by bringing this context to the fore, the scientific community can better navigate these moments of extreme turbulence in the politically contested nature of our shared reality.
 
+\begin{figure}[H]
+\label{fig:twitter}
+\centering
+\includegraphics[width=\linewidth]{misc-img/storywrangler.pdf}
+\caption{Frequency of usage of the word ``misinformation'' on Twitter\cite{alshaabi2021storywrangler}. Note the rise precisely at the US election in 2016.}
+\end{figure}
 
 \section{Data and Methods}
 
@@ -81,26 +87,26 @@ Our algorithm labeled 8033 distinct communities. 6797 are communities of just on
 After 2016, there is an explosion of the use of the word ``misinformation'' in academic literature. In 2011, the first year in our dataset, there were only 118 papers containing the term anywhere in their metadata. In 2023, there were 3380, or 28 times as many, and the post-2016 corpus contains 20 times as many papers as the pre-2016 one.
 
 \begin{figure}[H]
-\label{fig:tf}
 \centering
 \includegraphics[width=\linewidth]{img/fig.pdf}
 \caption{Words with largest absolute frequency shifts before and after 2016 are on the right. We tagged all papers as having one from either or one of each. The top-left graph shows papers that have at least one word from that set of words as an annual percentage (some papers use both, so percentages do not add up to 100\%); the bottom one is the raw counts of all papers in the data.}
+\label{fig:tf}
 \end{figure}
 
-Looking at tokens with the largest absolute frequency shift (Figure \ref{fig:tf}), the post-2016 words are those that we in 2025 expect in misinformation literature, like ``social media,'' ``pandemic,'' ``fake news,'' etc. As discussed in our introduction, these findings on the post-2016 explosion, as well as the topics of study (e.g. social media and the pandemic), are similar to those found in literature reviews\cite{broda_misinformation_2024}, histories of misinformation\cite{donovan_express_2025,}, and academic summaries\cite{posetti_short_2018} of the misinformation literature.
+Looking at tokens with the largest absolute frequency shift (Figure \ref{fig:tf}), the post-2016 words are those that we in 2025 expect in misinformation literature, like ``social media,'' ``pandemic,'' ``fake news,'' etc. As discussed in our introduction, these findings on the post-2016 explosion, as well as the topics of study (e.g. social media and the pandemic), are similar to those found in literature reviews\cite{broda_misinformation_2024}, histories of misinformation\cite{donovan_express_2025}, and academic summaries\cite{posetti_short_2018} of the misinformation literature.
 
-To our knowledge, however, the pre-2016 terms remain largely unexplained in misinformation histories and literature reviews. For example, in their literature review, \citet{broda_misinformation_2024} used a similar date range in their analysis as our own (2010-2021). Their dataset comes from Google Scholar, and they used keywords ``misinformation,'' ``disinformation,'' and ``fake news.'' They too find a similar explosion in the literature, and on a similar timeline, but their summary does not account for words like ``women,'' ``children,'' ``memory,'' and ``recall,'' though there are hints of the same phenomenon. When they break down the disciplines in which misinformation research is published, they find that the top 5 are Communication, Computer Science, Psychology, Political Science, and Economics. They note that the research in Psychology journals tends to focus on experiments, and that these experiments show broad themes.
+To our knowledge, however, the pre-2016 terms remain largely unexplained in misinformation histories and literature reviews. For example, in their literature review, \citet{broda_misinformation_2024} used a similar date range in their analysis as our own (2010-2021). Their dataset comes from Google Scholar, and they used keywords ``misinformation,'' ``disinformation,'' and ``fake news.'' They too find a similar explosion in the literature, and on a similar timeline, but their summary does not account for words like ``women,'' ``children,'' ``memory,'' and ``recall,'' though there are hints of the same phenomenon. When they break down the disciplines in which misinformation research is published, they find that the top 5 are Communication, Computer Science, Psychology, Political Science, and Economics. They note that the research in Psychology journals tends to focus on experiments, and that these experiments show broad themes. We discuss this in Section \ref{discussion}.
 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\linewidth]{img/4645.pdf}
+\includegraphics[width=\linewidth]{network-img/4645.pdf}
 \caption{An example of community \#4645's population (2011-2023), showing how human behavior research moves toward misinformation on social media over time}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\linewidth]{img/1085.pdf}
+\includegraphics[width=\linewidth]{network-img/1085.pdf}
 \caption{An example community's (\#1085) population (2011-2023), showing how research on relationships with healthcare moves toward social media misinformation over time}
 \end{figure}
 
@@ -115,7 +121,7 @@ In short, we find that most summaries of the field tell its history as show in F
 
 \input{tables0.tex}
 
-To explain the pre-2016 terms so, instead of looking at the biggest communities of 2023 and looking back, we take the two biggest ones of every year and plot those through the duration of our dataset. Figure \ref{fig:communities} shows one community, \#1432, which maintains a steady size across these years, even as topics like `fake news' and `covid' rose in popularity and prominence around it. These papers primarily work in psychology, with a particular focus on memory and misinformation.
+To explain the pre-2016 terms, instead of looking at the biggest communities of 2023 and looking back, we take the two biggest ones of every year and plot those through the duration of our dataset. Figure \ref{fig:communities} shows one community, \#1432, which maintains a steady size across these years, even as topics like `fake news' and `covid' rose in popularity and prominence around it. These papers primarily work in psychology, with a particular focus on memory and misinformation.
 
 \#1432's top TF-IDF terms (``ethical,'' ``debriefing,'' ...) may, at first, seem unrelated to those of the pre-2016 research found in Figure \ref{fig:tf}. To make the connection, consider this abstract from our database, from \citet{otgaar_protecting_2020}, in a paper titled ``Protecting Against Misinformation: Examining the Effect of Empirically Based Investigative Interviewing on Misinformation Reporting,'' published in \textit{Journal for Police and Criminal Psychology}. Our community detection put this paper in community \#1432.
 
@@ -144,6 +150,8 @@ Loftus was a prominent skeptic of the recovered-memory therapy behind the Satani
 \section{Discussion}
 \label{discussion}
 
+\subsection{Historical Context and Parallels}
+
 With one major caveat, our findings are ultimately similar to those of Broda et al.
 \begin{quote}
 
@@ -156,7 +164,7 @@ In community \#1432, however, we find an important caveat that, to our knowledge
 
 Its history begins in 1980, when Michelle Smith co-authored \textit{Michelle Remembers} with her psychiatrist and soon-to-be-husband, Lawrence Pazder. In it, she recounts her gruesome experience being tortured at the hands of a Satanic cult, memories that, until recently, she had repressed. Pazder had used modern psychiatric techniques to help her recover these lost memories. These stories turned out to be grotesque fabrications, but the book, along with its credulous media coverage, triggered what became known as the Satanic Panic, in which innocent daycare workers, members of the LGBT+ community, and others were convicted of ritual child abuse \cite{hearst_qanon_2022,}\cite{shewan_conviction_2015}.
 
- As discussed in Section \ref{results}, Elizabeth Loftus, \#1432's most prolific and cited author, studies the ``misinformation effect.'' Much of this research was a response to, as Loftus put it in 1993,\cite{loftus_reality_1993} ``a rise in reported memories of childhood sexual abuse that were allegedly repressed for many years.'' Her academic work explicitly references the Satanic panic, and considers not just the cognitive phenomenon of the misinformation effect, but, from the abstract from that same 1993 paper...
+ As discussed in Section \ref{results}, Elizabeth Loftus, \#1432's most prolific and cited author, studies the ``misinformation effect.'' Her experiments often involve asking a subject to recall something, but, in the process, attempting to influence that memory in some way, perhaps by implication in the phrasing of her question. Much of this research was a response to, as Loftus put it in 1993,\cite{loftus_reality_1993} ``a rise in reported memories of childhood sexual abuse that were allegedly repressed for many years.'' Her work explicitly references the Satanic panic, and considers not just the cognitive phenomenon of the misinformation effect, but, from the abstract from that same 1993 paper...
 
 \begin{quote}
     (a) How common is it for memories of child abuse to be repressed? (b) How are jurors and judges likely to react to these repressed memory claims? (c) When the memories surface, what are they like? and (d) How authentic are the memories? 
@@ -174,7 +182,7 @@ To view the field this way, we argue, is to deprive its practitioners of its his
     \item ... researchers sought to understand and combat the harm, often within the field itself, and often participating both in public debate and in the very social processes they study. Misinformation literature in computer science journals, for example, often proposes ways to automatically detect misinformation on social media\cite{broda_misinformation_2024} while also seeing misinformation as a social media phenomenon. Likewise, Loftus has participated in the legal system, often as an expert witness for the defense in high profile trials. \cite{shewan_conviction_2015}.
 
     \item ... misinformation research responded to the politically-contested nature of our shared social reality. Modern misinformation research often discusses this by noting the so-called ``post-truth'' era, a term that appears in abstracts 133 times in our database.
-    \item ... there was widespread social concern that  powerful malevolent forces are murdering innocent children \cite{hearst_qanon_2022,}\cite{shewan_conviction_2015}.
+    \item ... there was widespread social concern that  powerful malevolent forces are murdering innocent children \cite{hearst_qanon_2022}\cite{shewan_conviction_2015}.
 \end{itemize}
 
 These parallels are not a coincidence. Instead, both the misinformation phenomenon\cite{hearst_qanon_2022,} and today's paradigm inherit from their predecessors. Our analysis in Figure \ref{fig:citations} showed some (but not much) citation flow into \#1432 from other communities. This is, in part, an artifact of our data, because \#1432 is smaller community that the others in that figure, but also because our data collects only papers with ``misinformation'' in metadata, and the influence often flows through other concepts. 
@@ -189,7 +197,14 @@ Loftus herself has participated in modern misinformation research \cite{grady_pr
 
 This is a classic Loftus experimental setup, but merging with the new language of fake news and data-gathering through clickwork services, a common practice in computer science research.
 
-As the TF-IDF terms in Table \ref{tab:tfidf-comms} show, many of the papers in our database warn of democracy under threat, or of distrust in science and/or institutions. Some authors argue that misinformation and distrust institutions are linked\cite{akyuz_impact_2021}, or that misinformation causes distrust in institutions \cite{stetka_have_2025,}. To our knowledge, it is much less common to question whether our institutions have earned the public trust, and, if not, how our institutions ought to behave when confronted with the politically-contentious nature of reality.
+\subsection{Limitations}
+
+Our methodology depends entirely on the keyword ``misinformation.'' It could have been that researchers using the modern misinformation paradigm simply happened upon the same term as those in group \#1432 with no conceptual ties. Conversely, researchers might have used a different term entirely while drawing heavily on \#1432's  work, either directly or indirectly. We have argued that there is a lineage, making the conceptual ties through our qualitative research. In future work, we hope to further explore how exactly the term ``misinformation'' came to be. 
+
+
+\subsection{Conclusion}
+
+As the TF-IDF terms in Table \ref{tab:tfidf-comms} show, many of the papers in our database warn of democracy under threat, or of distrust in science and/or institutions. Some authors argue that misinformation and distrust institutions are linked\cite{akyuz_impact_2021}, or that misinformation causes distrust in institutions \cite{stetka_have_2025}. To our knowledge, it is much less common to question whether our institutions have earned the public trust, and, if not, how our institutions ought to behave when confronted with the politically-contentious nature of reality.
 
 In the history of misinformation, we see the institutional reality of science through both its successes and its failures. Scientific techniques gave us \textit{Michelle Remembers}, and skeptics in the scientific community took to testing whether these memory techniques were indeed reliable. Lest anyone think that this story is a simple one of the scientific method working as intended, one in which dispassionate scientists debunk a bad hypothesis, the way that science is often said to work, Loftus is a controversial figure. In her career as a public intellectual, she has, for example, provided expert testimony on the unreliability of memories for Harvey Weinstein's\cite{press_harvey_2020}, Ted Bundy's \cite{marsh_how_2012}, and Ghislaine Maxwell's\cite{news_ghislaine_2021} defenses. Going beyond Loftus, though recovered memory therapies are now debunked, the ``Memory Wars'' are not definitively settled, and, as the scientific debate goes on, innocent people's lives have been shattered by the ideas it generated \cite{shewan_conviction_2015}. As Theodore Porter puts it, 'The role of the sciences in regard to public issues of all kinds has never been more encompassing.' Juries depend on scientists to know if witnesses are reliable, and psychiatric theories are deployed on patients seeking help in their most vulnerable moments. This makes ``the divide between technical science and political opinion is highly unstable.'' \cite{porter_how_2009}. 
 
@@ -199,9 +214,5 @@ We mention Loftus's work on legal defenses only to illustrate the complex role o
 
 \section{References}
 \bibliography{refs}
-
-
-\section{Code}
-Code is available on Github: \url{https://github.com/thiscoldhouse/datascience1project}
 
 \end{document}

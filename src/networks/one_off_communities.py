@@ -1,11 +1,13 @@
 from config import(
     background_color,
+    before_color,
     after_color,
     text_color
 )
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import matplotlib as mpl
+mpl.rcParams.update({'font.size': 18})
 import os
 import sys
 sys.path.append(
@@ -52,7 +54,14 @@ def make_graph1(community=4645):
     ]).value_counts().sort_index()
     counts.plot(
         ax=ax,
-        color=text_color
+        color=text_color,
+        marker='o',
+        markersize=5,
+        markerfacecolor=before_color,
+        markeredgecolor=before_color,
+        markeredgewidth=0.5,
+        legend=False,
+        lw=3
     )
     
     ax.annotate(
@@ -63,7 +72,7 @@ def make_graph1(community=4645):
         xytext=(0, 200),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     ax.annotate(
@@ -74,7 +83,7 @@ def make_graph1(community=4645):
         xytext=(-70, 250),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     ax.annotate(
@@ -85,7 +94,7 @@ def make_graph1(community=4645):
         xytext=(-20, 120),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
 
@@ -97,7 +106,7 @@ def make_graph1(community=4645):
         xytext=(60, -20),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     ax.annotate(
@@ -108,7 +117,7 @@ def make_graph1(community=4645):
         xytext=(5, 150),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     
@@ -123,6 +132,7 @@ def make_graph1(community=4645):
         linestyle=':',
         linewidth=1,
         color=after_color,
+        
     )
     for spine in ax.spines.values():
         spine.set_color(text_color)
@@ -149,7 +159,14 @@ def make_graph2(community=1085):
     ]).value_counts().sort_index()
     counts.plot(
         ax=ax,
-        color=text_color
+        color=text_color,
+        marker='o',
+        markersize=5,
+        markerfacecolor=before_color,
+        markeredgecolor=before_color,
+        markeredgewidth=0.5,
+        legend=False,
+        lw=3
     )
     
     ax.annotate(
@@ -160,7 +177,7 @@ def make_graph2(community=1085):
         xytext=(0, 200),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     ax.annotate(
@@ -171,7 +188,7 @@ def make_graph2(community=1085):
         xytext=(-30, 290),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     ax.annotate(
@@ -182,7 +199,7 @@ def make_graph2(community=1085):
         xytext=(-20, 120),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
 
@@ -194,7 +211,7 @@ def make_graph2(community=1085):
         xytext=(60, -20),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     ax.annotate(
@@ -205,7 +222,7 @@ def make_graph2(community=1085):
         xytext=(5, -100),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     
@@ -217,7 +234,7 @@ def make_graph2(community=1085):
         xytext=(-150, -30),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     
@@ -252,7 +269,14 @@ def make_graph3(community=1432):
     ]).value_counts().sort_index()
     counts.plot(
         ax=ax,
-        color=text_color
+        color=text_color,
+        marker='o',
+        markersize=5,
+        markerfacecolor=before_color,
+        markeredgecolor=before_color,
+        markeredgewidth=0.5,
+        legend=False,
+        lw=3
     )
     
     ax.annotate(
@@ -263,7 +287,7 @@ def make_graph3(community=1432):
         xytext=(0, 90),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     ax.annotate(
@@ -274,7 +298,7 @@ def make_graph3(community=1432):
         xytext=(0, -200),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     ax.annotate(
@@ -285,7 +309,7 @@ def make_graph3(community=1432):
         xytext=(0, 100),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
 
@@ -297,7 +321,7 @@ def make_graph3(community=1432):
         xytext=(20, -150),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     ax.annotate(
@@ -308,7 +332,7 @@ def make_graph3(community=1432):
         xytext=(-50, 50),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     ax.annotate(
@@ -319,7 +343,7 @@ def make_graph3(community=1432):
         xytext=(40, 0),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     
@@ -331,7 +355,7 @@ def make_graph3(community=1432):
         xytext=(5, -100),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     
@@ -343,7 +367,7 @@ def make_graph3(community=1432):
         xytext=(-250, -30),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     
@@ -378,7 +402,14 @@ def make_graph4(community=6075):
     ]).value_counts().sort_index()
     counts.plot(
         ax=ax,
-        color=text_color
+        color=text_color,
+        marker='o',
+        markersize=5,
+        markerfacecolor=before_color,
+        markeredgecolor=before_color,
+        markeredgewidth=0.5,
+        legend=False,        
+        lw=3
     )
     
     ax.annotate(
@@ -389,7 +420,7 @@ def make_graph4(community=6075):
         xytext=(0, 90),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     ax.annotate(
@@ -400,7 +431,7 @@ def make_graph4(community=6075):
         xytext=(-70, 200),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     ax.annotate(
@@ -411,7 +442,7 @@ def make_graph4(community=6075):
         xytext=(-100, 150),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
 
@@ -423,7 +454,7 @@ def make_graph4(community=6075):
         xytext=(20, -150),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     ax.annotate(
@@ -434,7 +465,7 @@ def make_graph4(community=6075):
         xytext=(-260, 50),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     ax.annotate(
@@ -445,7 +476,7 @@ def make_graph4(community=6075):
         xytext=(-10, 20),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     
@@ -457,7 +488,7 @@ def make_graph4(community=6075):
         xytext=(-20, -100),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     
@@ -469,7 +500,7 @@ def make_graph4(community=6075):
         xytext=(-150, -30),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=10,
+        fontsize=12,
         color=text_color
     )
     

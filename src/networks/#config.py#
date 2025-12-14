@@ -1,6 +1,6 @@
 RESOLUTION = 1
 TOP_N = 2
-n_terms_for_table = 5
+n_terms_for_table = 20
 N_INITIAL_COMMUNITIES = 10
 MIN_COMMUNITY_PAPERS = 10
 tables_dests = (
@@ -29,13 +29,13 @@ after_color = "#8CC084"
 text_color = 'black'
 
 colors = [
-    '#DB9D47',
+    '#6A041D',
     '#593C8F',
     '#1B512D',
-    '#666A86',
-    '#6A041D',
-    '#090446',
+    '#DB9D47',
     '#8CC084',
+    '#090446',
+    '#666A86',
     '#E86A92',
     '#009DDC',
     '#FFDDD2',

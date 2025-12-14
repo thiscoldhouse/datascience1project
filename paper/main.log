@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.11)  13 DEC 2025 16:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.11)  14 DEC 2025 10:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -774,53 +774,56 @@ Class revtex4-2 Info: Taking \maketitle back from hyperref on input line 26.
 
 Class revtex4-2 Warning: Assuming \noaffiliation for authors.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<img/fig.pdf, id=81, 650.43pt x 433.62pt>
-File: img/fig.pdf Graphic file (type pdf)
-<use img/fig.pdf>
-Package pdftex.def Info: img/fig.pdf  used on input line 86.
-(pdftex.def)             Requested size: 246.0pt x 163.99657pt.
-
-
-Package natbib Warning: Citation `' on page 2 undefined on input line 90.
-
-<img/4645.pdf, id=87, 867.24pt x 578.16pt>
-File: img/4645.pdf Graphic file (type pdf)
-<use img/4645.pdf>
-Package pdftex.def Info: img/4645.pdf  used on input line 97.
-(pdftex.def)             Requested size: 246.0pt x 163.99214pt.
-<img/1085.pdf, id=88, 867.24pt x 578.16pt>
-File: img/1085.pdf Graphic file (type pdf)
-<use img/1085.pdf>
-Package pdftex.def Info: img/1085.pdf  used on input line 103.
-(pdftex.def)             Requested size: 246.0pt x 163.99214pt.
-[2
+<misc-img/storywrangler.pdf, id=68, 578.16pt x 433.62pt>
+File: misc-img/storywrangler.pdf Graphic file (type pdf)
+<use misc-img/storywrangler.pdf>
+Package pdftex.def Info: misc-img/storywrangler.pdf  used on input line 59.
+(pdftex.def)             Requested size: 246.0pt x 184.49448pt.
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.106 
-      
+l.70 
+      <./misc-img/storywrangler.pdf>]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 76.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 76.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+<img/fig.pdf, id=139, 650.43pt x 433.62pt>
+File: img/fig.pdf Graphic file (type pdf)
+<use img/fig.pdf>
+Package pdftex.def Info: img/fig.pdf  used on input line 91.
+(pdftex.def)             Requested size: 246.0pt x 163.99657pt.
+<network-img/4645.pdf, id=146, 867.24pt x 578.16pt>
+File: network-img/4645.pdf Graphic file (type pdf)
+<use network-img/4645.pdf>
+Package pdftex.def Info: network-img/4645.pdf  used on input line 103.
+(pdftex.def)             Requested size: 246.0pt x 163.99214pt.
+ [2
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.106 
-       <./img/fig.pdf> <./img/4645.pdf>]
-<img/first-communities.pdf, id=209, 867.24pt x 578.16pt>
+       <./img/fig.pdf>]
+<network-img/1085.pdf, id=213, 867.24pt x 578.16pt>
+File: network-img/1085.pdf Graphic file (type pdf)
+<use network-img/1085.pdf>
+Package pdftex.def Info: network-img/1085.pdf  used on input line 109.
+(pdftex.def)             Requested size: 246.0pt x 163.99214pt.
+<img/first-communities.pdf, id=216, 867.24pt x 578.16pt>
 File: img/first-communities.pdf Graphic file (type pdf)
 <use img/first-communities.pdf>
-Package pdftex.def Info: img/first-communities.pdf  used on input line 111.
+Package pdftex.def Info: img/first-communities.pdf  used on input line 117.
 (pdftex.def)             Requested size: 246.0pt x 163.99214pt.
  (./tables0.tex
 
@@ -828,75 +831,74 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 1.
 
 )
-<img/communities-graph.pdf, id=215, 867.24pt x 578.16pt>
+<img/communities-graph.pdf, id=222, 867.24pt x 578.16pt>
 File: img/communities-graph.pdf Graphic file (type pdf)
 <use img/communities-graph.pdf>
-Package pdftex.def Info: img/communities-graph.pdf  used on input line 128.
+Package pdftex.def Info: img/communities-graph.pdf  used on input line 134.
 (pdftex.def)             Requested size: 246.0pt x 163.99214pt.
  [3
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.136 
+l.138 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.136 
+l.138 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.136 
-       <./img/1085.pdf> <./img/first-communities.pdf> <./img/communities-graph.
-pdf>]
-<img/citations.png, id=383, 1300.86pt x 650.43pt>
+l.138 
+       <./network-img/4645.pdf> <./network-img/1085.pdf> <./img/first-communiti
+es.pdf>]
+<img/citations.png, id=396, 1300.86pt x 650.43pt>
 File: img/citations.png Graphic file (type png)
 <use img/citations.png>
-Package pdftex.def Info: img/citations.png  used on input line 139.
+Package pdftex.def Info: img/citations.png  used on input line 145.
 (pdftex.def)             Requested size: 246.0pt x 122.99742pt.
-
-
-Package natbib Warning: Citation `' on page 4 undefined on input line 153.
-
-
-Package natbib Warning: Citation `' on page 4 undefined on input line 157.
-
-[4
+ [4
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.160 
-      
+l.156 \begin{quote}
+                   
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.160 
-       <./img/citations.png>]
+l.156 \begin{quote}
+                   
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.156 \begin{quote}
+                    <./img/communities-graph.pdf> <./img/citations.png>]
 
-Package natbib Warning: Citation `' on page 5 undefined on input line 172.
+Package natbib Warning: Citation `' on page 5 undefined on input line 161.
 
 
-Underfull \hbox (badness 1178) in paragraph at lines 176--177
- []\OT1/cmr/m/n/10 ... mis-in-for-ma-tion re-search re-sponded to the
- []
-
-
-Package natbib Warning: Citation `' on page 5 undefined on input line 177.
+Package natbib Warning: Citation `' on page 5 undefined on input line 165.
 
 
 Package natbib Warning: Citation `' on page 5 undefined on input line 180.
 
+
+Underfull \hbox (badness 1178) in paragraph at lines 184--185
+ []\OT1/cmr/m/n/10 ... mis-in-for-ma-tion re-search re-sponded to the
+ []
+
 [5{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
-Package natbib Warning: Citation `' on page 6 undefined on input line 192.
+Package natbib Warning: Citation `' on page 6 undefined on input line 188.
 
-(./main.bbl
+[6] (./main.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 109--115
  []\OT1/cmr/m/n/9 J. Dono-van, EX-PRESS: A Short His-tory of
  []
@@ -912,8 +914,8 @@ Underfull \hbox (badness 6608) in paragraph at lines 109--115
  0\OT1/cmr/m/n/9 ,
  []
 
-[6]
-Underfull \hbox (badness 1603) in paragraph at lines 215--220
+
+Underfull \hbox (badness 1603) in paragraph at lines 233--238
  []\OT1/cmr/m/n/9 D. She-wan, []Con-vic-tion of Things Not Seen: The
  []
 
@@ -927,16 +929,16 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 88B6085F31E9C067DB4A8D0D8499AF29;1319.
+(rerunfilecheck)             Checksum: 5ACE1BD1BA10830C9D8DD2A0F6C0F06D;1685.
  ) 
 Here is how much of TeX's memory you used:
- 23629 strings out of 474222
- 430268 string characters out of 5748732
- 1949975 words of memory out of 5000000
- 45458 multiletter control sequences out of 15000+600000
+ 23648 strings out of 474222
+ 430853 string characters out of 5748732
+ 1968975 words of memory out of 5000000
+ 45473 multiletter control sequences out of 15000+600000
  565285 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,9n,93p,1495b,683s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,9n,93p,1495b,535s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
@@ -948,10 +950,10 @@ lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
 t10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (7 pages, 450869 bytes).
+Output written on main.pdf (7 pages, 483317 bytes).
 PDF statistics:
- 562 PDF objects out of 1000 (max. 8388607)
- 288 compressed objects within 3 object streams
- 53 named destinations out of 1000 (max. 500000)
- 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 625 PDF objects out of 1000 (max. 8388607)
+ 306 compressed objects within 4 object streams
+ 57 named destinations out of 1000 (max. 500000)
+ 152 words of extra memory for PDF output out of 10000 (max. 10000000)
 
