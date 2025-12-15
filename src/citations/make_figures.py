@@ -13,6 +13,7 @@ from models import Paper, Author, Citation
 import pandas as pd
 import numpy as np
 import networkx as nx
+import sqlite3 
 from sqlalchemy import create_engine, and_, desc
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql import functions
@@ -242,6 +243,49 @@ def citation_flows():
     
     plt.savefig(dest)
 
+def make_tables(c2s, c1=1432):
+    df = pd.DataFrame({
+        'Year of Source Paper': [],
+        'Year of Target Paper': [],
+        'Source Paper': [],
+        'Target Paper': []
+    })
+    for i,c2 in enumerate(c2s):
+        sql = f'''
+            select
+            p2.year as 'Year of Source Paper',
+            p1.year as 'Year of Target Paper',
+            p2.title as 'Source Paper',
+            p1.title as 'Target Paper'
+            from paper p1
+            inner join citation c
+            on c.cited_paper_doi = p1.doi
+            inner join paper p2
+            on p2.doi = citing_paper_doi
+            where p1.community={c1}
+            and p2.community={c2}
+            order by p2.year;
+        '''
+
+        thisdf = pd.read_sql_query(
+            sql,
+            sqlite3.connect('input/papers.db')
+        )
+        df = pd.concat([
+            df,
+            thisdf.loc[list(table_rows[i])].reset_index()
+        ])
+
+    df['Year of Source Paper'] = df['Year of Source Paper'].astype(int)
+    df['Year of Target Paper'] = df['Year of Target Paper'].astype(int)    
+    with open(f'output/example_citations.tex', 'w') as f:
+        f.write(
+            df[['Source Paper', 'Target Paper']].to_latex(
+                index=False,
+                column_format=('p{.49\\textwidth}p{.49\\textwidth}'))
+        )
+
     
 if __name__ == "__main__":
     citation_flows()
+    make_tables(table_data)

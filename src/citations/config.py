@@ -1,6 +1,18 @@
 TOP_N = 2
 MIN_COMMUNITY_PAPERS = 10
 dest = 'output/citations.png'
+
+# --- making citation flow table -- #
+table_data = (6075, 2350, 426, 1277, )#5282)
+table_rows = [
+    (1, 3, 5, 8, 10, 13,),
+    (1,),
+    (0,),
+    (0,),
+#    (0,),
+]
+# ---------- #
+
 # --------------- paper ----------- #
 
 background_color = '#FFFFFF'
