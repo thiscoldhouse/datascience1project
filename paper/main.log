@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.11)  15 DEC 2025 18:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.11)  16 DEC 2025 13:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -718,7 +718,7 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 LaTeX Warning: Unused global option(s):
     [apsf].
 
-No file main.aux.
+(./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
@@ -740,8 +740,10 @@ LaTeX Font Info:    ... okay on input line 26.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 26.
 LaTeX Font Info:    ... okay on input line 26.
 Package hyperref Info: Link coloring OFF on input line 26.
+ (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
+
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -772,469 +774,213 @@ Class revtex4-2 Info: Taking \maketitle back from hyperref on input line 26.
 
 Class revtex4-2 Warning: Assuming \noaffiliation for authors.
 
-
-LaTeX Warning: Reference `fig:twitter' on page 1 undefined on input line 48.
-
-
-Package natbib Warning: Citation `kuhn_structure_1962' on page 1 undefined on i
-nput line 48.
-
-
-Package natbib Warning: Citation `CombatingFoodMisinformation' on page 1 undefi
-ned on input line 50.
-
-
-Package natbib Warning: Citation `johnInformationMisinformationGained1957' on p
-age 1 undefined on input line 50.
-
-
-Package natbib Warning: Citation `gindinModelSovietFirm1970' on page 1 undefine
-d on input line 52.
-
-
-Package natbib Warning: Citation `michelCategoricalApproachDistributed1989' on 
-page 1 undefined on input line 52.
-
-
-Package natbib Warning: Citation `loftus_misinformation_2024' on page 1 undefin
-ed on input line 54.
-
-
-Package natbib Warning: Citation `loftus_reconstruction_1974' on page 1 undefin
-ed on input line 54.
-
-
-Package natbib Warning: Citation `loftusPlantingMisinformationHuman2005b' on pa
-ge 1 undefined on input line 54.
-
-
-LaTeX Warning: Reference `discussion' on page 1 undefined on input line 54.
-
-
-LaTeX Warning: Reference `results' on page 1 undefined on input line 56.
-
-
-LaTeX Warning: Reference `fig:twitter' on page 1 undefined on input line 56.
-
-
-Package natbib Warning: Citation `posetti_short_2018' on page 1 undefined on in
-put line 56.
-
-
-Package natbib Warning: Citation `fahimipour_wild_2023' on page 1 undefined on 
-input line 56.
-
-
-Package natbib Warning: Citation `times_evolution_2025' on page 1 undefined on 
-input line 56.
-
-
-Package natbib Warning: Citation `broda_misinformation_2024' on page 1 undefine
-d on input line 58.
-
-
-Package natbib Warning: Citation `donovan_express_2025' on page 1 undefined on 
-input line 58.
-
-
-Package natbib Warning: Citation `broda_misinformation_2024' on page 1 undefine
-d on input line 58.
-
-
-Package natbib Warning: Citation `donovan_express_2025' on page 1 undefined on 
-input line 58.
-
-
-Package natbib Warning: Citation `' on page 1 undefined on input line 58.
-
-
-Package natbib Warning: Citation `kuhn_structure_1962' on page 1 undefined on i
-nput line 58.
-
-
-Package natbib Warning: Citation `hearst_qanon_2022' on page 1 undefined on inp
-ut line 60.
-
-
-Package natbib Warning: Citation `hearst_qanon_2022' on page 1 undefined on inp
-ut line 60.
-
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<misc-img/storywrangler.pdf, id=19, 578.16pt x 433.62pt>
+<misc-img/storywrangler.pdf, id=108, 578.16pt x 433.62pt>
 File: misc-img/storywrangler.pdf Graphic file (type pdf)
 <use misc-img/storywrangler.pdf>
-Package pdftex.def Info: misc-img/storywrangler.pdf  used on input line 65.
+Package pdftex.def Info: misc-img/storywrangler.pdf  used on input line 64.
 (pdftex.def)             Requested size: 246.0pt x 184.49448pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
 
-
-Package natbib Warning: Citation `alshaabi2021storywrangler' on page 2 undefine
-d on input line 66.
-
-
-Package natbib Warning: Citation `alshaabi2021storywrangler' on page 2 undefine
-d on input line 66.
-
-
-Package natbib Warning: Citation `Note1' on page 2 undefined on input line 75.
-
-
-LaTeX Warning: Reference `fig:tf' on page 2 undefined on input line 77.
-
-
-LaTeX Warning: Reference `results' on page 2 undefined on input line 77.
-
-LaTeX Font Info:    Trying to load font information for U+msa on input line 82.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 82.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 81.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-
-Package natbib Warning: Citation `Note2' on page 2 undefined on input line 86.
-
-
-LaTeX Warning: Reference `fig:citations' on page 2 undefined on input line 88.
-
-
-LaTeX Warning: Reference `results' on page 2 undefined on input line 88.
-
-<img/fig.pdf, id=20, 650.43pt x 433.62pt>
+<img/fig.pdf, id=117, 650.43pt x 433.62pt>
 File: img/fig.pdf Graphic file (type pdf)
 <use img/fig.pdf>
-Package pdftex.def Info: img/fig.pdf  used on input line 97.
+Package pdftex.def Info: img/fig.pdf  used on input line 96.
 (pdftex.def)             Requested size: 246.0pt x 163.99657pt.
-
-LaTeX Warning: Reference `fig:tf' on page 2 undefined on input line 102.
-
-
-Package natbib Warning: Citation `broda_misinformation_2024' on page 2 undefine
-d on input line 102.
-
-
-Package natbib Warning: Citation `donovan_express_2025' on page 2 undefined on 
-input line 102.
-
-
-Package natbib Warning: Citation `posetti_short_2018' on page 2 undefined on in
-put line 102.
-
-[2
+ [2
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.103 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.103 
-       <./misc-img/storywrangler.pdf> <./img/fig.pdf>]
-
-Package natbib Warning: Citation `broda_misinformation_2024' on page 3 undefine
-d on input line 104.
-
-
-LaTeX Warning: Reference `discussion' on page 3 undefined on input line 104.
-
-<network-img/4645.pdf, id=134, 867.24pt x 578.16pt>
-File: network-img/4645.pdf Graphic file (type pdf)
-<use network-img/4645.pdf>
-Package pdftex.def Info: network-img/4645.pdf  used on input line 109.
-(pdftex.def)             Requested size: 246.0pt x 163.99214pt.
-<network-img/1085.pdf, id=135, 867.24pt x 578.16pt>
-File: network-img/1085.pdf Graphic file (type pdf)
-<use network-img/1085.pdf>
-Package pdftex.def Info: network-img/1085.pdf  used on input line 115.
-(pdftex.def)             Requested size: 246.0pt x 163.99214pt.
-
-LaTeX Warning: Reference `fig:23comms' on page 3 undefined on input line 119.
-
-
-Package natbib Warning: Citation `donovan_express_2025' on page 3 undefined on 
-input line 119.
-
-<img/first-communities.pdf, id=136, 867.24pt x 578.16pt>
+l.100 
+       <./misc-img/storywrangler.pdf>]
+<img/first-communities.pdf, id=181, 867.24pt x 578.16pt>
 File: img/first-communities.pdf Graphic file (type pdf)
 <use img/first-communities.pdf>
-Package pdftex.def Info: img/first-communities.pdf  used on input line 123.
+Package pdftex.def Info: img/first-communities.pdf  used on input line 105.
 (pdftex.def)             Requested size: 246.0pt x 163.99214pt.
-(./tables0.tex
+ (./tables0.tex
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 1.
 
-
-LaTeX Warning: Reference `fig:communities' on page 3 undefined on input line 15
-.
-
-
-LaTeX Warning: Reference `fig:communities' on page 3 undefined on input line 15
-.
-
 )
+<network-img/4645.pdf, id=188, 867.24pt x 578.16pt>
+File: network-img/4645.pdf Graphic file (type pdf)
+<use network-img/4645.pdf>
+Package pdftex.def Info: network-img/4645.pdf  used on input line 121.
+(pdftex.def)             Requested size: 246.0pt x 163.99214pt.
 
-LaTeX Warning: Reference `fig:communities' on page 3 undefined on input line 13
-0.
 
+LaTeX Warning: Reference `fig:4645' on page 3 undefined on input line 126.
 
-LaTeX Warning: Reference `fig:tf' on page 3 undefined on input line 132.
-
-
-Package natbib Warning: Citation `otgaar_protecting_2020' on page 3 undefined o
-n input line 132.
-
+<network-img/1085.pdf, id=190, 867.24pt x 578.16pt>
+File: network-img/1085.pdf Graphic file (type pdf)
+<use network-img/1085.pdf>
+Package pdftex.def Info: network-img/1085.pdf  used on input line 131.
+(pdftex.def)             Requested size: 246.0pt x 163.99214pt.
 [3
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.135 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.133 
+l.135 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.133 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.133 
-       <./network-img/4645.pdf> <./network-img/1085.pdf> <./img/first-communiti
-es.pdf>]
-<img/communities-graph.pdf, id=299, 867.24pt x 578.16pt>
+l.135 
+       <./img/fig.pdf> <./img/first-communities.pdf> <./network-img/4645.pdf>]
+<img/communities-graph.pdf, id=354, 867.24pt x 578.16pt>
 File: img/communities-graph.pdf Graphic file (type pdf)
 <use img/communities-graph.pdf>
-Package pdftex.def Info: img/communities-graph.pdf  used on input line 140.
+Package pdftex.def Info: img/communities-graph.pdf  used on input line 146.
 (pdftex.def)             Requested size: 246.0pt x 163.99214pt.
-
-
-LaTeX Warning: Reference `fig:23comms' on page 4 undefined on input line 141.
-
-
-LaTeX Warning: Reference `tab:tfidf-comms' on page 4 undefined on input line 14
-1.
-
-
-LaTeX Warning: Reference `fig:23comms' on page 4 undefined on input line 141.
-
-
-LaTeX Warning: Reference `tab:tfidf-comms' on page 4 undefined on input line 14
-1.
-
-
-LaTeX Warning: Reference `intro' on page 4 undefined on input line 145.
-
-
-Underfull \hbox (badness 3417) in paragraph at lines 145--146
-[]\OT1/cmr/m/n/10 Community #1432 is mostly pa-pers about the
- []
-
-(./citations-img/example_citations.tex)
-
-LaTeX Warning: Reference `table:citations' on page 4 undefined on input line 15
-7.
-
-
-Package natbib Warning: Citation `brashierAgingEraFake2020' on page 4 undefined
- on input line 157.
 
 [4
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.158 
+l.150 
       
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.150 
+       <./network-img/1085.pdf>] (./citations-img/example_citations.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
+ []\OT1/cmr/m/n/10 Based on com-bat-ing mis-in-for-ma-tion, 
+ []
+
+
+Underfull \hbox (badness 1584) in paragraph at lines 168--169
+ \OT1/cmr/m/n/10 Lewandowsky et al. made nar-row rec- 
+ []
+
+
+Underfull \hbox (badness 5533) in paragraph at lines 168--169
+ \OT1/cmr/m/n/10 in-clud-ing the gen-er-al-iza-tion of in-oc-u-la- 
+ []
+
+
+Underfull \hbox (badness 2285) in paragraph at lines 168--169
+ \OT1/cmr/m/n/10 to be ef-fec-tive \they must not di-rectly 
+ []
+
+
+Underfull \hbox (badness 1226) in paragraph at lines 168--169
+ \OT1/cmr/m/n/10 de-cou-pled from the propen-sity to ac-cept 
+ []
+
+<img/citations.png, id=433, 1300.86pt x 650.43pt>
+File: img/citations.png Graphic file (type png)
+<use img/citations.png>
+Package pdftex.def Info: img/citations.png  used on input line 178.
+(pdftex.def)             Requested size: 246.0pt x 122.99742pt.
+[5
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.158 
-       <./img/communities-graph.pdf>]
-
-Package natbib Warning: Citation `gradyNeverthelessPartisanshipPersisted2021' o
-n page 5 undefined on input line 159.
-
-
-Package natbib Warning: Citation `murphyFalseMemoriesFake2019' on page 5 undefi
-ned on input line 159.
-
-<img/citations.png, id=351, 1300.86pt x 650.43pt>
-File: img/citations.png Graphic file (type png)
-<use img/citations.png>
-Package pdftex.def Info: img/citations.png  used on input line 163.
-(pdftex.def)             Requested size: 246.0pt x 122.99742pt.
-
-Package natbib Warning: Citation `broda_misinformation_2024' on page 5 undefine
-d on input line 176.
-
-
-Package natbib Warning: Citation `donovan_express_2025' on page 5 undefined on 
-input line 179.
-
-
-Package natbib Warning: Citation `' on page 5 undefined on input line 179.
-
-
-Package natbib Warning: Citation `perez-escolar_systematic_2023' on page 5 unde
-fined on input line 179.
-
-
-Package natbib Warning: Citation `miro-llinares_misinformation_2023' on page 5 
-undefined on input line 179.
-
-[5
-pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.180 
+l.195 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.180 
-       <./img/citations.png>]
-
-Package natbib Warning: Citation `hearst_qanon_2022' on page 6 undefined on inp
-ut line 183.
-
-
-Package natbib Warning: Citation `' on page 6 undefined on input line 183.
-
-
-Package natbib Warning: Citation `shewan_conviction_2015' on page 6 undefined o
-n input line 183.
-
-
-LaTeX Warning: Reference `intro' on page 6 undefined on input line 185.
-
-
-Package natbib Warning: Citation `loftus_reality_1993' on page 6 undefined on i
-nput line 185.
-
-
-Package natbib Warning: Citation `noauthor_elizabeth_2025' on page 6 undefined 
-on input line 191.
-
-
-Package natbib Warning: Citation `loftus_misinformation_2024' on page 6 undefin
-ed on input line 191.
-
-
-LaTeX Warning: Reference `fig:23comms' on page 6 undefined on input line 194.
-
-
-Package natbib Warning: Citation `nguyen_sources_2012' on page 6 undefined on i
-nput line 194.
-
-
-Package natbib Warning: Citation `feeld_qanon_2025' on page 6 undefined on inpu
-t line 196.
-
-
-Package natbib Warning: Citation `hearst_qanon_2022' on page 6 undefined on inp
-ut line 201.
-
-
-Package natbib Warning: Citation `' on page 6 undefined on input line 201.
-
-
-Package natbib Warning: Citation `broda_misinformation_2024' on page 6 undefine
-d on input line 203.
-
-
-Package natbib Warning: Citation `shewan_conviction_2015' on page 6 undefined o
-n input line 203.
-
-
-Underfull \hbox (badness 1178) in paragraph at lines 205--206
+l.195 
+       <./img/communities-graph.pdf> <./img/citations.png>] [6
+pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.213 T
+       o view the field this way, we argue, is to deprive its practitioners ...
+]
+Underfull \hbox (badness 1178) in paragraph at lines 220--221
  []\OT1/cmr/m/n/10 ... mis-in-for-ma-tion re-search re-sponded to the
  []
 
 
-Package natbib Warning: Citation `hearst_qanon_2022' on page 6 undefined on inp
-ut line 206.
+Package natbib Warning: Citation `' on page 7 undefined on input line 224.
+
+[7{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./main.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 57--63
+ []\OT1/cmr/m/n/9 R. L. Huen-e-mann, Com-bat-ing Food Mis-
+ []
 
 
-Package natbib Warning: Citation `shewan_conviction_2015' on page 6 undefined o
-n input line 206.
+Underfull \hbox (badness 10000) in paragraph at lines 57--63
+ \OT1/cmr/m/n/9 in-for-ma-tion and Quack-ery - Sci-enceDi-rect,
+ []
 
 
-Package natbib Warning: Citation `hearst_qanon_2022' on page 6 undefined on inp
-ut line 209.
+Overfull \hbox (130.19193pt too wide) in paragraph at lines 57--63
+ \OT1/cmr/m/n/9 https://www.sciencedirect.com/science/article/abs/pii/S00028223
+21161929?via%3Dihub
+ []
 
 
-Package natbib Warning: Citation `' on page 6 undefined on input line 209.
+Underfull \hbox (badness 1087) in paragraph at lines 124--132
+ []\OT1/cmr/m/n/9 G. Ey-sen-bach, In-fodemi-ol-ogy: The epi-demi-ol-ogy of
+ []
 
 
-LaTeX Warning: Reference `fig:citations' on page 6 undefined on input line 209.
+Underfull \hbox (badness 1199) in paragraph at lines 147--155
+ \OT1/cmr/m/n/9 of Twit-ter: Con-tent anal-y-sis of tweets dur-ing the
+ []
 
 
-
-Package natbib Warning: Citation `faedda_fake_2024' on page 6 undefined on inpu
-t line 211.
-
-[6{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-
-Package natbib Warning: Citation `grady_primary_2023' on page 7 undefined on in
-put line 213.
+Underfull \hbox (badness 1924) in paragraph at lines 147--155
+ \OT1/cmr/m/n/9 2009 H1N1 out-break, PLoS ONE \OT1/cmr/bx/n/9 5\OT1/cmr/m/n/9 ,
+ []10.1371/jour-
+ []
 
 
-LaTeX Warning: Reference `tab:tfidf-comms' on page 7 undefined on input line 23
-1.
+Underfull \hbox (badness 10000) in paragraph at lines 220--226
+ []\OT1/cmr/m/n/9 J. Dono-van, EX-PRESS: A Short His-tory of
+ []
 
 
-Package natbib Warning: Citation `akyuz_impact_2021' on page 7 undefined on inp
-ut line 231.
+Underfull \hbox (badness 10000) in paragraph at lines 220--226
+ \OT1/cmr/m/n/9 Misinformation-at-scale and Ef-forts to Mit-i-gate
+ []
 
 
-Package natbib Warning: Citation `stetka_have_2025' on page 7 undefined on inpu
-t line 231.
+Underfull \hbox (badness 6608) in paragraph at lines 220--226
+ \OT1/cmr/m/n/9 It, Jour-nal of Pub-lic Pol-icy and Mar-ket-ing \OT1/cmr/bx/n/9
+ 0\OT1/cmr/m/n/9 ,
+ []
 
+[8]
+Underfull \hbox (badness 1603) in paragraph at lines 368--373
+ []\OT1/cmr/m/n/9 D. She-wan, []Con-vic-tion of Things Not Seen: The
+ []
 
-Package natbib Warning: Citation `press_harvey_2020' on page 7 undefined on inp
-ut line 233.
-
-
-Package natbib Warning: Citation `marsh_how_2012' on page 7 undefined on input 
-line 233.
-
-
-Package natbib Warning: Citation `news_ghislaine_2021' on page 7 undefined on i
-nput line 233.
-
-
-Package natbib Warning: Citation `shewan_conviction_2015' on page 7 undefined o
-n input line 233.
-
-
-Package natbib Warning: Citation `porter_how_2009' on page 7 undefined on input
- line 233.
-
-
-Package natbib Warning: Citation `broda_misinformation_2024' on page 7 undefine
-d on input line 235.
-
-
-Package natbib Warning: Citation `porter_how_2009' on page 7 undefined on input
- line 237.
-
-No file main.bbl.
+)
 
 Package natbib Warning: There were undefined citations.
 
-[7] [8] (./main.aux)
+[9] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1243,26 +989,17 @@ L3 programming layer <2024-01-22>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  8D8F4ED3F5242438D0350C9A5D8BD6A3;1805.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: D3192855437A6E311F26A35EC466C05E;1911.
  ) 
 Here is how much of TeX's memory you used:
- 23490 strings out of 474222
- 427317 string characters out of 5748732
- 1952975 words of memory out of 5000000
- 45348 multiletter control sequences out of 15000+600000
+ 23716 strings out of 474222
+ 433453 string characters out of 5748732
+ 1960975 words of memory out of 5000000
+ 45521 multiletter control sequences out of 15000+600000
  565285 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,9n,93p,1500b,533s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,9n,93p,1497b,685s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
@@ -1272,11 +1009,12 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
 ype1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (8 pages, 458276 bytes).
+/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
+t10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (9 pages, 498397 bytes).
 PDF statistics:
- 436 PDF objects out of 1000 (max. 8388607)
- 125 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 500000)
- 48 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 690 PDF objects out of 1000 (max. 8388607)
+ 369 compressed objects within 4 object streams
+ 73 named destinations out of 1000 (max. 500000)
+ 152 words of extra memory for PDF output out of 10000 (max. 10000000)
 
