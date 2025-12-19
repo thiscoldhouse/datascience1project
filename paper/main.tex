@@ -41,7 +41,7 @@
 
 \section{Introduction}
 \label{intro}
-The term ``misinformation'' can be found in the academic literature of the 1950s, though it has none of the paradigm-defining weight it carries today. It is a relatively uncommon word, almost entirely used in medicine or public health. ``Combating Food Misinformation and Quackery''~\cite{huenemannCombatingFoodMisinformation}, for example, contains a familiar use of the term, and dates back to 1956. In the next year, however, we find ``Information and Misinformation Gained from Fasting Blood Sugar Alone in Diabetes Therapy''~\cite{johnInformationMisinformationGained1957}.
+The term ``misinformation'' can be found in the academic literature of the 1950s, though it has none of the paradigm-defining weight it carries today. It is a relatively uncommon word, almost entirely used in medicine or public health. ``Combating Food Misinformation and Quackery''~\cite{HUENEMANN1956623}, for example, contains a familiar use of the term, and dates back to 1956. In the next year, however, we find ``Information and Misinformation Gained from Fasting Blood Sugar Alone in Diabetes Therapy''~\cite{johnInformationMisinformationGained1957}.
 
 This trend continues through the 60s, with similar usage about the quality of information gained from some process, social or otherwise, albeit from increasingly diverse fields. Public health and medicine still dominate, but one finds, for example, ``A Model of the Soviet Firm''~\cite{gindinModelSovietFirm1970}, which discusses Soviet firms' attempts to correct for ``systematic misinformation'' by changing the incentives of compensation structure. In the 70s-90s, we start to see more specialized uses, with perhaps slightly divergent, more technical (if metaphorically-linked) meanings, like those associated with computation~\cite{michelCategoricalApproachDistributed1989}.
 
@@ -68,7 +68,7 @@ We conclude by noting the parallels between the ``misinformation effect'' resear
 
 \section{Data and Methods}
 
-Our primary database is a Scopus.com export of all papers with ``misinformation'' in any metadata from 2011–2023. We supplemented that with the opencitations.net API.
+Our primary database is a Scopus export of all papers with ``misinformation'' in any metadata field from 2011–2023. We supplemented that with the opencitations.net API.
 
 \subsection{Term Frequency}
 
@@ -83,7 +83,7 @@ For the community labels, we created a network of papers with each edge represen
 
 $$W(P_1, P_2) = \frac{1}{len(P_1.\text{authors}) \times len(P_2.\text{authors})}$$
 
-We ran Louvain community detection to create the Community labels.\footnote{We went with the default resolution of 1. Changing the resolution had a minimal effect on our analysis because it mostly affected the smaller communities and we are interested in the larger ones.} Our community labels represent a community of papers linked by common authors, not a more traditional (and intuitive) community of authors linked by common papers. We are less interested in the institutional dynamics of misinformation scholars than the history of a concept.
+We ran Louvain community detection to create the Community labels. Our community labels represent a community of papers linked by common authors, not a more traditional (and intuitive) community of authors linked by common papers. We are less interested in the institutional dynamics of misinformation scholars than the history of a concept.
 
 Our algorithm labeled 8033 distinct communities. 6797 are communities of just one paper, and the average number of papers in a community is 1.66. We looked at the two biggest paper-communities in every year, as well as all the biggest communities in 2023, and analyzed the citation flows between communities, which we show in Figure \ref{fig:citations} and discuss in Section \ref{results}.
 
@@ -109,7 +109,9 @@ Looking at tokens with the largest absolute frequency shift (Figure \ref{fig:tf}
 \end{figure}
 
 
-To our knowledge, however, the pre-2016 terms remain largely unexplained in misinformation histories and literature reviews. For example, in their literature review, \citet{broda_misinformation_2024} used a similar date range in their analysis as our own (2010-2021). Their dataset comes from Google Scholar, and they used keywords ``misinformation,'' ``disinformation,'' and ``fake news.'' They too find a similar explosion in the literature, and on a similar timeline, but their summary does not account for words like ``women,'' ``children,'' ``memory,'' and ``recall,'' though there are hints of the same phenomenon. When they break down the disciplines in which misinformation research is published, they find that the top 5 are Communication, Computer Science, Psychology, Political Science, and Economics. They note that the research in Psychology journals tends to focus on experiments, and that these experiments show broad themes. We discuss this in Section \ref{discussion}.
+To our knowledge, however, the pre-2016 terms remain largely unexplained in misinformation histories and literature reviews. For example, in their literature review, \citet{broda_misinformation_2024} used a similar date range in their analysis as our own (2010-2021). Their dataset comes from Google Scholar, and they used keywords ``misinformation,'' ``disinformation,'' and ``fake news.'' They too find a similar explosion in the literature, and on a similar timeline, but their summary does not account for words like ``women,'' ``children,'' ``memory,'' and ``recall,'' though there are hints of the same phenomenon.\footnote{
+This discrepancy seems to be, at least in part, an issue of data collection. They tried to find papers that had ``[a]t least one of the keywords ... present in title, keywords or abstract,'' but their Figure 1 shows virtually no papers until 2014. Even after, the number seems to be, at most, a couple dozen per year until past 2016. They also explain their difficulty in navigating Google Scholar's opaque algorithm, an increasingly common problem in computational studies~\cite{poudelCuratedRealitiesIntersection2025}. As discussed in Section~\ref{limitations}, this paper too suffers from a similar limitation, though from a different data source.
+} When they break down the disciplines in which misinformation research is published, they find that the top 5 are Communication, Computer Science, Psychology, Political Science, and Economics. They note that the research in Psychology journals tends to focus on experiments, and that these experiments show broad themes. We discuss this in Section \ref{discussion}.
 
 
 In short, we find that most summaries of the field tell its history as show in Figure \ref{fig:23comms}: They look at the most prominent strains of research today, then trace them back to their origin. Their analyses then flow from there. As a result, some histories explicitly define their inquiry to start with social media, defining a concept like ``misinformation-at-scale''~\cite{donovan_express_2025}.
@@ -232,13 +234,24 @@ Because Qanon is a social media phenomenon, and because the misinformation parad
     \item ... there was widespread social concern that  powerful malevolent forces are murdering innocent children~\cite{hearst_qanon_2022}~\cite{shewan_conviction_2015}.
 \end{itemize}
 
-As we argue in Section~\ref{results}, these parallels are not a coincidence. Today's paradigm inherits from many predecessors across many fields. Community \#1432 is one of many strands of research now brought together. We have focused on it because, of the primordial soup from which the modern conception of misinformation emerged, it was the most established, and, as we have argued, it is often excluded. Future work might focus on the many other threads that have woven together into what ``misinformation'' means today.
+\subsection{The Concept of ``Misinformation''}
+
+As discussed in Section~\ref{results}, these parallels are not a coincidence. Today's paradigm inherits from many predecessors across many fields. Community \#1432 is one of many strands of research now woven together. We have focused on it because, of the primordial soup from which the modern conception of misinformation emerged, it was the most established, and, as we have argued, it is often excluded.
+
+Just as important in this bundle of ideas is what is not included. MEDIA STUDIES GOES HERE
+
+These influences make up a concept of misinformation that is not at all obvious. At its core is a focus on an individual reading a piece of text. ADD POLITICAL ECONOMY AND CORPORATE INTERESTS HERE
+
+Future work might focus on the many other threads that have woven together into what ``misinformation'' means today.
 
 \subsection{Limitations}
+\label{limitations}
 
-Our methodology depends entirely on the keyword ``misinformation.'' It could have been that researchers using the modern misinformation paradigm simply happened upon the same term as those in group \#1432 with no conceptual ties. Conversely, researchers might have used a different term entirely while drawing heavily on \#1432's  work, either directly or indirectly. We have argued that there is a lineage, showing ties that extend beyond citations, but through the concepts discussed in various papers. 
+With the exception of citations, all our data comes from a Scopus export. Much computational social science work relies on data derived from opaque, proprietary systems, and therefore risks systematic distortion~\cite{poudelCuratedRealitiesIntersection2025}. In our case, Scopus's search is opaque to us. Our arguments, however, rely on the existence of the data, especially the pre-2016 data, not necessary its completeness.
 
-Our methodology also restricted itself to the academic literature. As Figure~\ref{fig:twitter} hints, the term's meteoric rise in popularity is in no way restricted to the academy. We hope, in future work, to further explore how and why the term ``misinformation'' came to define the paradigm. Doing so would require an analysis that extends beyond journal articles.
+Our methodology also depends entirely on the keyword ``misinformation.'' It could have been that researchers using the modern misinformation paradigm simply happened upon the same term as those in group \#1432 with no conceptual ties. Conversely, researchers might have used a different term entirely while drawing heavily on \#1432's  work, either directly or indirectly. We have argued that there is a lineage, showing ties that extend beyond citations, but through the concepts discussed in various papers. 
+
+Finally, our analysis restricted itself to the academic literature. As Figure~\ref{fig:twitter} shows, the term's meteoric rise in popularity is in no way restricted to the academy. Though impossible to compare directly due to their fundamentally different temporal characteristics, comparing Figure~\ref{fig:twitter} to ~\ref{fig:tf} suggests that these either developed in parallel, or it could be that academics brought the term from other parts of public life.  We hope, in future work, to further explore how and why the term ``misinformation'' came to define the paradigm. Doing so would require an analysis that extends beyond journal articles.
 
 
 \subsection{Conclusion}
