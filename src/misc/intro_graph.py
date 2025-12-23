@@ -46,7 +46,7 @@ ax.axvline(
     pd.Timestamp('2016-11-08'),
     linestyle=':',
     linewidth=1,
-    color=after_color,
+    color=before_color,
     label="November 8, 2016"
 )
 

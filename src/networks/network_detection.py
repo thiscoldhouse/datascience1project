@@ -3,6 +3,8 @@ from nltk import bigrams as find_bigrams, word_tokenize, sent_tokenize, trigrams
 import textwrap
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
+import matplotlib as mpl
+mpl.rcParams.update({'font.size': 18})
 from sqlalchemy import create_engine, desc, func
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql import functions
@@ -150,8 +152,8 @@ def make_graph(
         for i, term in enumerate(terms):
             if i == n:
                 label = f'{label}\n'
-            label = f'{label}{term}, '
-        return label[:-1]
+            label = f'{label}{term}, '            
+        return label[:-2]
             
     if relabel is True:
         label_papers_by_community()
@@ -225,12 +227,12 @@ def make_graph(
             )
             plotdf.rename(
                 columns={
-                    plotdf.columns[i]: f'Communitiy #{new_name}'
+                    plotdf.columns[i]: f'#{new_name}'
                 },
                 inplace=True
             )
 
-    fig, ax = plt.subplots(figsize=(12,8))
+    fig, ax = plt.subplots(figsize=(8,6))
     axes = [ax]
     fig.patch.set_facecolor(background_color)
     plotdf.plot(        
@@ -241,7 +243,8 @@ def make_graph(
         xlabel='Year',
         ylabel='# of papers',
     )
-    
+
+    tables = []
     tfidf_table = pd.DataFrame({
         'Community': [
             c for c in communities
@@ -259,6 +262,7 @@ def make_graph(
         #     for c in communities
         # ],
     })
+    tables.append(tfidf_table)
     
     with open(tables_dests[0], 'w') as f:
         f.write(
@@ -314,7 +318,7 @@ def make_graph(
         community_ngrams(ngram_finder=find_trigrams)
     )
 
-    fig, ax = plt.subplots(figsize=(12,8))
+    fig, ax = plt.subplots(figsize=(8,6))
     axes.append(ax)
     fig.patch.set_facecolor(background_color)
 
@@ -339,7 +343,7 @@ def make_graph(
             )
             plotdf.rename(
                 columns={
-                    plotdf.columns[i]: new_name
+                    plotdf.columns[i]: f'#{new_name}'
                 },
                 inplace=True
             )            
@@ -354,13 +358,15 @@ def make_graph(
         
     )
 
+    print(axes)
     for i, ax in enumerate(axes):
-        ax.xaxis.label.set_fontsize(22)
-        ax.yaxis.label.set_fontsize(22)
+        # ax.xaxis.label.set_fontsize(22)
+        # ax.yaxis.label.set_fontsize(22)
         ax.spines['top'].set_visible(False)
         ax.spines['right'].set_visible(False)
+        print('here1')
         ax.set_facecolor(background_color)
-        ax.tick_params(colors=text_color, labelsize=22)
+        ax.tick_params(colors=text_color)
         ax.xaxis.label.set_color(text_color)
         ax.yaxis.label.set_color(text_color)
         leg = ax.get_legend()
@@ -368,16 +374,17 @@ def make_graph(
         leg.get_frame().set_edgecolor(background_color)
         leg.get_frame().set_edgecolor(background_color)
         leg.get_frame().set_alpha(0)
-        leg.handlelength = 2
-        leg.handleheight = .6
-        leg.handletextpad = .5
-        leg.labelspacing = .4
         for text in leg.get_texts():
             text.set_color(text_color)
-            text.set_fontsize(17)
+            text.set_fontsize(14)
         for spine in ax.spines.values():
             spine.set_color(text_color)
 
+        ax.set_xlabel("Year", fontsize=16)
+        ax.set_ylabel("# of Papers", fontsize=16)
+        ax.tick_params(labelsize=14)
+
+        plt.tight_layout()
         fig = ax.get_figure()
         fig.savefig(graph_dests[i])                    
     
@@ -390,22 +397,30 @@ def make_graph(
             ', '.join(community_to_tfidf[c][:n_terms])
             for c in communities
         ],
-        f'Top bigrams': [
-            ', '.join(community_to_bigrams[c][:n_terms])
-            for c in communities
-        ],
-        f'Top trigrams': [
-            ', '.join(community_to_trigrams[c][:n_terms])
-            for c in communities
-        ],
+        # f'Top bigrams': [
+        #     ', '.join(community_to_bigrams[c][:n_terms])
+        #     for c in communities
+        # ],
+        # f'Top trigrams': [
+        #     ', '.join(community_to_trigrams[c][:n_terms])
+        #     for c in communities
+        # ],
     })
+    tables.append(tfidf_table)
     
     with open(tables_dests[1], 'w') as f:
         f.write(
             tfidf_table.to_latex(index=False)
         )
 
-        
+    tables = pd.concat([tables[0], tables[1]])
+    tables = tables.drop_duplicates()
+    with open(tables_dests[2], 'w') as f:
+        f.write(
+            tables.to_latex(index=False)
+        )
+
+
 def community_ngrams(ngram_finder=None):
     if ngram_finder is None:
         ngram_finder = find_bigrams
@@ -442,10 +457,13 @@ def community_ngrams(ngram_finder=None):
         )
         yield [b[0] for b in bigrams]
 
-
         
 if __name__ == '__main__':
-    make_graph(top_n=TOP_N, n_initial_communities=N_INITIAL_COMMUNITIES, relabel=False)
+    make_graph(
+        top_n=TOP_N,
+        n_initial_communities=N_INITIAL_COMMUNITIES,
+        relabel=False
+    )
             
             
         

@@ -50,9 +50,8 @@ def axconfig(ax):
             
     ax.set_xlabel("Year", fontsize=14)
     ax.set_ylabel("# of Papers", fontsize=14)
-    ax.tick_params(labelsize=14)    
-
-
+    ax.tick_params(labelsize=14)
+    
 
 def make_graph1(community=4645):
     dest = f'output/{community}.pdf'
