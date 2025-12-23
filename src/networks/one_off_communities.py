@@ -1,7 +1,7 @@
 from config import(
     background_color,
     before_color,
-    after_color,
+    before_color,
     text_color
 )
 import pandas as pd
@@ -37,6 +37,23 @@ def reformat_title(title, n=4):
     return new_title.strip()
 
 
+def axconfig(ax):
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.set_facecolor(background_color)
+    ax.tick_params(colors=text_color)
+    ax.xaxis.label.set_color(text_color)
+    ax.yaxis.label.set_color(text_color)
+    
+    for spine in ax.spines.values():
+        spine.set_color(text_color)
+            
+    ax.set_xlabel("Year", fontsize=14)
+    ax.set_ylabel("# of Papers", fontsize=14)
+    ax.tick_params(labelsize=14)    
+
+
+
 def make_graph1(community=4645):
     dest = f'output/{community}.pdf'
     session = SessionFactory()
@@ -47,7 +64,7 @@ def make_graph1(community=4645):
         papers,
         key=lambda p: p.year
     )
-    fig, ax = plt.subplots(figsize=(12,8))
+    fig, ax = plt.subplots(figsize=(7,6))
     fig.patch.set_facecolor(background_color)
     counts = pd.Series([
         p.year for p in papers
@@ -57,21 +74,21 @@ def make_graph1(community=4645):
         color=text_color,
         marker='o',
         markersize=5,
-        markerfacecolor=before_color,
-        markeredgecolor=before_color,
+        markerfacecolor=text_color,
+        markeredgecolor=text_color,
         markeredgewidth=0.5,
         legend=False,
         lw=3
     )
     
     ax.annotate(
-        reformat_title(papers[0].title),
+        reformat_title(papers[0].title, n=2),
         xy=(papers[0].year, len([
             p for p in papers if p.year==papers[0].year
         ])),
-        xytext=(0, 200),
+        xytext=(-10, 100),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
@@ -80,65 +97,48 @@ def make_graph1(community=4645):
         xy=(papers[1].year, len([
             p for p in papers if p.year==papers[1].year
         ])),
-        xytext=(-70, 250),
+        xytext=(-95, 200),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
     ax.annotate(
-        reformat_title(papers[2].title),
+        reformat_title(papers[2].title, n=3),
         xy=(papers[2].year, len([
             p for p in papers if p.year==papers[2].year
         ])),
-        xytext=(-20, 120),
+        xytext=(-35, 100),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
 
     ax.annotate(
-        reformat_title(papers[10].title),
+        reformat_title(papers[10].title, n=2),
         xy=(papers[10].year, len([
             p for p in papers if p.year==papers[10].year
         ])),
-        xytext=(60, -20),
+        xytext=(18, -10),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
     ax.annotate(
-        reformat_title(papers[22].title,n=3),
+        reformat_title(papers[22].title,n=2),
         xy=(papers[22].year, len([
             p for p in papers if p.year==papers[22].year
         ])),
-        xytext=(5, 150),
+        xytext=(-40, 50),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
     
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
-    ax.set_facecolor(background_color)
-    ax.tick_params(colors=text_color)
-    ax.xaxis.label.set_color(text_color)
-    ax.yaxis.label.set_color(text_color)
-    ax.axvline(
-        2020,
-        linestyle=':',
-        linewidth=1,
-        color=after_color,
-        
-    )
-    for spine in ax.spines.values():
-        spine.set_color(text_color)
-            
-    ax.set_xlabel("Year")
-    ax.set_ylabel("# of Papers")
+    axconfig(ax)
     plt.savefig(dest)
 
 
@@ -152,7 +152,7 @@ def make_graph2(community=1085):
         papers,
         key=lambda p: p.year
     )
-    fig, ax = plt.subplots(figsize=(12,8))
+    fig, ax = plt.subplots(figsize=(7,6))
     fig.patch.set_facecolor(background_color)
     counts = pd.Series([
         p.year for p in papers
@@ -162,21 +162,21 @@ def make_graph2(community=1085):
         color=text_color,
         marker='o',
         markersize=5,
-        markerfacecolor=before_color,
-        markeredgecolor=before_color,
+        markerfacecolor=text_color,
+        markeredgecolor=text_color,
         markeredgewidth=0.5,
         legend=False,
         lw=3
     )
     
     ax.annotate(
-        reformat_title(papers[0].title, n=3),
+        reformat_title(papers[0].title, n=2),
         xy=(papers[0].year, len([
             p for p in papers if p.year==papers[0].year
         ])),
-        xytext=(0, 200),
+        xytext=(-5, 50),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
@@ -185,35 +185,35 @@ def make_graph2(community=1085):
         xy=(papers[1].year, len([
             p for p in papers if p.year==papers[1].year
         ])),
-        xytext=(-30, 290),
+        xytext=(-40, 200),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
     ax.annotate(
-        reformat_title(papers[2].title),
+        reformat_title(papers[2].title, n=3),
         xy=(papers[2].year, len([
             p for p in papers if p.year==papers[2].year
         ])),
-        xytext=(-20, 120),
+        xytext=(-15, 90),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
 
-    ax.annotate(
-        reformat_title(papers[10].title),
-        xy=(papers[10].year, len([
-            p for p in papers if p.year==papers[10].year
-        ])),
-        xytext=(60, -20),
-        textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
-        fontsize=12,
-        color=text_color
-    )
+    # ax.annotate(
+    #     reformat_title(papers[10].title),
+    #     xy=(papers[10].year, len([
+    #         p for p in papers if p.year==papers[10].year
+    #     ])),
+    #     xytext=(60, -20),
+    #     textcoords='offset points',
+    #     arrowprops=dict(arrowstyle='->', color=before_color),
+    #     fontsize=12,
+    #     color=text_color
+    # )
     ax.annotate(
         reformat_title(papers[22].title,n=3),
         xy=(papers[22].year, len([
@@ -221,34 +221,24 @@ def make_graph2(community=1085):
         ])),
         xytext=(5, -100),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
     
     ax.annotate(
-        reformat_title(papers[-2].title,n=3),
+        reformat_title(papers[-2].title, n=3),
         xy=(papers[-2].year, len([
             p for p in papers if p.year==papers[-2].year
         ])),
-        xytext=(-150, -30),
+        xytext=(-210, 100),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
     
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
-    ax.set_facecolor(background_color)
-    ax.tick_params(colors=text_color)
-    ax.xaxis.label.set_color(text_color)
-    ax.yaxis.label.set_color(text_color)
-    for spine in ax.spines.values():
-        spine.set_color(text_color)
-            
-    ax.set_xlabel("Year")
-    ax.set_ylabel("# of Papers")
+    axconfig(ax)
     plt.savefig(dest)
 
 
@@ -262,7 +252,7 @@ def make_graph3(community=1432):
         papers,
         key=lambda p: p.year
     )
-    fig, ax = plt.subplots(figsize=(12,8))
+    fig, ax = plt.subplots(figsize=(7,6))
     fig.patch.set_facecolor(background_color)
     counts = pd.Series([
         p.year for p in papers
@@ -272,8 +262,8 @@ def make_graph3(community=1432):
         color=text_color,
         marker='o',
         markersize=5,
-        markerfacecolor=before_color,
-        markeredgecolor=before_color,
+        markerfacecolor=text_color,
+        markeredgecolor=text_color,
         markeredgewidth=0.5,
         legend=False,
         lw=3
@@ -286,7 +276,7 @@ def make_graph3(community=1432):
         ])),
         xytext=(0, 90),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
@@ -297,7 +287,7 @@ def make_graph3(community=1432):
         ])),
         xytext=(0, -200),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
@@ -308,7 +298,7 @@ def make_graph3(community=1432):
         ])),
         xytext=(0, 100),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
@@ -320,7 +310,7 @@ def make_graph3(community=1432):
         ])),
         xytext=(20, -150),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
@@ -331,7 +321,7 @@ def make_graph3(community=1432):
         ])),
         xytext=(-50, 50),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
@@ -342,7 +332,7 @@ def make_graph3(community=1432):
         ])),
         xytext=(40, 0),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
@@ -354,7 +344,7 @@ def make_graph3(community=1432):
         ])),
         xytext=(5, -100),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
@@ -366,23 +356,12 @@ def make_graph3(community=1432):
         ])),
         xytext=(-250, -30),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
     
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
-    ax.set_facecolor(background_color)
-    ax.tick_params(colors=text_color)
-    ax.xaxis.label.set_color(text_color)
-    ax.yaxis.label.set_color(text_color)
-    ax.set_ylim(bottom=0)
-    for spine in ax.spines.values():
-        spine.set_color(text_color)
-            
-    ax.set_xlabel("Year")
-    ax.set_ylabel("# of Papers")
+    axconfig(ax)
     plt.savefig(dest)
         
 def make_graph4(community=6075):
@@ -395,7 +374,7 @@ def make_graph4(community=6075):
         papers,
         key=lambda p: p.year
     )
-    fig, ax = plt.subplots(figsize=(12,8))
+    fig, ax = plt.subplots(figsize=(7,6))
     fig.patch.set_facecolor(background_color)
     counts = pd.Series([
         p.year for p in papers
@@ -405,8 +384,8 @@ def make_graph4(community=6075):
         color=text_color,
         marker='o',
         markersize=5,
-        markerfacecolor=before_color,
-        markeredgecolor=before_color,
+        markerfacecolor=text_color,
+        markeredgecolor=text_color,
         markeredgewidth=0.5,
         legend=False,        
         lw=3
@@ -419,7 +398,7 @@ def make_graph4(community=6075):
         ])),
         xytext=(0, 90),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
@@ -430,7 +409,7 @@ def make_graph4(community=6075):
         ])),
         xytext=(-70, 200),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
@@ -441,7 +420,7 @@ def make_graph4(community=6075):
         ])),
         xytext=(-100, 150),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
@@ -453,7 +432,7 @@ def make_graph4(community=6075):
         ])),
         xytext=(20, -150),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
@@ -464,7 +443,7 @@ def make_graph4(community=6075):
         ])),
         xytext=(-260, 50),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
@@ -475,7 +454,7 @@ def make_graph4(community=6075):
         ])),
         xytext=(-10, 20),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
@@ -487,7 +466,7 @@ def make_graph4(community=6075):
         ])),
         xytext=(-20, -100),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
@@ -499,23 +478,12 @@ def make_graph4(community=6075):
         ])),
         xytext=(-150, -30),
         textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=after_color),
+        arrowprops=dict(arrowstyle='->', color=before_color),
         fontsize=12,
         color=text_color
     )
     
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
-    ax.set_facecolor(background_color)
-    ax.tick_params(colors=text_color)
-    ax.xaxis.label.set_color(text_color)
-    ax.yaxis.label.set_color(text_color)
-    ax.set_ylim(bottom=0)
-    for spine in ax.spines.values():
-        spine.set_color(text_color)
-            
-    ax.set_xlabel("Year")
-    ax.set_ylabel("# of Papers")
+    axconfig(ax)
     plt.savefig(dest)
         
 if __name__ == '__main__':

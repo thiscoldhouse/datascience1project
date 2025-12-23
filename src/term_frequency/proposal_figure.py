@@ -9,6 +9,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import seaborn as sns
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
+import matplotlib as mpl
+
 
 from config import (
     before_color,
@@ -164,7 +166,7 @@ def make_figure(
         destination=None
 ):
     fig = plt.figure(
-        figsize=(20, 15),
+        figsize=(16, 12),
         facecolor=background_color
     )
     gs = gridspec.GridSpec(2, 2, width_ratios=[8,1])
@@ -191,7 +193,7 @@ def make_figure(
     fullbow = ' '.join(dftotal['text'] + dftotal['text'])
     top_bigrams_list = top_bigrams(
         fullbow,
-        top_n_bigrams=400,
+        top_n_bigrams=1000,
         min_freq=100,
     )
     bow1 = pd.DataFrame({
@@ -233,12 +235,16 @@ def make_figure(
         lambda x: after_color if x > 0 else before_color
     )
     
-    barplotdf["divergence"] = barplotdf["divergence"] * 100
-    
+    barplotdf["divergence"] = barplotdf["divergence"] * 100 * -1
+    axes[2].set_xticks([
+        barplotdf['divergence'].min(),
+        barplotdf['divergence'].max()
+    ])
     axes[2].barh(barplotdf["word"], barplotdf["divergence"], color=colors)
     axes[2].axvline(0, color=text_color, linewidth=1)
     axes[2].set_title("ΔFrequency x 100")
-    axes[2].invert_yaxis()    
+    axes[2].invert_yaxis()
+    axes[2].tick_params(axis='x', labelsize=8)
     
     
     before = merged.sort_values(
@@ -313,15 +319,15 @@ def make_figure(
     axes[0].set(xlabel = "Year")
     axes[0].set(ylabel="% of papers")
     axes[0].legend(
-        [f"Contains at least one of: {', '.join(before[:3])},...",
-         f"Contains at least one of: {', '.join(after[:3])},...",],
+        [f"Contains at least one of: {', '.join(before[:2])},...",
+         f"Contains at least one of: {', '.join(after[:2])},...",],
         facecolor=background_color,
     )
                    
 
     agg = counts.groupby('Year').apply(lambda x: pd.Series({
-        f"Contains at least one of: {', '.join(before[:3])},..." : ((x['has_before']) & (~x['has_after'])).sum(),
-        f"Contains at least one of: {', '.join(after[:3])},..." : ((x['has_after']) & (~x['has_before'])).sum(),
+        f"Contains at least one of: {', '.join(before[:2])},..." : ((x['has_before']) & (~x['has_after'])).sum(),
+        f"Contains at least one of: {', '.join(after[:2])},..." : ((x['has_after']) & (~x['has_before'])).sum(),
         "Contains at least one of each": (x['has_before'] & x['has_after']).sum()
     }))
     
@@ -352,8 +358,8 @@ def make_figure(
         background_color
     )
     plt.suptitle(
-        f"Misinformation Research Before and After 2016",
-        fontsize=18,
+        f"Term Frequencies Before/After 2016",
+#        fontsize=18,
         color=text_color
     )    
     sns.despine()
@@ -367,7 +373,8 @@ def make_figure(
             
     if destination is not None:
         plt.savefig(destination)
-    plt.show()
+    else:
+        plt.show()
 
 def make_figure_wrapper(path_to_csv, destination):
     df = pd.read_csv(path_to_csv)

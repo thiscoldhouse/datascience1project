@@ -2,6 +2,7 @@ RESOLUTION = 1
 TOP_N = 2
 n_terms_for_table = 20
 N_INITIAL_COMMUNITIES = 10
+N_TFIDF_LABEL = 3
 MIN_COMMUNITY_PAPERS = 10
 tables_dests = (
     'output/tables0.tex',

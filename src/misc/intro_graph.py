@@ -1,5 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib as mpl
+mpl.rcParams.update({'font.size': 15})
 
 # --- config --- #
 

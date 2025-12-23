@@ -107,13 +107,15 @@ def citation_flows():
         ['source_comm', 'target_comm']
     ).size().reset_index(name='weight')
 
-    fig, axes = plt.subplots(
-        1, 2,
-        figsize=(18, 9),
-        facecolor=background_color
-    )
-    ax1, ax2 = axes
-    
+    # fig, axes = plt.subplots(
+    #     1, 2,
+    #     figsize=(18, 9),
+    #     facecolor=background_color
+    # )
+    # ax1, ax2 = axes
+
+    fig, ax2 = plt.subplots(figsize=(12,10))
+    axes = [ax2]
     # ========= heatmap ====== #
 
     heatmapdf = flow.pivot_table(
@@ -167,64 +169,64 @@ def citation_flows():
     ax2.set_ylabel("Target Community", fontsize=24)
     ax2.set_title("Citations: Source to Target", fontsize=24)
 
-    # ======== graph ========= #
+    # # ======== graph ========= #
     
-    G = nx.DiGraph()
-    G.add_nodes_from(
-        flow['source_comm'].unique()
-    )
-    for row in flow.iterrows():
-        G.add_edge(
-            int(row[1].source_comm),
-            int(row[1].target_comm),
-            weight=int(row[1].weight)
-        )
+    # G = nx.DiGraph()
+    # G.add_nodes_from(
+    #     flow['source_comm'].unique()
+    # )
+    # for row in flow.iterrows():
+    #     G.add_edge(
+    #         int(row[1].source_comm),
+    #         int(row[1].target_comm),
+    #         weight=int(row[1].weight)
+    #     )
 
-    pos = nx.circular_layout(G)
-    node_sizes = [
-        len(
-            session.query(Paper.doi).filter(
-                Paper.community==int(c)
-            ).all()
-        ) for c in G.nodes()        
-    ]
-    node_sizes = [
-        int(s * 22)
-        for s in node_sizes
-    ]
-    nx.draw_networkx_nodes(
-        G,
-        pos,
-        ax=ax1,
-        node_color= [
-            before_color if int(node) != 1432 else after_color
-            for node in G.nodes()
-        ],
-        node_size=node_sizes,
-    )
-    nx.draw_networkx_labels(
-        G,
-        pos,
-        ax=ax1,
-        font_size=22,
-        font_color="black"
-    )
-    weights = [G[u][v]["weight"] for u, v in G.edges()]
-    weights = [
-        np.log(w)  for w in weights
-    ]    
-    nx.draw_networkx_edges(
-        G,
-        pos,
-        ax=ax1,
-        arrows=True,
-        width=weights,
-        arrowsize=20,
-        min_source_margin=20,
-        min_target_margin=20,
-        connectionstyle='arc3,rad=0.3',
-        edge_color=text_color
-    )
+    # pos = nx.circular_layout(G)
+    # node_sizes = [
+    #     len(
+    #         session.query(Paper.doi).filter(
+    #             Paper.community==int(c)
+    #         ).all()
+    #     ) for c in G.nodes()        
+    # ]
+    # node_sizes = [
+    #     int(s * 22)
+    #     for s in node_sizes
+    # ]
+    # nx.draw_networkx_nodes(
+    #     G,
+    #     pos,
+    #     ax=ax1,
+    #     node_color= [
+    #         before_color if int(node) != 1432 else after_color
+    #         for node in G.nodes()
+    #     ],
+    #     node_size=node_sizes,
+    # )
+    # nx.draw_networkx_labels(
+    #     G,
+    #     pos,
+    #     ax=ax1,
+    #     font_size=22,
+    #     font_color="black"
+    # )
+    # weights = [G[u][v]["weight"] for u, v in G.edges()]
+    # weights = [
+    #     np.log(w)  for w in weights
+    # ]    
+    # nx.draw_networkx_edges(
+    #     G,
+    #     pos,
+    #     ax=ax1,
+    #     arrows=True,
+    #     width=weights,
+    #     arrowsize=20,
+    #     min_source_margin=20,
+    #     min_target_margin=20,
+    #     connectionstyle='arc3,rad=0.3',
+    #     edge_color=text_color
+    # )
     for ax in axes:
         for spine in ax.spines.values():
             spine.set_color(text_color)        

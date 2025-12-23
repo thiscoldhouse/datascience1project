@@ -92,18 +92,18 @@ Our algorithm labeled 8033 distinct communities. 6797 are communities of just on
 
 After 2016, there is an explosion of the use of the word ``misinformation'' in academic literature. In 2011, the first year in our dataset, there were only 118 papers containing the term anywhere in their metadata. In 2023, there were 3380, or 28 times as many, and the post-2016 corpus contains 20 times as many papers as the pre-2016 one.
 
-\begin{figure}[H]
+\begin{figure*}
 \centering
-\includegraphics[width=\linewidth]{img/fig.pdf}
+\includegraphics[width=\textwidth]{term_frequency-img/fig.pdf}
 \caption{Words with largest absolute frequency shifts before and after 2016 are on the right. We tagged all papers as having one from either or one of each. The top-left graph shows papers that have at least one word from that set of words as an annual percentage (some papers use both, so percentages do not add up to 100\%); the bottom one is the raw counts of all papers in the data.}
 \label{fig:tf}
-\end{figure}
+\end{figure*}
 
 Looking at tokens with the largest absolute frequency shift (Figure \ref{fig:tf}), the post-2016 words are those that we in 2025 expect in misinformation literature, like ``social media,'' ``pandemic,'' ``fake news,'' etc. As discussed in our introduction, these findings on the post-2016 explosion, as well as the topics of study (e.g. social media and the pandemic), are similar to those found in literature reviews~\cite{broda_misinformation_2024}, histories of misinformation~\cite{donovan_express_2025}, and academic summaries~\cite{posetti_short_2018} of the misinformation literature.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\linewidth]{img/first-communities.pdf}
+\includegraphics[width=\linewidth]{network-img/first-communities.pdf}
 \caption{The number of papers in the top 10 paper-communities throughout the duration of our dataset. Each community is labeled with its top TF-IDF terms.}
 \label{fig:23comms}
 \end{figure}
@@ -122,7 +122,7 @@ In short, we find that most summaries of the field tell its history as show in F
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{network-img/4645.pdf}
-\caption{An example of community \#4645's population (2011-2023), showing how human behavior research moves toward misinformation on social media over time.}
+\caption{Community \#4645's population from 2011-2023. Note the gradual evolution toward paradigmatic misinformation research.}
 \label{fig:4645}
 \end{figure}
 
@@ -132,7 +132,7 @@ This commonly-employed nihilogony ignores the several strands of research the mo
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{network-img/1085.pdf}
-\caption{An example community's (\#1085) population (2011-2023), showing how research on relationships with healthcare moves toward social media misinformation over time.}
+\caption{Community \#1085's population from 2011-2023. Note the gradual evolution from public health toward more paradigmatic misinformation research.}
 \label{fig:1085}
 \end{figure}
 
@@ -146,7 +146,7 @@ If, instead of looking at the biggest communities of 2023 back through time, we 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\linewidth]{img/communities-graph.pdf}
+\includegraphics[width=\linewidth]{network-img/communities-graph.pdf}
 \caption{Similar to Figure \ref{fig:23comms}, this is number of papers per year from the two biggest communities in each year in the dataset. Note that the same community often appears in the top 2 for many years, which is why there are fewer than might be expected). Each community is again labeled with its top TF-IDF terms. For the rest of the TF-IDF terms, see Table \ref{tab:tfidf-comms}}
 \label{fig:communities}
 \end{figure}
@@ -190,8 +190,8 @@ This is a classic Loftus experimental setup, but merging with the new language o
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\linewidth]{img/citations.png}
-\caption{Citation network and source/target heat map illustrating citation patterns between key research communities. The sizes of the nodes and edges represent the size of the communities and the number of citations respectively.}
+\includegraphics[width=1\linewidth]{citations-img/citations.png}
+\caption{A citation flows from a ``source'' paper to a ``target'' paper if the ``source'' paper cites the ``target'' paper in its references.}
 \label{fig:citations}
 \end{figure}
 

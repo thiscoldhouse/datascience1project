@@ -16,6 +16,7 @@ from config import(
     TOP_N,
     n_terms_for_table as n_terms,
     N_INITIAL_COMMUNITIES,
+    N_TFIDF_LABEL,
     colors,
     MIN_COMMUNITY_PAPERS,
     tables_dests,
@@ -219,7 +220,7 @@ def make_graph(
                     make_label([
                         tfidf
                         for tfidf in community_to_tfidf[column]
-                    ][:5])
+                    ][:N_TFIDF_LABEL])
                 )
             )
             plotdf.rename(
@@ -333,7 +334,7 @@ def make_graph(
                     make_label([
                         tfidf
                         for tfidf in community_to_tfidf[column]
-                    ][:5])
+                    ][:N_TFIDF_LABEL])
                 )
             )
             plotdf.rename(
@@ -373,7 +374,7 @@ def make_graph(
         leg.labelspacing = .4
         for text in leg.get_texts():
             text.set_color(text_color)
-            text.set_fontsize(14)
+            text.set_fontsize(17)
         for spine in ax.spines.values():
             spine.set_color(text_color)
 
