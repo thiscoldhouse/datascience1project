@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.11)  3 JAN 2026 06:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.11)  8 JAN 2026 15:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -770,173 +770,171 @@ e
 Class revtex4-2 Info: Taking \maketitle back from hyperref on input line 27.
 \openout3 = `mainNotes.bib'.
 
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<misc-img/storywrangler.pdf, id=112, 578.16pt x 433.62pt>
+<misc-img/storywrangler.pdf, id=71, 578.16pt x 433.62pt>
 File: misc-img/storywrangler.pdf Graphic file (type pdf)
 <use misc-img/storywrangler.pdf>
-Package pdftex.def Info: misc-img/storywrangler.pdf  used on input line 65.
+Package pdftex.def Info: misc-img/storywrangler.pdf  used on input line 54.
 (pdftex.def)             Requested size: 246.0pt x 184.49448pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.65 
+      <./misc-img/storywrangler.pdf>]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 81.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<misc-img/zipf.pdf, id=120, 505.89pt x 433.62pt>
+<misc-img/zipf.pdf, id=162, 505.89pt x 433.62pt>
 File: misc-img/zipf.pdf Graphic file (type pdf)
 <use misc-img/zipf.pdf>
-Package pdftex.def Info: misc-img/zipf.pdf  used on input line 92.
+Package pdftex.def Info: misc-img/zipf.pdf  used on input line 93.
 (pdftex.def)             Requested size: 246.0pt x 210.86124pt.
-<term_frequency-img/fig.pdf, id=123, 650.43pt x 433.62pt>
-File: term_frequency-img/fig.pdf Graphic file (type pdf)
-<use term_frequency-img/fig.pdf>
-Package pdftex.def Info: term_frequency-img/fig.pdf  used on input line 107.
-(pdftex.def)             Requested size: 433.50311pt x 289.00871pt.
  [2
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.113 
-       <./misc-img/storywrangler.pdf>]
-
-LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 113.
-
-<network-img/first-communities.pdf, id=187, 578.16pt x 433.62pt>
+l.100 
+       <./misc-img/zipf.pdf>]
+<term_frequency-img/fig.pdf, id=216, 650.43pt x 433.62pt>
+File: term_frequency-img/fig.pdf Graphic file (type pdf)
+<use term_frequency-img/fig.pdf>
+Package pdftex.def Info: term_frequency-img/fig.pdf  used on input line 112.
+(pdftex.def)             Requested size: 458.99689pt x 306.0065pt.
+<network-img/first-communities.pdf, id=224, 578.16pt x 433.62pt>
 File: network-img/first-communities.pdf Graphic file (type pdf)
 <use network-img/first-communities.pdf>
 Package pdftex.def Info: network-img/first-communities.pdf  used on input line 
-116.
+125.
 (pdftex.def)             Requested size: 246.0pt x 184.49448pt.
-(./tables0.tex
+ (./tables0.tex
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 1.
 
 )
-<network-img/4645.pdf, id=195, 505.89pt x 433.62pt>
+<network-img/4645.pdf, id=229, 505.89pt x 433.62pt>
 File: network-img/4645.pdf Graphic file (type pdf)
 <use network-img/4645.pdf>
-Package pdftex.def Info: network-img/4645.pdf  used on input line 134.
+Package pdftex.def Info: network-img/4645.pdf  used on input line 138.
 (pdftex.def)             Requested size: 246.0pt x 210.86124pt.
-<network-img/1085.pdf, id=198, 505.89pt x 433.62pt>
+<network-img/1085.pdf, id=230, 505.89pt x 433.62pt>
 File: network-img/1085.pdf Graphic file (type pdf)
 <use network-img/1085.pdf>
-Package pdftex.def Info: network-img/1085.pdf  used on input line 144.
+Package pdftex.def Info: network-img/1085.pdf  used on input line 145.
 (pdftex.def)             Requested size: 246.0pt x 210.86124pt.
  [3
-pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.148 
-      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.148 
+l.149 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.148 
-       <./misc-img/zipf.pdf> <./network-img/first-communities.pdf> <./network-i
-mg/4645.pdf>] [4
+l.149 
+       <./network-img/first-communities.pdf> <./network-img/4645.pdf>] [4
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.148 
+l.149 
       
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.148 
+l.149 
        <./term_frequency-img/fig.pdf>]
 <network-img/communities-graph.pdf, id=400, 578.16pt x 433.62pt>
 File: network-img/communities-graph.pdf Graphic file (type pdf)
 <use network-img/communities-graph.pdf>
 Package pdftex.def Info: network-img/communities-graph.pdf  used on input line 
-159.
+164.
 (pdftex.def)             Requested size: 246.0pt x 184.49448pt.
  (./citations-img/example_citations.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
- []\OT1/cmr/m/n/10 Based on com-bat-ing mis-in-for-ma-tion, 
- []
-
-
-Underfull \hbox (badness 1584) in paragraph at lines 182--183
- \OT1/cmr/m/n/10 Lewandowsky et al. made nar-row rec- 
- []
-
-
-Underfull \hbox (badness 5533) in paragraph at lines 182--183
- \OT1/cmr/m/n/10 in-clud-ing the gen-er-al-iza-tion of in-oc-u-la- 
- []
-
-
-Underfull \hbox (badness 2285) in paragraph at lines 182--183
- \OT1/cmr/m/n/10 to be ef-fec-tive \they must not di-rectly 
- []
-
-
-Underfull \hbox (badness 1226) in paragraph at lines 182--183
- \OT1/cmr/m/n/10 de-cou-pled from the propen-sity to ac-cept 
- []
+<citations-img/citations.png, id=405, 867.24pt x 722.7pt>
+File: citations-img/citations.png Graphic file (type png)
+<use citations-img/citations.png>
+Package pdftex.def Info: citations-img/citations.png  used on input line 182.
+(pdftex.def)             Requested size: 246.0pt x 204.99019pt.
 
 [5
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.183   \end{quote}
-                   
+l.186 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.183   \end{quote}
-                    <./network-img/1085.pdf> <./network-img/communities-graph.p
-df>] [6
+l.186 
+       <./network-img/1085.pdf> <./network-img/communities-graph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
+ []\OT1/cmr/m/n/10 Based on com-bat-ing mis-in-for-ma-tion, 
+ []
+
+
+Underfull \hbox (badness 1584) in paragraph at lines 195--196
+ \OT1/cmr/m/n/10 Lewandowsky et al. made nar-row rec- 
+ []
+
+
+Underfull \hbox (badness 5533) in paragraph at lines 195--196
+ \OT1/cmr/m/n/10 in-clud-ing the gen-er-al-iza-tion of in-oc-u-la- 
+ []
+
+
+Underfull \hbox (badness 2285) in paragraph at lines 195--196
+ \OT1/cmr/m/n/10 to be ef-fec-tive \they must not di-rectly 
+ []
+
+
+Underfull \hbox (badness 1226) in paragraph at lines 195--196
+ \OT1/cmr/m/n/10 de-cou-pled from the propen-sity to ac-cept 
+ []
+
+[6
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.196 \end{quote}
-                 ]
-<citations-img/citations.png, id=527, 867.24pt x 722.7pt>
-File: citations-img/citations.png Graphic file (type png)
-<use citations-img/citations.png>
-Package pdftex.def Info: citations-img/citations.png  used on input line 202.
-(pdftex.def)             Requested size: 246.0pt x 204.99019pt.
- [7
+l.199 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.236 
-       <./citations-img/citations.png>]
-Underfull \hbox (badness 1642) in paragraph at lines 253--254
+l.199 
+       <./citations-img/citations.png>] [7]
+Underfull \hbox (badness 1642) in paragraph at lines 255--256
 []\OT1/cmr/m/n/10 In gen-eral, mis-in-for-ma-tion re-search tends to see
  []
 
-
-Underfull \hbox (badness 1968) in paragraph at lines 263--264
+[8]
+Underfull \hbox (badness 1968) in paragraph at lines 265--266
 []\OT1/cmr/m/n/10 This shift in em-pha-sis, how-ever, brings dif-fi-cul-
  []
 
-[8] [9] (./main.bbl
+[9] (./main.bbl
 Underfull \hbox (badness 1087) in paragraph at lines 124--132
  []\OT1/cmr/m/n/9 G. Ey-sen-bach, In-fodemi-ol-ogy: The epi-demi-ol-ogy of
  []
@@ -952,43 +950,43 @@ Underfull \hbox (badness 1924) in paragraph at lines 147--155
  []10.1371/jour-
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 244--251
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 262--269
  []\OT1/cmr/m/n/9 J. Dono-van, EX-PRESS: A Short His-tory of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--251
+Underfull \hbox (badness 10000) in paragraph at lines 262--269
  \OT1/cmr/m/n/9 Misinformation-at-scale and Ef-forts to Mit-i-gate
  []
 
 
-Underfull \hbox (badness 6608) in paragraph at lines 244--251
+Underfull \hbox (badness 6608) in paragraph at lines 262--269
  \OT1/cmr/m/n/9 It, Jour-nal of Pub-lic Pol-icy and Mar-ket-ing \OT1/cmr/bx/n/9
  0\OT1/cmr/m/n/9 ,
  []
 
-[10]
-Underfull \hbox (badness 1603) in paragraph at lines 430--435
+
+Underfull \hbox (badness 1603) in paragraph at lines 450--455
  []\OT1/cmr/m/n/9 D. She-wan, []Con-vic-tion of Things Not Seen: The
  []
 
-) [11] (./main.aux)
+[11]) [12] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 4496F870AA6B0AE22E58256C01D4A496;1812.
+(rerunfilecheck)             Checksum: 755607F68F7614FAB3F51C23D0DE7044;1792.
  ) 
 Here is how much of TeX's memory you used:
- 23788 strings out of 474222
- 436199 string characters out of 5748732
- 1972975 words of memory out of 5000000
- 45578 multiletter control sequences out of 15000+600000
- 564642 words of font info for 62 fonts, out of 8000000 for 9000
+ 23799 strings out of 474222
+ 436375 string characters out of 5748732
+ 1960975 words of memory out of 5000000
+ 45585 multiletter control sequences out of 15000+600000
+ 564809 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,9n,93p,1215b,729s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,9n,93p,1215b,785s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texli
@@ -998,11 +996,12 @@ onts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmtt10.pfb>
-Output written on main.pdf (11 pages, 415500 bytes).
+cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
+t9.pfb>
+Output written on main.pdf (12 pages, 426430 bytes).
 PDF statistics:
- 786 PDF objects out of 1000 (max. 8388607)
- 448 compressed objects within 5 object streams
- 91 named destinations out of 1000 (max. 500000)
+ 801 PDF objects out of 1000 (max. 8388607)
+ 460 compressed objects within 5 object streams
+ 94 named destinations out of 1000 (max. 500000)
  157 words of extra memory for PDF output out of 10000 (max. 10000000)
 

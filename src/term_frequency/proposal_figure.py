@@ -169,7 +169,12 @@ def make_figure(
         figsize=(16, 12),
         facecolor=background_color
     )
-    gs = gridspec.GridSpec(2, 2, width_ratios=[8,1])
+    gs = gridspec.GridSpec(
+        2,
+        2,
+        width_ratios=[8,1],
+        wspace=.3
+    )
     axes = [
         fig.add_subplot(gs[0, 0]),
         fig.add_subplot(gs[1, 0]),
