@@ -24,13 +24,31 @@ from config import (
     background_color
 )
 
+def make_clean_bow_with_bigrams(text):
+    onegrams = tokenize(text)
+    bigrams = bigram_tokenize(onegrams)
+    return onegrams + bigrams
 
 def tokenize(text):
-    return [
-        w.lower()
-        for w in nltk.word_tokenize(text)
-        if w.isalpha() and w.lower() not in stop
-    ]    
+    text = text.lower().replace('covid-19', 'covid19')
+    words = []
+    for w in nltk.word_tokenize(text):
+        if w.lower() not in stop and w.isalnum():
+            w = w.replace('covid19', 'covid-19')
+            words.append(w.lower().lstrip().rstrip())
+    return words
+                
+def bigram_tokenize(words):
+    bigrams = []
+    for i, w in enumerate(words):
+        if w.lower() not in stop and w.isalnum():
+            try:
+                bigrams.append(
+                    '_'.join((w.lower(), words[i+1].lower()))
+                )
+            except IndexError:
+                continue
+    return bigrams
 
 
 def top_bigrams(text, top_n_bigrams=50, min_freq=25):
@@ -85,12 +103,13 @@ def get_highest_divergence_terms(
     bow1 = df[df['Year'].isin(before_years)]
     bow2 = df[df['Year'].isin(after_years)]
 
-    fullbow = ' '.join(df['text'] + df['text'])
+    fullbow = ' '.join(df['text'])
     top_bigrams_list = top_bigrams(
         fullbow,
         top_n_bigrams=100,
         min_freq=100,
     )
+    
     bow1 = pd.DataFrame({
         'words': clean_text_with_bigrams(
             ' '.join(bow1['text']), top_bigrams_list=top_bigrams_list
@@ -188,18 +207,16 @@ def make_figure(
         ax.title.set_color(text_color)
         ax.xaxis.label.set_color(text_color)
         ax.yaxis.label.set_color(text_color)
-        ax.tick_params(colors=text_color)
-
-    
+        ax.tick_params(colors=text_color)    
     
     bow1 = dftotal[dftotal['Year'].isin(before_years)]
     bow2 = dftotal[dftotal['Year'].isin(after_years)]
-
-    fullbow = ' '.join(dftotal['text'] + dftotal['text'])
+    fullbow = ' '.join(dftotal['text'])
+    
     top_bigrams_list = top_bigrams(
         fullbow,
         top_n_bigrams=1000,
-        min_freq=100,
+        min_freq=50,
     )
     bow1 = pd.DataFrame({
         'words': clean_text_with_bigrams(
@@ -213,6 +230,16 @@ def make_figure(
             top_bigrams_list=top_bigrams_list
         )
     }) 
+    # bow1 = pd.DataFrame({
+    #     'words': make_clean_bow_with_bigrams(
+    #         ' '.join(bow1['text']),
+    #     )
+    # })
+    # bow2 = pd.DataFrame({
+    #     'words': make_clean_bow_with_bigrams(
+    #         ' '.join(bow2['text']),
+    #     )
+    # }) 
 
     bow1 = bow1.groupby('words').size().reset_index()
     bow1.columns = ('words', 'count')
@@ -221,10 +248,11 @@ def make_figure(
 
     bow1['freq'] = bow1['count']/np.sum(bow1['count'])
     bow2['freq'] = bow2['count']/np.sum(bow2['count'])    
-    merged = pd.merge(bow1, bow2, on='words')
+    merged = pd.merge(bow1, bow2, on='words', how="outer")
+    merged['freq_x'].fillna(0, inplace=True)
+    merged['freq_y'].fillna(0, inplace=True)    
     merged['divergence'] = merged['freq_x'] - merged['freq_y']
     merged = merged[['words', 'divergence']]
-    
     before = merged.sort_values('divergence', ascending=False)[
         ['words', 'divergence']
     ].head(topn)
@@ -320,12 +348,13 @@ def make_figure(
         linewidth=1,
         alpha=0.8,
     )
-    
+
     axes[0].set(xlabel = "Year")
     axes[0].set(ylabel="% of papers")
     axes[0].legend(
         [f"Contains at least one of: {', '.join(before[:2])},...",
          f"Contains at least one of: {', '.join(after[:2])},...",],
+        loc='lower center',
         facecolor=background_color,
     )
                    
@@ -348,8 +377,14 @@ def make_figure(
     ].groupby('Year')['Abstract'].size().sort_index()
 
     
-    agg["total"].plot(ax=axes[1], color='#3E2A35', linewidth=2.5, linestyle="--", label="Total")
-    
+    agg["total"].plot(
+        ax=axes[1],
+        color='#3E2A35',
+        linewidth=2.5,
+        linestyle="--",
+        label="Total"
+    )
+    axes[1].legend()
     axes[1].axvline(
         x=2016,
         color=text_color,

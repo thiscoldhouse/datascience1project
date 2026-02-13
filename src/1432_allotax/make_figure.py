@@ -21,16 +21,21 @@ engine = create_engine(
 )
 SessionFactory = sessionmaker(bind=engine)
 
-def main():
+def main(community=1432):
     session = SessionFactory()
     times = ['Before', 'After']
     year_ranges = [
         [2011, 2012, 2013, 2014, 2015],
         [2017, 2018, 2019, 2020, 2021, 2022, 2023]
     ]
-    papers = session.query(Paper).filter(
-        Paper.community==1432
+    papers = None
+    if community is None:
+        papers = session.query(Paper).all()
+    else:
+        papers = session.query(Paper).filter(
+        Paper.community==community
     ).all()
+
     for i, time in enumerate(times):
         years = year_ranges[i]
         texts = [
@@ -75,10 +80,10 @@ def main():
     f1 = f'./output/{times[0]}.json'
     f2 = f'./output/{times[1]}.json'
     output = './output/allotax.pdf'
-    alpha = .1
+    alpha = .5
     cmd = f'python -m py_allotax.generate_svg {f1} {f2} {output} "{alpha}" "Before 2016" "After 2016" --desired_format "pdf"'
     os.system(cmd)
 
         
 if __name__ == '__main__':
-    main()
+    main(community=None)
