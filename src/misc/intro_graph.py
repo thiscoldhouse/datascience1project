@@ -11,14 +11,14 @@ fig, ax = plt.subplots(
     facecolor=background_color
 )
 
-df['Frequency'] = df['freq'].rolling(window=30).mean()
+df['Count'] = df['count'].rolling(window=30).mean()
 df['date'] = pd.to_datetime(df['date'])
-df[['date', 'Frequency']].plot(
+df[['date', 'Count']].plot(
     ax=ax,
     color=text_color,
     x='date',
-    y='Frequency',
-    ylabel="Frequency",
+    y='Count',
+    ylabel="Count",
     legend=False,
     lw=3    
 )
@@ -39,14 +39,13 @@ ax.axvline(
 for spine in ax.spines.values():
     spine.set_color(text_color)
 
-ax.set_title(
-    "Frequency of \"Misinformation\" on Twitter",
-    color=text_color
-)
 ax.set_xlabel(
     'Date'
 )
-ax.set_ylabel('Frequency (30 day rolling average)')
-ax.legend()
+ax.set_ylabel('Count (30 day rolling average)')
+leg = ax.legend()
+leg.get_frame().set_facecolor(background_color) 
+leg.get_frame().set_edgecolor(before_color)
+
 plt.xticks(rotation=45)
 plt.savefig('output/storywrangler.pdf')

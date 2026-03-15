@@ -4,11 +4,13 @@ import textwrap
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import matplotlib as mpl
-mpl.rcParams.update({'font.size': 18})
+mpl.rcParams.update({'font.size': 14})
 from sqlalchemy import create_engine, desc, func
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql import functions
 from sklearn.feature_extraction.text import TfidfVectorizer
+
+import make_tfidf_tables 
 import numpy as np
 import pandas as pd
 import os
@@ -155,11 +157,10 @@ def make_graph(
             label = f'{label}{term}, '            
         return label[:-2]
             
-    if relabel is True:
-        label_papers_by_community()
+    # if relabel is True:
+    #     label_papers_by_community()
         
     session = SessionFactory()
-
     papers = pd.DataFrame(
         session.query(
             Paper.community,
@@ -232,8 +233,8 @@ def make_graph(
                 inplace=True
             )
 
-    fig, ax = plt.subplots(figsize=(8,6))
-    axes = [ax]
+    fig, axes = plt.subplots(1, 2, figsize=(12, 6))
+    ax = axes[0]
     fig.patch.set_facecolor(background_color)
     plotdf.plot(        
         kind="area",
@@ -276,6 +277,8 @@ def make_graph(
     # but on a single year
     # ============= #
 
+    all_communities = communities[:]
+    
     communities = []
     year = 2023
     annual_comm = (
@@ -298,7 +301,7 @@ def make_graph(
     communities.extend([
         c[0] for c in annual_comm
     ])
-
+    all_communities.extend(communities)
     communities = communities[:n_initial_communities]
     communities = list(set(communities))
     data = {}
@@ -318,8 +321,7 @@ def make_graph(
         community_ngrams(ngram_finder=find_trigrams)
     )
 
-    fig, ax = plt.subplots(figsize=(8,6))
-    axes.append(ax)
+    ax = axes[1]
     fig.patch.set_facecolor(background_color)
 
     plotdf = df.groupby('year').apply(
@@ -358,13 +360,15 @@ def make_graph(
         
     )
 
-    print(axes)
+    labels = (
+        'a) Top 2 communities of each year',
+        'b) Top 10 communities of 2023'
+    )
     for i, ax in enumerate(axes):
         # ax.xaxis.label.set_fontsize(22)
         # ax.yaxis.label.set_fontsize(22)
         ax.spines['top'].set_visible(False)
         ax.spines['right'].set_visible(False)
-        print('here1')
         ax.set_facecolor(background_color)
         ax.tick_params(colors=text_color)
         ax.xaxis.label.set_color(text_color)
@@ -376,17 +380,20 @@ def make_graph(
         leg.get_frame().set_alpha(0)
         for text in leg.get_texts():
             text.set_color(text_color)
-            text.set_fontsize(14)
+            text.set_fontsize(12)
         for spine in ax.spines.values():
             spine.set_color(text_color)
 
-        ax.set_xlabel("Year", fontsize=16)
-        ax.set_ylabel("# of Papers", fontsize=16)
+        ax.set_xlabel("Year", fontsize=14)
+        ax.set_ylabel("# of Papers", fontsize=14)
         ax.tick_params(labelsize=14)
+        ax.text(
+            -0.1, 1.1, labels[i], transform=ax.transAxes,
+            fontsize=14, fontweight='bold', va='top'
+        )
 
-        plt.tight_layout()
-        fig = ax.get_figure()
-        fig.savefig(graph_dests[i])                    
+    plt.tight_layout()
+    fig.savefig('output/both-communities.pdf') 
     
     
     tfidf_table = pd.DataFrame({
@@ -419,6 +426,11 @@ def make_graph(
         f.write(
             tables.to_latex(index=False)
         )
+
+    make_tfidf_tables.main(
+        target_communities=all_communities,
+        nterms=7
+    )
 
 
 def community_ngrams(ngram_finder=None):

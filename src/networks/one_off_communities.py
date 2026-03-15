@@ -37,7 +37,7 @@ def reformat_title(title, n=4):
     return new_title.strip()
 
 
-def axconfig(ax):
+def axconfig(ax, label):
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     ax.set_facecolor(background_color)
@@ -48,12 +48,16 @@ def axconfig(ax):
     for spine in ax.spines.values():
         spine.set_color(text_color)
             
-    ax.set_xlabel("Year", fontsize=14)
-    ax.set_ylabel("# of Papers", fontsize=14)
-    ax.tick_params(labelsize=14)
-    
+    ax.set_xlabel("Year", fontsize=15)
+    ax.set_ylabel("# of Papers", fontsize=15)
+    ax.tick_params(labelsize=13)
+    ax.text(
+        -0.1, 1.1, label, transform=ax.transAxes,
+        fontsize=14, fontweight='bold', va='top'
+    )
 
-def make_graph1(community=4645):
+
+def make_graph1(community=4645, fig=None, ax=None):    
     dest = f'output/{community}.pdf'
     session = SessionFactory()
     papers = session.query(Paper).filter(
@@ -63,8 +67,7 @@ def make_graph1(community=4645):
         papers,
         key=lambda p: p.year
     )
-    fig, ax = plt.subplots(figsize=(7,6))
-    fig.patch.set_facecolor(background_color)
+
     counts = pd.Series([
         p.year for p in papers
     ]).value_counts().sort_index()
@@ -88,7 +91,7 @@ def make_graph1(community=4645):
         xytext=(-10, 100),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     ax.annotate(
@@ -99,7 +102,7 @@ def make_graph1(community=4645):
         xytext=(-95, 200),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     ax.annotate(
@@ -110,7 +113,7 @@ def make_graph1(community=4645):
         xytext=(-35, 100),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
 
@@ -122,7 +125,7 @@ def make_graph1(community=4645):
         xytext=(18, -10),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     ax.annotate(
@@ -133,15 +136,15 @@ def make_graph1(community=4645):
         xytext=(-40, 50),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     
-    axconfig(ax)
-    plt.savefig(dest)
+    axconfig(ax, f'Community #{community}')
 
 
-def make_graph2(community=1085):
+
+def make_graph2(community=1085, fig=None, ax=None):
     dest = f'output/{community}.pdf'
     session = SessionFactory()
     papers = session.query(Paper).filter(
@@ -151,8 +154,6 @@ def make_graph2(community=1085):
         papers,
         key=lambda p: p.year
     )
-    fig, ax = plt.subplots(figsize=(7,6))
-    fig.patch.set_facecolor(background_color)
     counts = pd.Series([
         p.year for p in papers
     ]).value_counts().sort_index()
@@ -176,7 +177,7 @@ def make_graph2(community=1085):
         xytext=(-5, 50),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     ax.annotate(
@@ -184,10 +185,10 @@ def make_graph2(community=1085):
         xy=(papers[1].year, len([
             p for p in papers if p.year==papers[1].year
         ])),
-        xytext=(-40, 200),
+        xytext=(-40, 190),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     ax.annotate(
@@ -195,10 +196,10 @@ def make_graph2(community=1085):
         xy=(papers[2].year, len([
             p for p in papers if p.year==papers[2].year
         ])),
-        xytext=(-15, 90),
+        xytext=(-12, 90),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
 
@@ -210,7 +211,7 @@ def make_graph2(community=1085):
     #     xytext=(60, -20),
     #     textcoords='offset points',
     #     arrowprops=dict(arrowstyle='->', color=before_color),
-    #     fontsize=12,
+    #     fontsize=9,
     #     color=text_color
     # )
     ax.annotate(
@@ -218,10 +219,10 @@ def make_graph2(community=1085):
         xy=(papers[22].year, len([
             p for p in papers if p.year==papers[22].year
         ])),
-        xytext=(5, -100),
+        xytext=(5, -85),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     
@@ -230,18 +231,17 @@ def make_graph2(community=1085):
         xy=(papers[-2].year, len([
             p for p in papers if p.year==papers[-2].year
         ])),
-        xytext=(-210, 100),
+        xytext=(-180, 100),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     
-    axconfig(ax)
-    plt.savefig(dest)
+    axconfig(ax, f'Community #{community}')
 
 
-def make_graph3(community=1432):
+def make_graph3(community=1432, fig=None, ax=None):
     dest = f'output/{community}.pdf'
     session = SessionFactory()
     papers = session.query(Paper).filter(
@@ -251,8 +251,6 @@ def make_graph3(community=1432):
         papers,
         key=lambda p: p.year
     )
-    fig, ax = plt.subplots(figsize=(7,6))
-    fig.patch.set_facecolor(background_color)
     counts = pd.Series([
         p.year for p in papers
     ]).value_counts().sort_index()
@@ -269,48 +267,48 @@ def make_graph3(community=1432):
     )
     
     ax.annotate(
-        reformat_title(papers[0].title, n=3),
+        reformat_title(papers[0].title, n=2),
         xy=(papers[0].year, len([
             p for p in papers if p.year==papers[0].year
         ])),
-        xytext=(0, 90),
+        xytext=(-8, 185),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     ax.annotate(
-        reformat_title(papers[10].title),
+        reformat_title(papers[10].title, n=2),
         xy=(papers[10].year, len([
             p for p in papers if p.year==papers[10].year
         ])),
-        xytext=(0, -200),
+        xytext=(-20, 100),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
-    ax.annotate(
-        reformat_title(papers[20].title),
-        xy=(papers[20].year, len([
-            p for p in papers if p.year==papers[20].year
-        ])),
-        xytext=(0, 100),
-        textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
-        color=text_color
-    )
+    # ax.annotate(
+    #     reformat_title(papers[20].title, n=3),
+    #     xy=(papers[20].year, len([
+    #         p for p in papers if p.year==papers[20].year
+    #     ])),
+    #     xytext=(0, 100),
+    #     textcoords='offset points',
+    #     arrowprops=dict(arrowstyle='->', color=before_color),
+    #     fontsize=9,
+    #     color=text_color
+    # )
 
     ax.annotate(
-        reformat_title(papers[30].title),
+        reformat_title(papers[30].title, n=3),
         xy=(papers[30].year, len([
             p for p in papers if p.year==papers[30].year
         ])),
-        xytext=(20, -150),
+        xytext=(125, -50),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     ax.annotate(
@@ -318,10 +316,10 @@ def make_graph3(community=1432):
         xy=(papers[-100].year, len([
             p for p in papers if p.year==papers[-100].year
         ])),
-        xytext=(-50, 50),
+        xytext=(-60, 20),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     ax.annotate(
@@ -329,10 +327,10 @@ def make_graph3(community=1432):
         xy=(papers[-90].year, len([
             p for p in papers if p.year==papers[-90].year
         ])),
-        xytext=(40, 0),
+        xytext=(40, -5),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     
@@ -341,29 +339,28 @@ def make_graph3(community=1432):
         xy=(papers[-20].year, len([
             p for p in papers if p.year==papers[-20].year
         ])),
-        xytext=(5, -100),
+        xytext=(-65, -130),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     
     ax.annotate(
-        reformat_title(papers[-2].title,n=3),
+        reformat_title(papers[-2].title,n=2),
         xy=(papers[-2].year, len([
             p for p in papers if p.year==papers[-2].year
         ])),
-        xytext=(-250, -30),
+        xytext=(-50, -115),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     
-    axconfig(ax)
-    plt.savefig(dest)
+    axconfig(ax, f'Community #{community}')
         
-def make_graph4(community=6075):
+def make_graph4(community=6075, fig=None, ax=None):
     dest = f'output/{community}.pdf'
     session = SessionFactory()
     papers = session.query(Paper).filter(
@@ -373,8 +370,6 @@ def make_graph4(community=6075):
         papers,
         key=lambda p: p.year
     )
-    fig, ax = plt.subplots(figsize=(7,6))
-    fig.patch.set_facecolor(background_color)
     counts = pd.Series([
         p.year for p in papers
     ]).value_counts().sort_index()
@@ -395,10 +390,10 @@ def make_graph4(community=6075):
         xy=(papers[0].year, len([
             p for p in papers if p.year==papers[0].year
         ])),
-        xytext=(0, 90),
+        xytext=(0, 20),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     ax.annotate(
@@ -406,10 +401,10 @@ def make_graph4(community=6075):
         xy=(papers[10].year, len([
             p for p in papers if p.year==papers[10].year
         ])),
-        xytext=(-70, 200),
+        xytext=(-90, 100),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     ax.annotate(
@@ -417,44 +412,44 @@ def make_graph4(community=6075):
         xy=(papers[20].year, len([
             p for p in papers if p.year==papers[20].year
         ])),
-        xytext=(-100, 150),
+        xytext=(-120, 150),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
 
     ax.annotate(
-        reformat_title(papers[30].title),
+        reformat_title(papers[30].title, n=2),
         xy=(papers[30].year, len([
             p for p in papers if p.year==papers[30].year
         ])),
-        xytext=(20, -150),
+        xytext=(-15, 95),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
-    ax.annotate(
-        reformat_title(papers[-100].title,n=4),
-        xy=(papers[-100].year, len([
-            p for p in papers if p.year==papers[-100].year
-        ])),
-        xytext=(-260, 50),
-        textcoords='offset points',
-        arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
-        color=text_color
-    )
+    # ax.annotate(
+    #     reformat_title(papers[-100].title,n=4),
+    #     xy=(papers[-100].year, len([
+    #         p for p in papers if p.year==papers[-100].year
+    #     ])),
+    #     xytext=(-260, 50),
+    #     textcoords='offset points',
+    #     arrowprops=dict(arrowstyle='->', color=before_color),
+    #     fontsize=9,
+    #     color=text_color
+    # )
     ax.annotate(
         reformat_title(papers[-90].title,n=4),
         xy=(papers[-90].year, len([
             p for p in papers if p.year==papers[-90].year
         ])),
-        xytext=(-10, 20),
+        xytext=(-15, 18),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     
@@ -466,7 +461,7 @@ def make_graph4(community=6075):
         xytext=(-20, -100),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     
@@ -475,18 +470,22 @@ def make_graph4(community=6075):
         xy=(papers[-2].year, len([
             p for p in papers if p.year==papers[-2].year
         ])),
-        xytext=(-150, -30),
+        xytext=(-70, -200),
         textcoords='offset points',
         arrowprops=dict(arrowstyle='->', color=before_color),
-        fontsize=12,
+        fontsize=9,
         color=text_color
     )
     
-    axconfig(ax)
-    plt.savefig(dest)
-        
+    axconfig(ax, f'Community #{community}')
+
+    
 if __name__ == '__main__':
-    make_graph1()
-    make_graph2()
-    make_graph3()
-    make_graph4()
+    fig, axes = plt.subplots(2, 2, figsize=(12, 11))
+    fig.patch.set_facecolor(background_color)
+    make_graph1(fig=fig, ax=axes[0][0])
+    make_graph2(fig=fig, ax=axes[0][1])
+    make_graph3(fig=fig, ax=axes[1][0])
+    make_graph4(fig=fig, ax=axes[1][1])
+    plt.tight_layout(h_pad=2.0)
+    fig.savefig('output/one-offs.pdf')

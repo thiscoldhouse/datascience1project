@@ -398,7 +398,7 @@ def make_figure(
         background_color
     )
     plt.suptitle(
-        f"Term Frequencies Before/After 2016",
+        f"",
 #        fontsize=18,
         color=text_color
     )    
