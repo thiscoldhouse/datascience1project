@@ -38,6 +38,82 @@ header-includes:
 
 ---
 
+# Rough outline
+## State of the misinformation paradigm
+\scriptsize
+- History as currently told
+- Distinguish phenomenon and paradigm
+- What's missing?
+- Definition of the paradigm
+
+## History of the a paradigm
+\scriptsize
+- Summary of the term through text
+- Data and methods
+- Tie to what's missing
+- Add context
+
+## Theoretical critique
+\scriptsize
+- Comparison to other paradigms
+- Theoretical and practical shortcomings
+
+## Off the record
+\scriptsize
+- Wild and potentially irresponsible speculation
+
+# "Misinformation"
+
+\vfill
+\begin{columns}[c]
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{misc-img/storywrangler.pdf}
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{misc-img/count_in_lit.pdf}
+\end{columns}
+\vfill
+
+# How misinformation studies tells its history
+
+## Examples from two lit reviews
+\scriptsize
+- "While history shows that false and misleading information is not a new phenomenon, most observers seem to agree that misinformation, disinformation, and fake news have become much more prevalent during the last decade." [@broda_misinformation_2024]
+- "Although misinformation can circulate exceedingly fast due to advances in social technologies and large-scale information cascades, the roots of fake news go back to the days before the Printing Revolution, when word-of-mouth was the primary method of news transmission." [@faedda_fake_2024]
+
+## General summary
+\scriptsize
+- Misinformation has always existed because people have always said false things
+- Technology affects the spread of misinformation
+- Social media lead to some kind of inflection point
+
+# What's missing?
+
+- *Misinformation* is a scientific paradigm [@kuhn_structure_1962] with more conceptual baggage than its literal definition
+  - Histories are told within the paradigm, not of the paradigm
+- Where does the post-2016 concept come from?
+  - Two options: creatio ex nihilo vs creatio ex materia
+- An explanation of pre-2016 term use
+
+\vfill
+\begin{center}
+\includegraphics[width=\textwidth,height=0.4\textheight,keepaspectratio]{mouse.png}
+\end{center}
+\vfill
+
+# What's missing?
+
+
+\vfill
+\begin{center}
+\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{term-frequency-img/fig.pdf}
+\end{center}
+\vfill
+
+
+
+
 # History of the term in the literature
 
 ## 50s--60s: Medicine and Public Health
@@ -64,37 +140,6 @@ header-includes:
 - The *post-2016 paradigm* is born
 
 
-# Birth of a paradigm on Twitter
-
-\vfill
-\begin{center}
-\includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{misc-img/storywrangler.pdf}
-\end{center}
-\vfill
-
-# How misinformation studies tells its history
-
-- Misinformation has always existed because people have always said false things
-- Technology affects the spread of misinformation
-- Social media lead to a kind of misinformation inflection point
-
-## Examples from two lit reviews
-\scriptsize
-- "While history shows that false and misleading information is not a new phenomenon, most observers seem to agree that misinformation, disinformation, and fake news have become much more prevalent during the last decade." [@broda_misinformation_2024]
-- "Although misinformation can circulate exceedingly fast due to advances in social technologies and large-scale information cascades, the roots of fake news go back to the days before the Printing Revolution, when word-of-mouth was the primary method of news transmission." [@faedda_fake_2024]
-
-# What's missing?
-
-- *Misinformation* is a scientific paradigm [@kuhn_structure_1962] with more conceptual baggage than its literal definition
-- Histories are told within the paradigm, not of the paradigm
-- Where does the concept come from?
-  - Two options: creatio ex nihilo vs creatio ex materia
-
-\vfill
-\begin{center}
-\includegraphics[width=\textwidth,height=0.4\textheight,keepaspectratio]{mouse.png}
-\end{center}
-\vfill
 
 # Brief anatomy of the paradigm
 
@@ -120,18 +165,10 @@ header-includes:
 - Mediation
 
 
-# Birth of a paradigm in academic literature
-
-\vfill
-\begin{center}
-\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{term-frequency-img/fig.pdf}
-\end{center}
-\vfill
-
 # Creatio ex nihilo vs creatio ex materia
 
 ## Methodology
-
+\scriptsize
 - Louvain community detection [@blondel2008fast]
 - Papers as nodes; authors as edges
 - Penalize edges representing prolific authors
@@ -140,8 +177,9 @@ $$W(P_1, P_2) = \frac{1}{len(P_1.\text{authors}) \times len(P_2.\text{authors})}
 
 
 ## Graph options
-  - The top ten communities of 2023 through all time
-  - The top two communities of every year through all time
+\scriptsize
+- The top ten communities of 2023 through all time
+- The top two communities of every year through all time
 
 
 # Creatio ex nihilo vs creatio ex materia
@@ -170,19 +208,22 @@ Community & TF-IDF (unigram-trigram) \\
 \end{tabular}
 ```
 
-# Random example from Loftus community
+# Random example from \#1432 (aka Loftus community)
 
 ## Protecting Against Misinformation: Examining the Effect of Empirically Based Investigative Interviewing on Misinformation Reporting [@otgaar_protecting_2020]
+\scriptsize
 - "Children who are involved in legal cases are often interviewed about events they witnessed or that might have happened to them... We found that children’s recall during the NICHD interview protected children against the incorporation of misinformation in their accounts of the event ..."
 - Published in *Journal for Police and Criminal Psychology*
 
-# Returning to term frequencies
+# This explains our term frequency changes!
 
 \vfill
 \begin{center}
 \includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{term-frequency-img/fig.pdf}
 \end{center}
 \vfill
+
+
 
 # Context: Satanic panic
 
@@ -202,22 +243,130 @@ Community & TF-IDF (unigram-trigram) \\
 # Elizabeth Loftus and the Misinformation Effect
 
 ## 1993: "The reality of repressed memories" [@loftus_reality_1993]
+\scriptsize
 - "a rise in reported memories of childhood sexual abuse that were allegedly repressed for many years."
 - "(a) How common is it for memories of child abuse to be repressed? (b) How are jurors and judges likely to react to these repressed memory claims? (c) When the memories surface, what are they like? and (d) How authentic are the memories?"
 
-# Misinformation
+# Misinformation^[the paradigm, not the concept nor the thing itself]
 
 ## What it is
+\small
 - The misinformation paradigm considers individuals making, reading, and sharing false statements, usually on social media, producing research that often warns of the harm to society resulting from the sum of many such events.
 
 ## What it's not
-- Poltical economy of social media like @chomsky1988manufacturing did for mass media in 1988
-- Media theory: @williamsTelevisionTechnologyCultural2004 brings together the technology of broadcasting and the cultural form of television to describe the “flow” state of watching television, simultaneously communal yet private
+\small
+- Poltical economy of social media like Parenti @parenti1986inventing did in 1986, or Herman and Chomsky @chomsky1988manufacturing did for mass media in 1988
+- Media theory: Williams @williamsTelevisionTechnologyCultural2004 brings together the technology of broadcasting and the cultural form of television to describe the “flow” state of watching television, simultaneously communal yet private
+
+# Misinformation sees through the medium
+
+## "The COVID-19 Social Media Infodemic" [@cinelliCOVID19SocialMedia2020] (all emphasis added)
+\scriptsize
+"Social \textbf{media} platforms such as YouTube and Twitter provide \textbf{direct access} to an unprecedented amount of content and may amplify rumors and questionable information" 
+
+## Compare to...
+\scriptsize
+- Williams @williamsTelevisionTechnologyCultural2004 described and theorized the design decisions that went into television
+- Parenti @parenti1986inventing and Herman/Chomsky @chomsky1988manufacturing described the political processes by which the news becomes unreliable
 
 
 
+# Misinformation studies rarely mention that social media is **designed**
+
+## Social media is not...
+\scriptsize
+- trivial^[iykyk]
+- inevitable
+- naturally occurring
+- technologically determined
+- democratizing anything (e.g., "...ordinary people can engage in public speech and actions **without mediation by the mainstream media or other traditional sources of power.**" @jackson2020hashtag)
 
 
-	
-	
+## Social media is...
+\scriptsize
+- designed, built, and actively maintained
+- owned
+- dynamic
+- operated for profit
+- politically contentious (e.g., Twitter/X) in both its use and design
+
+
+# Misinformation
+
+- Despite emphasis on social media, the post-2016 misinformation paradigm looks less like media theory and more like the Loftus community’s cognitive research.
+- Focus on the content, sources, and consumers of misinformation, not its context, cultural form, or structural factors.
+  - Resonance with social media database design, whose schema are also comprised of those same objects (future work!)
+  
+# Misinformation
+
+## Origin (my claim)
+\scriptsize
+- Change in emphasis from cognition to the misinformation itself, along with an increase in scale, but **the core model is recognizable** from Loftus community
+- Caveat: This is one strand of many (mostly much smaller) strands that the paradigm weaves together
+
+## Theoretical Problem: No theory of medium
+\scriptsize
+- Dead horse thoroughly beaten
+
+## Theoretical problem: Zombie laboratory model
+\scriptsize
+- Misinformation concept was grounded in interactions between, for example, the police and victims
+
+## Practical/Theoretical problem: Lack of emergent theory
+\scriptsize
+- Untenable commitment to evaluating individual pieces of misinformation
+- Within paradigm, the whole is treated as the sum of its parts
+
+# Lack of emergent theory: The problems of scale
+
+## Researchers often define misinformation as a social media post that includes links to known unreliable sources [@flaminoPoliticalPolarizationNews2023] [@bovetInfluenceFakeNews2019] [@hanMeasuringCoevolutionOnline2025] [@guessExposureUntrustworthyWebsites2020]
+\scriptsize
+- "**Following previous research**, we used a domain-level approach to measurement" @guessExposureUntrustworthyWebsites2020
+
+- "We annotate the scientific quality of retweets based on the web domains they reference—a measure that is also **commonly used in other research, rather than evaluating the content of the individual articles themselves.**" @hanMeasuringCoevolutionOnline2025
+
+\tiny
+(all emphasis added)
+
+## Ignores anything that is not a direct link to an unreliable source
+\scriptsize
+- Reliable/unreliable binary is untenable
+- Ignores the spread within social media
+
+## Assumes that everything unreliable sources say is untrue
+\scriptsize
+- Contradicts the documented best practices of those professionally employed to shape public opinion in both government and industry @tremblay_pepin_intrigues_2025
+
+# Example from circa 1940
+
+**"When there is no compelling reason to suppress a fact, tell it. [...] Aside from considerations of military security, the only reason to suppress a piece of news is if it is unbelievable [...] When the listener catches you in a lie, your power diminishes [...] For this reason, never tell a lie which can be discovered."**
+
+- Supreme Headquarters Allied Expeditionary Force of World War II  @ellul1973propaganda
+
+# An oversimplification exposes fundamental misunderstanding
+
+- The truth does not live in the text
+  - e.g, "The pope is dead"
+  - "You see, Meno, that I am not teaching the boy anything, but all I do is question him" @plato1997meno
+- Public relations, military propaganda, intelligence agencies, etc. operate in the chasm between true and false, rather than at its poles
+- The more likely that a piece of misinformation is to be believed, the more difficult it necessarily is to detect as misinformation
+- **Untenable theoretical commitments force misinformation scholars to focus their inquiry precisely on the least salient part of the phenomenon**
+
+
+# Future work
+
+## On misinformation (the concept)
+- More detail on the origin of the paradigm
+  - Talk to early paradigm adopters (examples in 2012 or earlier!)
+  - Twitter
+  - Mass media
+  - Resonance with social media database design, whose schema parallels the structure of Loftus Research
+  
+## More generally
+- Why is this happening?
+
+# Thanks for listening! Thanks especially to all collaborators!
+\centering
+![](tabia.jpg)
+
 # References {.allowframebreaks}
