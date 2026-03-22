@@ -46,21 +46,21 @@ header-includes:
 - What's missing?
 - Definition of the paradigm
 
-## History of the a paradigm
+## History of the paradigm
 \scriptsize
-- Summary of the term through text
 - Data and methods
-- Tie to what's missing
-- Add context
+- Find what's missing
+- Historical context
 
 ## Theoretical critique
 \scriptsize
-- Comparison to other paradigms
+- Comparison to alternative framings
 - Theoretical and practical shortcomings
 
-## Off the record
+## Conclusion
 \scriptsize
-- Wild and potentially irresponsible speculation
+- Some soapboxing^[\tiny As opposed to the rest of this talk, which will be _nonpartisan_ and _apolitical_]
+- Ideas for future work
 
 # "Misinformation"
 
@@ -69,77 +69,13 @@ header-includes:
 \column{0.5\textwidth}
 \centering
 \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{misc-img/storywrangler.pdf}
+\small "Misinformation" on Twitter
 \column{0.5\textwidth}
 \centering
 \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{misc-img/count_in_lit.pdf}
+\small "Misinformation in academic literature"
 \end{columns}
 \vfill
-
-# How misinformation studies tells its history
-
-## Examples from two lit reviews
-\scriptsize
-- "While history shows that false and misleading information is not a new phenomenon, most observers seem to agree that misinformation, disinformation, and fake news have become much more prevalent during the last decade." [@broda_misinformation_2024]
-- "Although misinformation can circulate exceedingly fast due to advances in social technologies and large-scale information cascades, the roots of fake news go back to the days before the Printing Revolution, when word-of-mouth was the primary method of news transmission." [@faedda_fake_2024]
-
-## General summary
-\scriptsize
-- Misinformation has always existed because people have always said false things
-- Technology affects the spread of misinformation
-- Social media lead to some kind of inflection point
-
-# What's missing?
-
-- *Misinformation* is a scientific paradigm [@kuhn_structure_1962] with more conceptual baggage than its literal definition
-  - Histories are told within the paradigm, not of the paradigm
-- Where does the post-2016 concept come from?
-  - Two options: creatio ex nihilo vs creatio ex materia
-- An explanation of pre-2016 term use
-
-\vfill
-\begin{center}
-\includegraphics[width=\textwidth,height=0.4\textheight,keepaspectratio]{mouse.png}
-\end{center}
-\vfill
-
-# What's missing?
-
-
-\vfill
-\begin{center}
-\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{term-frequency-img/fig.pdf}
-\end{center}
-\vfill
-
-
-
-
-# History of the term in the literature
-
-## 50s--60s: Medicine and Public Health
-\scriptsize
-- 1956: "Combating Food Misinformation and Quackery" [@HUENEMANN1956623]
-- 1957: "Information and Misinformation Gained from Fasting Blood Sugar Alone in Diabetes Therapy" [@johnInformationMisinformationGained1957]
-
-## 60s--70s: Public health dominates, but usage diversifies
-\scriptsize
-- 1970: "A Model of the Soviet Firm" discusses Soviet firms’ attempts to correct for “systematic misinformation” by  changing incentives [@gindinModelSovietFirm1970]
-
-## 70s--90s: More specialized uses with technical meanings, e.g. associated with computation
-\scriptsize
-- **1974: "Reconstruction of automobile destruction: An example of the interaction between language and memory" introduces the "misinformation effect"[@loftus_reconstruction_1974]**
-- 1989: "Categorical Approach to Distributed Systems, Expressibility and Knowledge: "It is asserted that to obtain a meaningful comparison of protocols, the adversary should be chosen not to send identical faulty messages but to 'convey' the same misinformation" [@michelCategoricalApproachDistributed1989]
-
-# History of the term in the literature
-
-## 2000s
-- 2002: "Infodemiology: The Epidemiology of (Mis)Information" studies "the study of the determinants and distribution of health information and misinformation"[@eysenbachInfodemiologyEpidemiologyMisinformation2002]
-- 2007--2010 - Infodemiology extends to study how (mis)information spreads during crises (earthquakes, epidemics, etc.) on social media [@suttonBackchannelsFrontLines2008, @chewPandemicsAgeTwitter2010, @ohEXPLORATIONSOCIALMEDIA2010]
-
-## 2010s to today
-- The *post-2016 paradigm* is born
-
-
 
 # Brief anatomy of the paradigm
 
@@ -165,18 +101,93 @@ header-includes:
 - Mediation
 
 
+
+# How misinformation studies tells its history
+
+## General summary
+\scriptsize
+- Misinformation has always existed because people have always said false things
+- Technology affects the spread of misinformation
+- Social media lead to some kind of inflection point
+
+## Examples from two lit reviews
+\scriptsize
+- "While history shows that false and misleading information is not a new phenomenon, most observers seem to agree that misinformation, disinformation, and fake news have become much more prevalent during the last decade." [@broda_misinformation_2024]
+- "Although misinformation can circulate exceedingly fast due to advances in social technologies and large-scale information cascades, the roots of fake news go back to the days before the Printing Revolution, when word-of-mouth was the primary method of news transmission." [@faedda_fake_2024]
+
+
+# What's missing?
+
+- *Misinformation* is a scientific paradigm [@kuhn_structure_1962] with more conceptual baggage than its literal definition
+- Histories are told within the paradigm, not of the paradigm
+- Where does the post-2016 concept come from? Two options: creatio ex nihilo vs creatio ex materia
+- An explanation of pre-2016 term use
+
+\vfill
+\begin{center}
+\includegraphics[width=\textwidth,height=0.4\textheight,keepaspectratio]{mouse.png}
+\end{center}
+\vfill
+
+# Term frequency
+
+- Scopus @scopus export of all papers with “misinformation” in any metadata field from 2011–2023
+- Term frequencies before/after 2016
+
+# Term frequency
+
+
+\vfill
+\begin{center}
+\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{term-frequency-img/fig.pdf}
+\end{center}
+\vfill
+
+
+
+
+# History of the term in the literature
+
+## 50s--60s: Medicine and Public Health
+\scriptsize
+- 1956: "Combating Food Misinformation and Quackery" [@HUENEMANN1956623]
+- 1957: "Information and Misinformation Gained from Fasting Blood Sugar Alone in Diabetes Therapy"[@johnInformationMisinformationGained1957]
+
+## 60s--70s: Public health dominates, but usage diversifies
+\scriptsize
+- 1970: "A Model of the Soviet Firm" discusses Soviet firms’ attempts to correct for “systematic misinformation” by  changing incentives [@gindinModelSovietFirm1970]
+
+## 70s--90s: More specialized uses with technical meanings, e.g. associated with computation
+\scriptsize
+- **1974: "Reconstruction of automobile destruction: An example of the interaction between language and memory" introduces the "misinformation effect"[@loftus_reconstruction_1974]**
+- 1989: "Categorical Approach to Distributed Systems, Expressibility and Knowledge: "It is asserted that to obtain a meaningful comparison of protocols, the adversary should be chosen not to send identical faulty messages but to 'convey' the same misinformation" [@michelCategoricalApproachDistributed1989]
+
+# History of the term in the literature
+
+## 2000s
+\scriptsize
+- 2002: "Infodemiology: The Epidemiology of (Mis)Information" studies "the study of the determinants and distribution of health information and misinformation"[@eysenbachInfodemiologyEpidemiologyMisinformation2002]
+- 2007--2010 - Infodemiology extends to study how (mis)information spreads during crises (earthquakes, epidemics, etc.) on social media [@suttonBackchannelsFrontLines2008, @chewPandemicsAgeTwitter2010, @ohEXPLORATIONSOCIALMEDIA2010]
+
+## 2010s to today
+\scriptsize
+- The *post-2016 paradigm* is born
+
+
+
+
 # Creatio ex nihilo vs creatio ex materia
 
 ## Methodology
 \scriptsize
 - Louvain community detection [@blondel2008fast]
 - Papers as nodes; authors as edges
-- Penalize edges representing prolific authors
+- Reduce weight of the edges of big nodes
 
 $$W(P_1, P_2) = \frac{1}{len(P_1.\text{authors}) \times len(P_2.\text{authors})}$$
 
 
-## Graph options
+## Two interpretations
 \scriptsize
 - The top ten communities of 2023 through all time
 - The top two communities of every year through all time
@@ -208,6 +219,15 @@ Community & TF-IDF (unigram-trigram) \\
 \end{tabular}
 ```
 
+# Solidification of the paradigm
+
+\vfill
+\begin{center}
+\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{network-img/one-offs.pdf}
+\end{center}
+\vfill
+
+
 # Random example from \#1432 (aka Loftus community)
 
 ## Protecting Against Misinformation: Examining the Effect of Empirically Based Investigative Interviewing on Misinformation Reporting [@otgaar_protecting_2020]
@@ -229,7 +249,7 @@ Community & TF-IDF (unigram-trigram) \\
 
 ## 1980: *Michelle Remembers*
 \scriptsize
-- Michelle Smith co-authors Michelle Remembers with her psychiatrist and soon-to-be-husband, Lawrence Pazder.
+- Michelle Smith co-authors Michelle Remembers with her psychiatrist and soon-to-be-husband, Lawrence Pazder, about her recovered memories of a childhood of abuse at the hands of a Satanic cult.
 - Kicks off media circus and marks the beginning of the mainstream Satanic panic [@shewan_conviction_2015] [@hearst_qanon_2022].
 
 ## 1983--1990: McMartin preschool trials [@linderMcMartinPreschoolAbuse2007] [@Schreiber2006Suggestive] [@Reinhold1990LongestTrial] [@WildClaimsMass2024]
@@ -247,15 +267,15 @@ Community & TF-IDF (unigram-trigram) \\
 - "a rise in reported memories of childhood sexual abuse that were allegedly repressed for many years."
 - "(a) How common is it for memories of child abuse to be repressed? (b) How are jurors and judges likely to react to these repressed memory claims? (c) When the memories surface, what are they like? and (d) How authentic are the memories?"
 
-# Misinformation^[the paradigm, not the concept nor the thing itself]
+# Theoretical critique
 
 ## What it is
-\small
+\scriptsize
 - The misinformation paradigm considers individuals making, reading, and sharing false statements, usually on social media, producing research that often warns of the harm to society resulting from the sum of many such events.
 
 ## What it's not
-\small
-- Poltical economy of social media like Parenti @parenti1986inventing did in 1986, or Herman and Chomsky @chomsky1988manufacturing did for mass media in 1988
+\scriptsize
+- Poltical economy of social media like Parenti^[\scriptsize Do people here know about Parenti?] @parenti1986inventing and Herman and Chomsky @chomsky1988manufacturing did for mass media in 1986 and 1988. 
 - Media theory: Williams @williamsTelevisionTechnologyCultural2004 brings together the technology of broadcasting and the cultural form of television to describe the “flow” state of watching television, simultaneously communal yet private
 
 # Misinformation sees through the medium
@@ -351,6 +371,35 @@ Community & TF-IDF (unigram-trigram) \\
 - Public relations, military propaganda, intelligence agencies, etc. operate in the chasm between true and false, rather than at its poles
 - The more likely that a piece of misinformation is to be believed, the more difficult it necessarily is to detect as misinformation
 - **Untenable theoretical commitments force misinformation scholars to focus their inquiry precisely on the least salient part of the phenomenon**
+
+# Conclusion
+
+- Misinformation papers constantly warn of democracy under threat, and of distrust in experts, science and/or institutions. 
+- Some authors argue that misinformation and distrust in institutions are linked @akyuz_impact_2021 , or that misinformation causes distrust in institutions @stetka_have_2025 
+- They never ask whether science/experts/institutions have earned the public trust, or how they ought to behave in moments of contention for epistemic authority
+
+
+# Conclusion
+
+## Embrace humility
+\scriptsize
+- Each person has been exposed to a lifetime of unending propaganda. 
+- None of us are above it, nor can anyone easily spot all of it.
+
+## Defend democracy
+\scriptsize
+- If you believe democracy is under threat, do not treat the public like idiots needing to be managed, whose sole calling is to obey experts.
+- Participate in public discourse rather than research how to manage it for governments and companies.
+- Academics are teachers, not social media moderators.
+
+## Fix institutions
+\scriptsize
+- Our institutions are not worthy of public trust
+- Academics are well positioned to exert power over their workplaces
+
+## Actually do science
+\scriptsize
+- Science is the search for knowledge, not the counting of statements that disagree with official knowledge-dispensing institutions
 
 
 # Future work
