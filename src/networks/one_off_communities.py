@@ -57,7 +57,10 @@ def axconfig(ax, label):
     )
 
 
-def make_graph1(community=4645, fig=None, ax=None):    
+def make_graph1(community=4645, fig=None, ax=None):
+    if fig is None:
+        fig, ax = plt.subplots()
+    
     dest = f'output/{community}.pdf'
     session = SessionFactory()
     papers = session.query(Paper).filter(
@@ -361,6 +364,8 @@ def make_graph3(community=1432, fig=None, ax=None):
     axconfig(ax, f'Community #{community}')
         
 def make_graph4(community=6075, fig=None, ax=None):
+    if fig is None:
+        fig, ax = plt.subplots()
     dest = f'output/{community}.pdf'
     session = SessionFactory()
     papers = session.query(Paper).filter(
@@ -487,5 +492,6 @@ if __name__ == '__main__':
     make_graph2(fig=fig, ax=axes[0][1])
     make_graph3(fig=fig, ax=axes[1][0])
     make_graph4(fig=fig, ax=axes[1][1])
+    make_graph1()
     plt.tight_layout(h_pad=2.0)
     fig.savefig('output/one-offs.pdf')

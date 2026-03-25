@@ -332,6 +332,11 @@ Community & TF-IDF (unigram-trigram) \\
 \scriptsize
 - Misinformation concept was grounded in interactions between, for example, the police and victims
 
+## Theoretical problem: The truth does not live in the text
+\scriptsize
+- "The pope is dead"
+- "You see, Meno, that I am not teaching the boy anything, but all I do is question him" @plato1997meno
+
 ## Practical/Theoretical problem: Lack of emergent theory
 \scriptsize
 - Untenable commitment to evaluating individual pieces of misinformation
@@ -365,32 +370,31 @@ Community & TF-IDF (unigram-trigram) \\
 
 # An oversimplification exposes fundamental misunderstanding
 
-- The truth does not live in the text
-  - e.g, "The pope is dead"
-  - "You see, Meno, that I am not teaching the boy anything, but all I do is question him" @plato1997meno
+
 - Public relations, military propaganda, intelligence agencies, etc. operate in the chasm between true and false, rather than at its poles
 - The more likely that a piece of misinformation is to be believed, the more difficult it necessarily is to detect as misinformation
 - **Untenable theoretical commitments force misinformation scholars to focus their inquiry precisely on the least salient part of the phenomenon**
 
+
 # Conclusion
 
-- Misinformation papers constantly warn of democracy under threat, and of distrust in experts, science and/or institutions. 
-- Some authors argue that misinformation and distrust in institutions are linked @akyuz_impact_2021 , or that misinformation causes distrust in institutions @stetka_have_2025 
-- They never ask whether science/experts/institutions have earned the public trust, or how they ought to behave in moments of contention for epistemic authority
+- Misinformation papers constantly warn of democracy under threat, and of distrust in experts, science and/or institutions
+- Some authors argue that misinformation and distrust in institutions are linked @akyuz_impact_2021 , or that misinformation causes distrust in institutions @stetka_have_2025
+- No one never asks whether science/experts/institutions have earned the public trust, or how they ought to behave in moments of contention for epistemic authority
 
 
 # Conclusion
 
 ## Embrace humility
 \scriptsize
-- Each person has been exposed to a lifetime of unending propaganda. 
-- None of us are above it, nor can anyone easily spot all of it.
+- Each person has been exposed to a lifetime of unending propaganda
+- None of us are above it, nor can anyone easily spot all of it
 
 ## Defend democracy
 \scriptsize
-- If you believe democracy is under threat, do not treat the public like idiots needing to be managed, whose sole calling is to obey experts.
-- Participate in public discourse rather than research how to manage it for governments and companies.
-- Academics are teachers, not social media moderators.
+- If you believe democracy is under threat, do not treat the public like idiots needing to be managed, whose sole calling is to obey experts
+- Participate in public discourse rather than research how to manage it for governments and companies
+- Academics are teachers, not social media moderators
 
 ## Fix institutions
 \scriptsize
