@@ -7,6 +7,8 @@ from config import(
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+from matplotlib.ticker import MaxNLocator
+from matplotlib.ticker import MultipleLocator
 mpl.rcParams.update({'font.size': 18})
 import os
 import sys
@@ -486,12 +488,57 @@ def make_graph4(community=6075, fig=None, ax=None):
 
     
 if __name__ == '__main__':
-    fig, axes = plt.subplots(2, 2, figsize=(12, 11))
+    # ## for big plot
+    # fig, axes = plt.subplots(2, 2, figsize=(12, 11))
+    # fig.patch.set_facecolor(background_color)
+    # make_graph1(fig=fig, ax=axes[0][0])
+    # make_graph2(fig=fig, ax=axes[0][1])
+    # make_graph3(fig=fig, ax=axes[1][0])
+    # make_graph4(fig=fig, ax=axes[1][1])
+    # make_graph1()
+    # plt.tight_layout(h_pad=2.0)
+    # fig.savefig('output/one-offs.pdf')
+
+    ## for big vertical plot
+    fig, axes = plt.subplots(3, 1, figsize=(6,16))
+    [
+        ax.xaxis.set_major_locator(MultipleLocator(2))
+        for ax in axes
+    ]    
     fig.patch.set_facecolor(background_color)
-    make_graph1(fig=fig, ax=axes[0][0])
-    make_graph2(fig=fig, ax=axes[0][1])
-    make_graph3(fig=fig, ax=axes[1][0])
-    make_graph4(fig=fig, ax=axes[1][1])
-    make_graph1()
-    plt.tight_layout(h_pad=2.0)
-    fig.savefig('output/one-offs.pdf')
+    make_graph1(fig=fig, ax=axes[0])
+    make_graph2(fig=fig, ax=axes[1])
+    make_graph3(fig=fig, ax=axes[2])
+    plt.tight_layout()
+    fig.savefig('output/one-offs-vertical.pdf')
+
+    # # for individual plots    
+    # fig, ax = plt.subplots(figsize=(7,6))
+    # fig.patch.set_facecolor(background_color)
+    # make_graph1(fig=fig, ax=ax)    
+    # plt.tight_layout()
+    # ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+    # fig.savefig('output/4645.pdf')
+
+    # fig, ax = plt.subplots(figsize=(7,6))
+    # fig.patch.set_facecolor(background_color)    
+    # make_graph2(fig=fig, ax=ax)
+    # plt.tight_layout()
+    # ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+    # fig.savefig('output/1085.pdf')
+
+    # fig, ax = plt.subplots(figsize=(7,6))
+    # fig.patch.set_facecolor(background_color)        
+    # make_graph3(fig=fig, ax=ax)
+    # plt.tight_layout()
+    # ax.xaxis.set_major_locator(MaxNLocator(integer=True))    
+    # fig.savefig('output/1432.pdf')
+
+    # fig, ax = plt.subplots(figsize=(7,6))
+    # fig.patch.set_facecolor(background_color)        
+    # make_graph4(fig=fig, ax=ax)
+    # plt.tight_layout()
+    # ax.xaxis.set_major_locator(MaxNLocator(integer=True))    
+    # fig.savefig('output/6075.pdf')        
+    
+    
