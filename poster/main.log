@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.11)  24 MAR 2026 20:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.11)  31 MAR 2026 12:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1001,7 +1001,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisrulewidth=\dimen330
 ) (./header.tex)
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 4
-3.
+6.
 
 (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1014,24 +1014,24 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1089,7 +1089,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 43.
+Package hyperref Info: Link coloring OFF on input line 46.
 
 (./main.out) (./main.out)
 \@outlinefile=\write5
@@ -1122,168 +1122,148 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 \symgns@font=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
-(Font)                  TS1/lmss/m/n --> TS1/lmss/b/n on input line 43.
-Package gensymb Info: Math companion symbols declared on input line 43.
-LaTeX Info: Redefining \degree on input line 43.
-LaTeX Info: Redefining \celsius on input line 43.
+(Font)                  TS1/lmss/m/n --> TS1/lmss/b/n on input line 46.
+Package gensymb Info: Math companion symbols declared on input line 46.
+LaTeX Info: Redefining \degree on input line 46.
+LaTeX Info: Redefining \celsius on input line 46.
 Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 43.
-LaTeX Info: Redefining \ohm on input line 43.
-Package gensymb Info: Using \textohm for \ohm on input line 43.
-Package gensymb Info: Using \textmu for \micro on input line 43.
+erthousand on input line 46.
+LaTeX Info: Redefining \ohm on input line 46.
+Package gensymb Info: Using \textohm for \ohm on input line 46.
+Package gensymb Info: Using \textmu for \micro on input line 46.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
  (./main.nav)
-LaTeX Font Info:    Calculating math sizes for size <17.86> on input line 43.
+LaTeX Font Info:    Calculating math sizes for size <17.86> on input line 46.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
-3.
+6.
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
-3.
+6.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-43.
+46.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <17.86> not available
-(Font)              size <17.28> substituted on input line 43.
+(Font)              size <17.28> substituted on input line 46.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <12.50194> not available
-(Font)              size <12> substituted on input line 43.
+(Font)              size <12> substituted on input line 46.
 
 LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 
-43.
+46.
 (/usr/share/texmf/tex/latex/lm/ts1lmss.fd
 File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<figures/uvm.jpg, id=13, 248.93pt x 248.93pt>
-File: figures/uvm.jpg Graphic file (type jpg)
-<use figures/uvm.jpg>
-Package pdftex.def Info: figures/uvm.jpg  used on input line 43.
-(pdftex.def)             Requested size: 170.72113pt x 170.71652pt.
-<figures/csc.png, id=14, 192.72pt x 165.2574pt>
-File: figures/csc.png Graphic file (type png)
-<use figures/csc.png>
-Package pdftex.def Info: figures/csc.png  used on input line 43.
-(pdftex.def)             Requested size: 199.09193pt x 170.71652pt.
+<figures/uvm.png, id=13, 58.48665pt x 62.36626pt>
+File: figures/uvm.png Graphic file (type png)
+<use figures/uvm.png>
+Package pdftex.def Info: figures/uvm.png  used on input line 46.
+(pdftex.def)             Requested size: 160.11316pt x 170.71652pt.
+<./figures/csc.png, id=15, 6022.5pt x 5162.28625pt>
+File: ./figures/csc.png Graphic file (type png)
+<use ./figures/csc.png>
+Package pdftex.def Info: ./figures/csc.png  used on input line 46.
+(pdftex.def)             Requested size: 199.13826pt x 170.71652pt.
 <figures/phd.png, id=16, 242.9075pt x 208.78pt>
 File: figures/phd.png Graphic file (type png)
 <use figures/phd.png>
-Package pdftex.def Info: figures/phd.png  used on input line 43.
+Package pdftex.def Info: figures/phd.png  used on input line 46.
 (pdftex.def)             Requested size: 198.63316pt x 170.71652pt.
 <figures/storylab.jpg, id=17, 4098.31125pt x 2370.8575pt>
 File: figures/storylab.jpg Graphic file (type jpg)
 <use figures/storylab.jpg>
-Package pdftex.def Info: figures/storylab.jpg  used on input line 43.
+Package pdftex.def Info: figures/storylab.jpg  used on input line 46.
 (pdftex.def)             Requested size: 295.1032pt x 170.71652pt.
-File: figures/uvm.jpg Graphic file (type jpg)
-<use figures/uvm.jpg>
-Package pdftex.def Info: figures/uvm.jpg  used on input line 141.
-(pdftex.def)             Requested size: 170.72113pt x 170.71652pt.
-File: figures/csc.png Graphic file (type png)
-<use figures/csc.png>
-Package pdftex.def Info: figures/csc.png  used on input line 141.
-(pdftex.def)             Requested size: 199.09193pt x 170.71652pt.
+File: figures/uvm.png Graphic file (type png)
+<use figures/uvm.png>
+Package pdftex.def Info: figures/uvm.png  used on input line 164.
+(pdftex.def)             Requested size: 160.11316pt x 170.71652pt.
+File: ./figures/csc.png Graphic file (type png)
+<use ./figures/csc.png>
+Package pdftex.def Info: ./figures/csc.png  used on input line 164.
+(pdftex.def)             Requested size: 199.13826pt x 170.71652pt.
 File: figures/phd.png Graphic file (type png)
 <use figures/phd.png>
-Package pdftex.def Info: figures/phd.png  used on input line 141.
+Package pdftex.def Info: figures/phd.png  used on input line 164.
 (pdftex.def)             Requested size: 198.63316pt x 170.71652pt.
 File: figures/storylab.jpg Graphic file (type jpg)
 <use figures/storylab.jpg>
-Package pdftex.def Info: figures/storylab.jpg  used on input line 141.
+Package pdftex.def Info: figures/storylab.jpg  used on input line 164.
 (pdftex.def)             Requested size: 295.1032pt x 170.71652pt.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 14
-1.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 16
+4.
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<misc-img/storywrangler.pdf, id=20, 578.16pt x 433.62pt>
-File: misc-img/storywrangler.pdf Graphic file (type pdf)
-<use misc-img/storywrangler.pdf>
-Package pdftex.def Info: misc-img/storywrangler.pdf  used on input line 141.
-(pdftex.def)             Requested size: 692.07741pt x 519.08426pt.
-LaTeX Font Info:    Calculating math sizes for size <30.85> on input line 141.
+LaTeX Font Info:    Calculating math sizes for size <37.03> on input line 164.
 
 
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <30.85> not available
-(Font)              size <24.88> substituted on input line 141.
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <37.03> not available
+(Font)              size <24.88> substituted on input line 164.
 
 
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <21.59491> not available
-(Font)              size <20.74> substituted on input line 141.
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <25.92088> not available
+(Font)              size <24.88> substituted on input line 164.
 
 
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <15.425> not available
-(Font)              size <14.4> substituted on input line 141.
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <18.515> not available
+(Font)              size <17.28> substituted on input line 164.
 
-LaTeX Font Info:    Calculating math sizes for size <25.72> on input line 141.
-
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <25.72> not available
-(Font)              size <24.88> substituted on input line 141.
-
-
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <18.00392> not available
-(Font)              size <17.28> substituted on input line 141.
-
-
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <12.86> not available
-(Font)              size <12> substituted on input line 141.
-
+<network-img/one-offs-vertical.pdf, id=20, 433.62pt x 1156.32pt>
+File: network-img/one-offs-vertical.pdf Graphic file (type pdf)
+<use network-img/one-offs-vertical.pdf>
+Package pdftex.def Info: network-img/one-offs-vertical.pdf  used on input line 
+164.
+(pdftex.def)             Requested size: 692.07741pt x 1845.77412pt.
 <term_frequency-img/fig.pdf, id=21, 650.43pt x 433.62pt>
 File: term_frequency-img/fig.pdf Graphic file (type pdf)
 <use term_frequency-img/fig.pdf>
-Package pdftex.def Info: term_frequency-img/fig.pdf  used on input line 141.
+Package pdftex.def Info: term_frequency-img/fig.pdf  used on input line 164.
 (pdftex.def)             Requested size: 1690.09866pt x 1126.82301pt.
 <network-img/both-communities.pdf, id=22, 867.24pt x 433.62pt>
 File: network-img/both-communities.pdf Graphic file (type pdf)
 <use network-img/both-communities.pdf>
 Package pdftex.def Info: network-img/both-communities.pdf  used on input line 1
-41.
+64.
 (pdftex.def)             Requested size: 1690.09866pt x 845.15862pt.
-<network-img/1085.pdf, id=23, 505.89pt x 433.62pt>
-File: network-img/1085.pdf Graphic file (type pdf)
-<use network-img/1085.pdf>
-Package pdftex.def Info: network-img/1085.pdf  used on input line 141.
-(pdftex.def)             Requested size: 692.07741pt x 593.22215pt.
-LaTeX Font Info:    Calculating math sizes for size <37.03> on input line 141.
-
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <37.03> not available
-(Font)              size <24.88> substituted on input line 141.
-
-
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <25.92088> not available
-(Font)              size <24.88> substituted on input line 141.
-
-
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <18.515> not available
-(Font)              size <17.28> substituted on input line 141.
-
-File: figures/uvm.jpg Graphic file (type jpg)
-<use figures/uvm.jpg>
-Package pdftex.def Info: figures/uvm.jpg  used on input line 141.
-(pdftex.def)             Requested size: 170.72113pt x 170.71652pt.
-File: figures/csc.png Graphic file (type png)
-<use figures/csc.png>
-Package pdftex.def Info: figures/csc.png  used on input line 141.
-(pdftex.def)             Requested size: 199.09193pt x 170.71652pt.
+<misc-img/storywrangler.pdf, id=23, 578.16pt x 433.62pt>
+File: misc-img/storywrangler.pdf Graphic file (type pdf)
+<use misc-img/storywrangler.pdf>
+Package pdftex.def Info: misc-img/storywrangler.pdf  used on input line 164.
+(pdftex.def)             Requested size: 692.07741pt x 519.08426pt.
+<figures/qr.png, id=24, 1159.33125pt x 1159.33125pt>
+File: figures/qr.png Graphic file (type png)
+<use figures/qr.png>
+Package pdftex.def Info: figures/qr.png  used on input line 164.
+(pdftex.def)             Requested size: 138.41336pt x 138.40614pt.
+File: figures/uvm.png Graphic file (type png)
+<use figures/uvm.png>
+Package pdftex.def Info: figures/uvm.png  used on input line 164.
+(pdftex.def)             Requested size: 160.11316pt x 170.71652pt.
+File: ./figures/csc.png Graphic file (type png)
+<use ./figures/csc.png>
+Package pdftex.def Info: ./figures/csc.png  used on input line 164.
+(pdftex.def)             Requested size: 199.13826pt x 170.71652pt.
 File: figures/phd.png Graphic file (type png)
 <use figures/phd.png>
-Package pdftex.def Info: figures/phd.png  used on input line 141.
+Package pdftex.def Info: figures/phd.png  used on input line 164.
 (pdftex.def)             Requested size: 198.63316pt x 170.71652pt.
 File: figures/storylab.jpg Graphic file (type jpg)
 <use figures/storylab.jpg>
-Package pdftex.def Info: figures/storylab.jpg  used on input line 141.
+Package pdftex.def Info: figures/storylab.jpg  used on input line 164.
 (pdftex.def)             Requested size: 295.1032pt x 170.71652pt.
 
 Overfull \hbox (88.20334pt too wide) has occurred while \output is active
@@ -1293,10 +1273,10 @@ Overfull \hbox (88.20334pt too wide) has occurred while \output is active
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/en
 c/dvips/lm/lm-ec.enc}
 
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc} <./figures/uvm.jpg> <./figu
-res/csc.png> <./figures/phd.png> <./figures/storylab.jpg> <./misc-img/storywran
-gler.pdf> <./term_frequency-img/fig.pdf> <./network-img/both-communities.pdf> <
-./network-img/1085.pdf>]
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc} <./figures/uvm.png> <./figu
+res/csc.png> <./figures/phd.png> <./figures/storylab.jpg> <./network-img/one-of
+fs-vertical.pdf> <./term_frequency-img/fig.pdf> <./network-img/both-communities
+.pdf> <./misc-img/storywrangler.pdf> <./figures/qr.png>]
 \tf@nav=\write6
 \openout6 = `main.nav'.
 
@@ -1306,7 +1286,8 @@ gler.pdf> <./term_frequency-img/fig.pdf> <./network-img/both-communities.pdf> <
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
- (./main.aux)
+
+(./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1320,21 +1301,21 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 28597 strings out of 474222
- 562772 string characters out of 5748732
- 1977975 words of memory out of 5000000
- 50245 multiletter control sequences out of 15000+600000
- 666879 words of font info for 135 fonts, out of 8000000 for 9000
+ 28520 strings out of 474222
+ 561175 string characters out of 5748732
+ 1960975 words of memory out of 5000000
+ 50169 multiletter control sequences out of 15000+600000
+ 621078 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,18n,147p,399b,1273s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,18n,147p,399b,1275s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/ty
-pe1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></us
-r/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/pu
-blic/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on main.pdf (1 page, 2152847 bytes).
+pe1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></us
+r/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmsy10.pfb>
+Output written on main.pdf (1 page, 8563726 bytes).
 PDF statistics:
- 287 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+ 307 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
  3 named destinations out of 1000 (max. 500000)
- 89 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 94 words of extra memory for PDF output out of 10000 (max. 10000000)
 
