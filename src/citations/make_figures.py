@@ -14,21 +14,72 @@ import pandas as pd
 import numpy as np
 import networkx as nx
 import sqlite3 
-from sqlalchemy import create_engine, and_, desc
+from sqlalchemy import create_engine, and_, desc, func
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql import functions
 from matplotlib.colors import LinearSegmentedColormap
 from config import *
+import plotly.graph_objects as go
 
 engine = create_engine(
     "sqlite:///input/papers.db",
 )
 SessionFactory = sessionmaker(bind=engine)
 
+def most_cited(rebuild=False):
+    if not rebuild:
+        return pd.read_csv('output/top_cited_authors.csv')
+        
+    session = SessionFactory()
+    citations = pd.DataFrame([
+        {
+            'cited': c.cited.doi,
+            'citing': c.citing.doi,
+            'year': c.cited.year,
+            'title': c.cited.title,
+        }
+        for c in session.query(Citation).all()
+        if c.cited.doi is not None and c.cited.doi != ''
+    ])
+    
+    citations = citations.groupby([
+        'cited', 'year', 'title'
+    ]).count().reset_index()
+    authors = []
+    for author in session.query(Author).all():
+        for paper in author.papers:
+            authors.append(
+                {
+                    'doi': paper.doi,
+                    'name': author.name,
+                    'id': author.id
+                }
+            )
+    authors = pd.DataFrame(authors)
+    authors = authors.merge(
+        citations[['cited', 'citing']],
+        left_on='doi',
+        right_on='cited'
+    )
+    authors_count = authors[['doi', 'name', 'citing', 'id']].groupby([
+        'id', 
+    ]).sum('citing').reset_index()
+    citations.to_csv('output/in_progress/citations_df.csv')
+    authors.to_csv('output/in_progress/authors_df.csv')
+    authors_count.to_csv('output/in_progress/authors_count_df.csv')    
+    df = authors_count.sort_values(
+        'citing', ascending=False
+    ).merge(
+        authors[['id', 'name']].drop_duplicates(
+            subset=['id', 'name']
+        ), on='id'
+    )
+    df.to_csv('output/top_cited_authors.csv')
+    return df
+
 
 def citation_flows():
     session = SessionFactory()
-
     papers = pd.DataFrame(
         session.query(
             Paper.community,
@@ -287,7 +338,227 @@ def make_tables(c2s, c1=1432):
                 column_format=('p{.49\\textwidth}p{.49\\textwidth}'))
         )
 
+def make_most_cited_table(df):
+    df = df[['citing', 'name']][:10]
+    names_and_affils = None
+    with open('name_and_affiliation.csv', 'r') as f:
+        names_and_affils = [
+            [cell.strip() for cell in row.split('|')]
+            for row in f.read().split('\n')
+            if row
+        ]
+    name_map = {row[0]:row[1] for row in names_and_affils}
+    print(name_map)
+    df['name'] = df['name'].apply(
+        lambda n: name_map[n.strip()]
+    )
+    df['affiliation'] = [row[2] for row in names_and_affils][:10]
+    with open('output/most_cited_authors.tex', 'w') as f:
+        df.columns = [
+            'Citation Count', 'Name', 'Affiliation'
+        ]
+        table = df.to_latex()
+        table = table.replace(
+            'toprule', 'hline'
+        ).replace(
+            'midrule', 'hline'
+        ).replace(
+            'bottomrule', 'hline'
+        )
+        f.write(table)
+
+def sankey(min_comm=1):
+    session = SessionFactory()
+    papers = pd.DataFrame([
+        {
+            'auth_comm': f'Authorship:{paper.community}',
+            'cit_comm': f'Citation:{paper.citation_community}',
+            'id': paper.doi
+        }
+        for paper in session.query(Paper).all()
+    ])
+    print(len(papers))
+    papers = papers.groupby(['auth_comm', 'cit_comm']).size()
+    papers = papers.reset_index()
+    papers.columns = ('auth_comm', 'cit_comm', 'count')
     
+    filter_comms = papers.groupby(
+            'auth_comm'
+    ).size().reset_index()
+    filter_comms.columns = ('auth_comm', 'count')
+    filter_comms = filter_comms[filter_comms['count'] > min_comm]
+    papers = papers[
+        papers.auth_comm.isin(filter_comms['auth_comm'])
+    ]
+
+    filter_comms = papers.groupby(
+            'cit_comm'
+    ).size().reset_index()
+    filter_comms.columns = ('cit_comm', 'count')
+    filter_comms = filter_comms[filter_comms['count'] > min_comm]
+    papers = papers[
+        papers.cit_comm.isin(filter_comms['cit_comm'])
+    ]
+
+    print(len(papers))
+    print(papers[papers.auth_comm==1432])
+    all_nodes = papers['auth_comm'].tolist() + papers['cit_comm'].tolist()
+    node_index = {name: i for i, name in enumerate(all_nodes)}
+    sources = papers['auth_comm'].map(node_index).tolist()
+    targets = papers['cit_comm'].map(node_index).tolist()
+    values = papers['count'].tolist()
+
+    fig = go.Figure(data=[go.Sankey(
+        orientation='v',
+        node=dict(
+            label=all_nodes,
+            pad=20,
+            thickness=20,
+            line=dict(width=0.5)
+        ),
+        link=dict(
+            source=sources,
+            target=targets,
+            value=values
+        )
+    )])
+
+    fig.update_layout(
+        title_text="Communities",
+        font_size=10,
+        height=800,
+        width=1200
+    )
+    fig.show()
+
+def community_correspondance(
+        min_count=10,
+        top_n=10
+):
+    session = SessionFactory()
+    df = pd.DataFrame([
+        {
+            'auth_comm': f'Authorship:{paper.community}',
+            'cit_comm': f'Citation:{paper.citation_community}',
+            'id': paper.doi
+        }
+        for paper in session.query(Paper).all()
+        if paper.community is not None and paper.citation_community is not None
+    ])
+    filter_auth_comms = (
+        df.groupby('auth_comm').
+        size().
+        rename('size').
+        reset_index().
+        sort_values('size', ascending=False)
+    ).head(top_n)['auth_comm'].tolist()
+    
+    counts = (
+        df.groupby(['auth_comm', 'cit_comm'])
+          .size()
+          .rename('count')
+          .reset_index()
+    )
+    counts = counts[counts.auth_comm.isin(filter_auth_comms)]
+    #counts = counts[counts['count'] > min_count]
+    counts = counts.sort_values('count', ascending=False)
+    counts['fraction'] = (
+        counts['count'] /
+        counts.groupby('auth_comm')['count'].transform('sum')
+    )
+    counts['rank'] = (
+        counts.groupby('auth_comm')['count']
+              .rank(method='first', ascending=False)
+    )
+    counts = counts[counts['rank'] <= 3].copy()
+    table = []    
+    for auth_comm in counts['auth_comm'].unique():
+        row = []
+        row.append(auth_comm)
+        for i, this_row in enumerate(
+                counts[
+                    counts.auth_comm == auth_comm
+                ].values.tolist()
+        ):
+            if i > 2:
+                raise ValueError('Failed sanity check')
+            row.extend((this_row[1], this_row[3]))
+        table.append(row)
+
+    new_table = []
+    for row in table:
+        if row is None:
+            continue
+        if len(row) == 3:
+            row.extend((None, None))
+        if len(row) == 5:
+            row.extend((None, None))
+
+        row.append(
+            (row[2] or 0)
+            +
+            (row[4] or 0)
+            +
+            (row[6] or 0)
+        )            
+
+        row[-1] = round(row[-1], 2)
+        new_table.append(row)
+
+    with open('output/correspondance.tex', 'w') as f:
+        table = pd.DataFrame(table)
+        table.columns = [
+            'Author community',
+            'First citation community',
+            'Overlap with first citation community',
+            'Second citation community',
+            'Ovelap with second citation community',
+            'Third citation community',
+            'Overlap with third citation community',
+            'Sum of top three'
+        ]
+        table = table[[
+            'Author community',
+            'Overlap with first citation community',
+            'Ovelap with second citation community',
+            'Overlap with third citation community',
+            'Sum of top three'
+        ]].sort_values('Sum of top three', ascending=False)
+        table['Author community'] = table['Author community'].apply(
+            lambda x: x.replace('Authorship:', '')
+        )
+        table = table.to_latex(
+            index=False,
+            float_format="%.2f",
+            column_format='p{.1\\textwidth}' * 9
+        )
+        table = table.replace(
+            'toprule', 'hline'
+        ).replace(
+            'midrule', 'hline'
+        ).replace(
+            'bottomrule', 'hline'
+        )
+        table = '\\resizebox{\\textwidth}{!}{%\n' + table + '\n}'
+        table = table.replace('NaN', 'N/A')
+        f.write(table)
+        with open('output/debugging_table.tex', 'w') as g:
+            template = '''
+            \\documentclass{article}
+            \\usepackage[margin=1in]{geometry}
+            \\usepackage{graphicx}            
+            \\begin{document}
+            TABLE
+            \\end{document}
+            '''
+            g.write(template.replace('TABLE', table))
+
+        
 if __name__ == "__main__":
-    citation_flows()
-    make_tables(table_data)
+    #citation_flows()
+    #make_tables(table_data)
+    # make_most_cited_table(
+    #     most_cited(rebuild=False)
+    # )
+    #sankey()
+    community_correspondance()

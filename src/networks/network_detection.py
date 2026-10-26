@@ -37,7 +37,7 @@ sys.path.append(
         '../database'
     )
 )
-from models import Paper, Author, SessionFactory
+from models import Paper, Author, SessionFactory, Citation
 
 
 engine = create_engine(
@@ -144,6 +144,7 @@ def community_tfidf(n=1):
     return results
 
 def make_graph(
+        community_col='community',
         top_n=5,
         relabel=False,
         min_group_count=MIN_COMMUNITY_PAPERS,
@@ -163,7 +164,7 @@ def make_graph(
     session = SessionFactory()
     papers = pd.DataFrame(
         session.query(
-            Paper.community,
+            getattr(Paper, community_col),
             Paper.year
         ).all()
     )
@@ -174,11 +175,11 @@ def make_graph(
     for year in years:
         annual_comm = (
             session.query(
-                Paper.community,
+                getattr(Paper, community_col),
                 functions.count(Paper.doi),
             ).
             filter(Paper.year==int(year)).                
-            group_by(Paper.community).
+            group_by(getattr(Paper, community_col)).
             having(
                 functions.count(Paper.doi) > min_group_count
             ).
@@ -193,18 +194,20 @@ def make_graph(
     communities = list(set(communities))
     data = {}
     papers = session.query(
-        Paper.community,
+        getattr(Paper, community_col),
         Paper.year
-    ).filter(Paper.community.in_(communities)).all()
+    ).filter(getattr(Paper, community_col).in_(communities)).all()
     df = pd.DataFrame(papers)
     df.columns = ('community', 'year')
 
     community_to_tfidf = community_tfidf()
     community_to_bigrams = list(
-        community_ngrams(ngram_finder=find_bigrams)
+        community_ngrams(community_col=community_col,
+                         ngram_finder=find_bigrams)
     )
     community_to_trigrams = list(
-        community_ngrams(ngram_finder=find_trigrams)
+        community_ngrams(community_col=community_col,
+                         ngram_finder=find_trigrams)
     )
     
     plotdf = df.groupby('year').apply(
@@ -283,11 +286,11 @@ def make_graph(
     year = 2023
     annual_comm = (
         session.query(
-            Paper.community,
+            getattr(Paper, community_col),
             functions.count(Paper.doi),
         ).
         filter(Paper.year==int(year)).                
-        group_by(Paper.community).
+        group_by(getattr(Paper, community_col)).
         having(
             functions.count(Paper.doi)
             >
@@ -306,19 +309,21 @@ def make_graph(
     communities = list(set(communities))
     data = {}
     papers = session.query(
-        Paper.community,
+        getattr(Paper, community_col),
         Paper.year
-    ).filter(Paper.community.in_(communities)).all()
+    ).filter(getattr(Paper, community_col).in_(communities)).all()
     
     df = pd.DataFrame(papers)
     df.columns = ('community', 'year')
 
     community_to_tfidf = community_tfidf()
     community_to_bigrams = list(
-        community_ngrams(ngram_finder=find_bigrams)
+        community_ngrams(community_col=community_col,
+                         ngram_finder=find_bigrams)
     )
     community_to_trigrams = list(
-        community_ngrams(ngram_finder=find_trigrams)
+        community_ngrams(community_col=community_col,
+                         ngram_finder=find_trigrams)
     )
 
     ax = axes[1]
@@ -393,7 +398,7 @@ def make_graph(
         )
 
     plt.tight_layout()
-    fig.savefig('output/both-communities.pdf') 
+    fig.savefig(f'output/both-communities-{community_col}.pdf') 
     
     
     tfidf_table = pd.DataFrame({
@@ -415,25 +420,26 @@ def make_graph(
     })
     tables.append(tfidf_table)
     
-    with open(tables_dests[1], 'w') as f:
+    with open(tables_dests[1] + community_col, 'w') as f:
         f.write(
             tfidf_table.to_latex(index=False)
         )
 
     tables = pd.concat([tables[0], tables[1]])
     tables = tables.drop_duplicates()
-    with open(tables_dests[2], 'w') as f:
+    with open(tables_dests[2] + community_col, 'w') as f:
         f.write(
             tables.to_latex(index=False)
         )
 
     make_tfidf_tables.main(
+        community_col=community_col,
         target_communities=all_communities,
         nterms=7
     )
 
 
-def community_ngrams(ngram_finder=None):
+def community_ngrams(community_col='community', ngram_finder=None):
     if ngram_finder is None:
         ngram_finder = find_bigrams
         
@@ -446,8 +452,8 @@ def community_ngrams(ngram_finder=None):
                 Paper.abstract,
             )
         ).
-        group_by(Paper.community).
-        order_by(Paper.community)
+        group_by(getattr(Paper, community_col)).
+        order_by(getattr(Paper, community_col))
     ).all()
     
     for text in texts:
@@ -470,13 +476,44 @@ def community_ngrams(ngram_finder=None):
         yield [b[0] for b in bigrams]
 
         
+def label_papers_by_citation_community(resolution=RESOLUTION):
+    session = SessionFactory()
+    G = nx.Graph()
+    G.add_nodes_from([
+        p.doi for p in session.query(Paper).all()
+    ])            
+    for j, citation in enumerate(session.query(Citation).all()):
+        if j % 5000 == 0:
+            print(j)
+        G.add_edge(
+            citation.citing_paper_doi,
+            citation.cited_paper_doi
+        )
+                           
+    communities = nx.algorithms.community.louvain_communities(   
+        G,
+        resolution=resolution
+    )
+    
+    for i, community in enumerate(communities):
+        for doi in community:            
+            paper = session.query(Paper).filter(
+                Paper.doi==doi
+            ).one()
+            paper.citation_community = i
+            session.add(paper)
+            
+    session.commit()
+
+
 if __name__ == '__main__':
     make_graph(
+        community_col='citation_community',
         top_n=TOP_N,
         n_initial_communities=N_INITIAL_COMMUNITIES,
         relabel=False
     )
-            
+    #label_papers_by_citation_community()
             
         
         

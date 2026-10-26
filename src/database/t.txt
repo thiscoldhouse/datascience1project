@@ -1,0 +1,37 @@
+            url = 'https://opencitations.net/index/coci/api/v1/references/{doi}'
+            url = url.format(
+                doi=urllib.parse.quote_plus(doi)
+            )
+            r = requests.get(
+                url,
+                allow_redirects=True,
+                headers = {
+                    'User-Agent': 'Alejandro Ruiz (mailto:alejandro.ruiz@uvm.edu)'
+                },
+            )
+            if r.status_code != 200:
+                print('Something went wrong')
+                print(f'Status code {r.status_code} for url {url}')
+                return []
+
+            data = None
+            try:
+                data = r.json()
+            except Exception as e:
+                print('===============')
+                print('Status code is 200 but response is not json')
+                print('url :', url)
+                print('Response:')
+                print(r.text[:200])
+                print('===============')
+            dois = []
+            for row in data:
+                yield row['cited']
+        except Exception as e:
+            print('****************')
+            print('****************')            
+            print('Warning! Unexpected error getting citations')
+            print(e)
+            print('****************')
+            print('****************')
+            return []

@@ -4,7 +4,6 @@ import requests
 import json
 import csv
 
-
 class CreateDB:
     def __init__(self):
         self.session = SessionFactory()
@@ -47,8 +46,56 @@ class CreateDB:
                     if keyword not in paper.keywords:
                         paper.keywords.append(keyword)
 
+        # patched back in to main flow
+        self.older_papers_backfill()
         self.get_citations()
         self.session.commit()
+
+    def older_papers_backfill(self):
+        # patched in after the fact. Mostly copy pasted
+        # code from previous function
+        
+        with open(
+                'input/before_2011.csv',
+                'r',
+                encoding='utf-8-sig'
+        ) as f:
+            reader = csv.reader(f)
+            columns = next(reader)
+            col_to_i = {
+                col: i for i, col in enumerate(columns)
+            }
+            print(col_to_i)
+            for row in reader:
+                paper = self.get_paper(
+                    row[col_to_i['DOI']],
+                    row[col_to_i['Title']],
+                    row[col_to_i['Abstract']],
+                    row[col_to_i['Year']],                    
+                )
+
+                if paper is None:
+                    continue
+
+                self.session.add(paper)
+                authors = self.get_authors(
+                    row[col_to_i['Authors']],
+                    row[col_to_i['Author(s) ID']],
+                )
+                for author in authors:
+                    if paper not in author.papers:
+                        author.papers.append(paper)
+                    self.session.add(author)
+
+                keywords = self.get_keywords(
+                    row[col_to_i['Author Keywords' ]].split(';'),
+                    row[col_to_i['Index Keywords']].split(';')
+                )
+                for keyword in keywords:
+                    if keyword not in paper.keywords:
+                        paper.keywords.append(keyword)
+
+        
 
     def get_paper(self, doi, title, abstract, year):
         if doi is None:
@@ -67,7 +114,7 @@ class CreateDB:
             )
         else:
             paper = paper[0]
-
+        
         return paper
         
 

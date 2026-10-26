@@ -3,16 +3,17 @@ from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 
 Base = declarative_base()
 
-PaperAuthor = Table(
-    'paper_author', Base.metadata,
-    Column('paper_id', ForeignKey('paper.doi'), primary_key=True),
-    Column('author_id', ForeignKey('author.id'), primary_key=True)
-)
 
 PaperKeyword = Table(
     'paper_keyword', Base.metadata,
     Column('paper_id', ForeignKey('paper.doi'), primary_key=True),
     Column('keyword_id', ForeignKey('keyword.id'), primary_key=True)
+)
+
+PaperAuthor = Table(
+    'paper_author', Base.metadata,
+    Column('paper_id', ForeignKey('paper.doi'), primary_key=True),
+    Column('author_id', ForeignKey('author.id'), primary_key=True)
 )
 
 
@@ -23,7 +24,10 @@ class Paper(Base):
     abstract = Column(Text, nullable=True)
     keywords = Column(Text, nullable=True)
     year = Column(Integer, nullable=False)
+
+    # paper community by author:
     community = Column(Integer, nullable=True)
+    citation_community = Column(Integer, nullable=True)    
     citation_count = Column(Integer, nullable=True)
     citations_fetched = Column(Boolean, default=False)
     authors = relationship(

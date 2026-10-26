@@ -244,7 +244,10 @@ def make_figure(
     bow1 = bow1.groupby('words').size().reset_index()
     bow1.columns = ('words', 'count')
     bow2 = bow2.groupby('words').size().reset_index()
-    bow2.columns = ('words', 'count')    
+    bow2.columns = ('words', 'count')
+
+    bow1 = bow1[bow1.words != 'misinformation']
+    bow2 = bow2[bow2.words != 'misinformation']    
 
     bow1['freq'] = bow1['count']/np.sum(bow1['count'])
     bow2['freq'] = bow2['count']/np.sum(bow2['count'])    
@@ -278,7 +281,9 @@ def make_figure(
     axes[2].set_title("ΔFrequency x 100")
     axes[2].invert_yaxis()
     axes[2].tick_params(axis='x', labelsize=8)
-    
+
+    # filter word "misinformation"
+
     
     before = merged.sort_values(
         'divergence', ascending=False
@@ -329,7 +334,7 @@ def make_figure(
         final['year'], final['post-trump'],
         marker='o', linestyle='-',
         linewidth=1,
-        markersize=7,
+        markersize=4,
         color=after_color,     
     )
     axes[0].plot(
@@ -337,7 +342,7 @@ def make_figure(
         marker='s',
         linestyle='--',
         linewidth=1,
-        markersize=7,
+        markersize=4,
         color=before_color,
 
     )
@@ -416,8 +421,7 @@ def make_figure(
     else:
         plt.show()
 
-def make_figure_wrapper(path_to_csv, destination):
-    df = pd.read_csv(path_to_csv)
+def make_figure_wrapper(df, destination):
     df['text'] = df['Title'] + '. ' + df['Abstract']
     fig = make_figure(
         df,
@@ -428,8 +432,18 @@ def make_figure_wrapper(path_to_csv, destination):
     )
 
 if __name__ == '__main__':
+    df_original = pd.read_csv('input/data.csv')
+    df_all = pd.concat((
+        df_original,
+        pd.read_csv('input/before_2011.csv')
+    ))
+
     make_figure_wrapper(
-        'input/data.csv',
-        destination,
+        df_all,
+        'output/all_years_tf_change.pdf'
+    )
+    make_figure_wrapper(
+        df_original,
+        'output/2011-onwards_tf_change.pdf'
     )
     

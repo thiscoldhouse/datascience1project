@@ -1,0 +1,921 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.11)  26 OCT 2026 13:44
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**output/correspondance.tex
+(./output/correspondance.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count187
+\c@section=\count188
+\c@subsection=\count189
+\c@subsubsection=\count190
+\c@paragraph=\count191
+\c@subparagraph=\count192
+\c@figure=\count193
+\c@table=\count194
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+)
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count195
+\Gm@cntv=\count196
+\c@Gm@tempcnt=\count197
+\Gm@bindingoffset=\dimen141
+\Gm@wd@mp=\dimen142
+\Gm@odd@mp=\dimen143
+\Gm@even@mp=\dimen144
+\Gm@layoutwidth=\dimen145
+\Gm@layoutheight=\dimen146
+\Gm@layouthoffset=\dimen147
+\Gm@layoutvoffset=\dimen148
+\Gm@dimlist=\toks18
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count198
+\l__pdf_internal_box=\box51
+)
+No file correspondance.aux.
+\openout1 = `correspondance.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count199
+\scratchdimen=\dimen151
+\scratchbox=\box52
+\nofMPsegments=\count266
+\nofMParguments=\count267
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count268
+\MPscratchDim=\dimen152
+\MPnumerator=\count269
+\makeMPintoPDFobject=\count270
+\everyMPtoPDFconversion=\toks20
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 50.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 50.
+
+Overfull \hbox (7.92757pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Author
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 mu-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 First
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 ci-ta-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 mu-
+ []
+
+
+Overfull \hbox (24.2054pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Proportion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 au-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 thor-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 ship
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 mu-
+ []
+
+
+Overfull \hbox (7.06644pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Second
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 ci-ta-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 mu-
+ []
+
+
+Overfull \hbox (24.2054pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Proportion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 au-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 thor-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 ship
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 mu-
+ []
+
+
+Overfull \hbox (1.53865pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Third
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 ci-ta-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 mu-
+ []
+
+
+Overfull \hbox (24.2054pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Proportion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 au-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 thor-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 ship
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 mu-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 nity
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 from
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 third
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 ci-ta-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 mu-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Sum
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+\OT1/cmr/m/n/10 top
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:1432| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:5436| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:5373| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:6075| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:5373| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:2088| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:4084| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:1277| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3975| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:4084| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3011| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:5282| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3975| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:2088| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:5352| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:6424| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3435| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:4084| 
+ []
+
+
+Overfull \hbox (20.39983pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:2350| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3975| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:2088| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:5352| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:4670| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3011| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:2088| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3975| 
+ []
+
+
+Overfull \hbox (43.53877pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:426| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:4084| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3011| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:7076| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:5352| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:4084| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3975| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:4645| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:2088| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3011| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:4084| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:7956| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:4084| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3435| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:2088| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:2512| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3975| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:4084| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:4543| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:2088| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3011| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:5373| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:5690| 
+ []
+
+
+Overfull \hbox (20.39983pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3| 
+ []
+
+
+Overfull \hbox (43.53877pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:997| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:1572| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:2088| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3011| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:4672| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:4084| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3011| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:2088| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:1085| 
+ []
+
+
+Overfull \hbox (20.39983pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:4084| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3975| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:4328| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3435| 
+ []
+
+
+Overfull \hbox (43.53877pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:321| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3011| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:8010| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:4084| 
+ []
+
+
+Overfull \hbox (33.53874pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:1| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:5373| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:2065| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3435| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:3621| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3435| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:1483| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3975| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:2088| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3435| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:6925| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3975| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:7156| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:5436| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:7307| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:5373| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:5514| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3975| 
+ []
+
+
+Overfull \hbox (20.39983pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3| 
+ []
+
+
+Overfull \hbox (43.53877pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:317| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3975| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:3319| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:4084| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:2081| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:3435| 
+ []
+
+
+Overfull \hbox (48.53879pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:7667| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:5436| 
+ []
+
+
+Overfull \hbox (43.53877pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Authorship:814| 
+ []
+
+
+Overfull \hbox (35.39987pt too wide) in paragraph at lines 50--50
+[]\OT1/cmr/m/n/10 Citation:1572| 
+ []
+
+
+Overfull \hbox (15.04529pt too wide) in paragraph at lines 9--51
+[][] 
+ []
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \vbox (288.59703pt too high) has occurred while \output is active []
+
+
+[2] (./correspondance.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 1819 strings out of 474222
+ 29182 string characters out of 5748732
+ 1971975 words of memory out of 5000000
+ 24111 multiletter control sequences out of 15000+600000
+ 558069 words of font info for 36 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,9n,65p,289b,137s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on correspondance.pdf (2 pages, 18997 bytes).
+PDF statistics:
+ 16 PDF objects out of 1000 (max. 8388607)
+ 9 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

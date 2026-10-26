@@ -21,7 +21,7 @@ engine = create_engine(
 )
 SessionFactory = sessionmaker(bind=engine)
 
-def main(target_communities=None, nterms=7):    
+def main(community_col='community', target_communities=None, nterms=7):    
     if target_communities is None:
         target_communities = [
             5282,
@@ -36,14 +36,14 @@ def main(target_communities=None, nterms=7):
     session = SessionFactory()
     texts = (
         session.query(
-            Paper.community,
+            getattr(Paper, community_col),
             functions.concat(
                 Paper.title,
                 ' ',
                 Paper.abstract,
             )
         ).
-        group_by(Paper.community)
+        group_by(getattr(Paper, community_col))
     ).all()
 
     communities = [text[0] for text in texts]
