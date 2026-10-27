@@ -432,7 +432,6 @@ def sankey(min_comm=1):
     fig.show()
 
 def community_correspondance(
-        min_count=10,
         top_n=10
 ):
     session = SessionFactory()
@@ -460,7 +459,6 @@ def community_correspondance(
           .reset_index()
     )
     counts = counts[counts.auth_comm.isin(filter_auth_comms)]
-    #counts = counts[counts['count'] > min_count]
     counts = counts.sort_values('count', ascending=False)
     counts['fraction'] = (
         counts['count'] /
