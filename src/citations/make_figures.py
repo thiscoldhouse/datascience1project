@@ -537,7 +537,6 @@ def community_correspondance(
         ).replace(
             'bottomrule', 'hline'
         )
-        table = '\\resizebox{\\textwidth}{!}{%\n' + table + '\n}'
         table = table.replace('NaN', 'N/A')
         f.write(table)
         with open('output/debugging_table.tex', 'w') as g:

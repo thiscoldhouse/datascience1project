@@ -192,7 +192,7 @@ academic literature
 
 
 \begin{abstract}
-   Since 2016, the term ``misinformation'' has become associated with a scientific paradigm that studies, at its core, people making, reading, and sharing false statements, usually on social media, and often warning of the harm to society resulting from the sum of many such events. By tracking the term through the academic literature, with special focus on the years 2011--2023, we connect this post-2016 paradigm with a strand of research dating to the Satanic panic of the 1980s. We argue that post-2016 misinformation research owes more to this intellectual lineage than is generally acknowledged, and we discuss the theoretical and practical implications of this connection. We conclude by drawing parallels between the Satanic panic and 2026, and, similarly, between misinformation research then and now. 
+   Since 2016, the term ``misinformation'' has become associated with a scientific paradigm that studies, at its core, people making, reading, and sharing false statements, usually on social media, and often warning of the harm to society resulting from the sum of many such events. By tracking the term through the academic literature, with special focus on the years 1970--2023, we connect this post-2016 paradigm with a strand of research dating to the Satanic panic of the 1980s. We argue that post-2016 misinformation research owes more to this intellectual lineage than is generally acknowledged, and we discuss the theoretical and practical implications of this connection. We conclude by drawing parallels between the Satanic panic and 2026, and, similarly, between misinformation research then and now. 
 \end{abstract}
 
 \maketitle
@@ -220,24 +220,22 @@ question~\cite{loftusPlantingMisinformationHuman2005b}. In a striking historical
 
 In the early 2000s, public health practitioners become interested in ``infodemiology'', or ``the study of the determinants and distribution of health information and misinformation—which may be useful in guiding health professionals and patients to quality health information on the Internet''~\cite{eysenbachInfodemiologyEpidemiologyMisinformation2002}. From there, in what seems a logical next step, we see papers that study how (mis)information spreads during crises on social media, including epidemics~\cite{suttonBackchannelsFrontLines2008, chewPandemicsAgeTwitter2010, ohEXPLORATIONSOCIALMEDIA2010}. 
 
-
-
 Finally, in the 2020s, as we show in Section~\ref{results}, we have a new usage of misinformation, one focused on social media, and one that has entered into popular consciousness (e.g., see Figure~\ref{fig:twitter}). It is not new that people say things that are not true, whether on social media or otherwise. That people often believe these things, both to our individual and collective detriments, is similarly unsurprising. In the 2020s, however, in both formal and informal settings, we have described this phenomenon as misinformation in a specific yet broadly applicable sense. 
 
 Previous work shows, either implicitly or explicitly, that the paradigm dates to roughly 2016, and that its existence is intertwined with the rise of social media~\cite{broda_misinformation_2024,donovan_express_2025}. Some argue this point in a critique of the paradigm~\cite{miro-llinares_misinformation_2023}. These histories tend to begin with a general statement on the vast history of people saying and believing untrue things. They often cite technological upheavals in media as important factors, then specifically turn their focus to social media. 
 
-Here, by analyzing academic papers published between 2011 and 2023 with the keyword ``misinformation'' in their metadata, we identify pre-2016 linguistic patterns unaccounted for in these histories~\cite{broda_misinformation_2024,donovan_express_2025}, and we connect these patterns to the research on the misinformation effect. We argue that post-2016 misinformation research owes more to this lineage than is generally acknowledged. 
+Here, by analyzing academic papers published between 1970 and 2023 with the keyword ``misinformation'' in their metadata, we identify pre-2016 linguistic patterns unaccounted for in these histories~\cite{broda_misinformation_2024,donovan_express_2025}, and we connect these patterns to the research on the misinformation effect. We argue that post-2016 misinformation research owes more to this lineage than is generally acknowledged. 
 
 We conclude by noting the parallels between the misinformation effect research of the 1980s and that of the 2020s. Both came about in moments of mass panic about evil forces doing harm to children, fueled by a changing media and political context. We are by no means the first to note the historical parallels between Qanon and the Satanic panic, and we are much indebted to prior scholarship and journalism on this issue. Instead, our contribution is to note that, just as~\citet{hearst_qanon_2022} finds that modern conspiricism has roots in the Satanic panic, so too can we trace the modern scientific response back to that of the 1980s. To many of the field's most cited authors, especially those working in the tradition of the misinformation effect, this history is presumably well-known. Instead, we hope that, by making this history more explicit, we can add context to existing histories and literature reviews, and that, with this context, the scientific community can better navigate its own cultural authority in these moments of epistemic struggle.
 
 
 \section{Data and Methods}
 
-Our primary database is a Scopus~\cite{scopus} export of all papers with ``misinformation'' in any metadata field from 2011–2023. We supplemented that with the opencitations.net API.
+Our primary database is a Scopus~\cite{scopus} export of all papers with ``misinformation'' in any metadata field from 1970--2023. We supplemented that with the opencitations.net API.
 
 \subsection{Term Frequency}
 
-We split our corpus into two case-insensitive bags of words (BOWs): One using all titles and abstracts from the years 2011-2015, and the second from 2017 onward. We chose to split on the year 2016 because it is the year when the term's sudden surge in popularity began. We exclude 2016 from either BOW as a transition year because, had we added it to pre-2016, the beginning of the surge dominates the behavior in an already imbalanced comparison. Though it would affect the analysis less, we also see evidence against adding it to post-2016 side because the transition is still underway. Figure~\ref{fig:twitter}, for example, shows the usage spike towards the end of 2016. Given that scientific publishing takes time, we opt instead to exclude the year entirely.
+We split our corpus into two case-insensitive bags of words (BOWs): One using all titles and abstracts from the years 1970--2015, and the second from 2017 onward. We chose to split on the year 2016 because it is the year when the term's sudden surge in popularity began. We exclude 2016 from either BOW as a transition year because, had we added it to pre-2016, the beginning of the surge dominates the behavior in an already imbalanced comparison. Though it would affect the analysis less, we also see evidence against adding it to post-2016 side because the transition is still underway. Figure~\ref{fig:twitter}, for example, shows the usage spike towards the end of 2016. Given that scientific publishing takes time, we opt instead to exclude the year entirely.
 
 When tokenizing, we kept bigrams that occur together more than 100 times as a single token. We stripped punctuation, the most common stopwords, and some stopwords specific to our corpus (e.g., "elsevier" and "llc"). We calculated the frequency of every token in both BOWs, then chose the 9 smallest (i.e., most negative) and largest differences of frequency from the first to the second. We then classified all papers as having at least one word from either set or one of both.
 
@@ -253,6 +251,8 @@ When tokenizing, we kept bigrams that occur together more than 100 times as a si
 
 \subsection{Communities}
 
+\subsubsection{Paper Authorship}
+
 For the community labels, we created a network of papers with each edge representing an author; two papers are connected if they share an author. To avoid small-world problems from the small number of papers with many authors, the weight of the edge between two papers $P_1$ and $P_2$ was defined as
 
 $$W(P_1, P_2) = \frac{1}{len(P_1.\text{authors}) \times len(P_2.\text{authors})}$$
@@ -267,19 +267,23 @@ Our algorithm labeled 8033 distinct communities. Figure~\ref{fig:zipf} shows the
 
 We looked at the two biggest paper-communities in every year, as well as all the biggest communities in 2023, and analyzed the citation flows between communities, which we discuss in Section \ref{results}.
 
+\subsubsection{Citation}
+\begin{table}
+\footnotesize
+\include{citations-img/correspondance.tex}
+\end{table}
 
 \section{Results}
 \label{results}
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=\textwidth]{term_frequency-img/fig.pdf}
+\includegraphics[width=\textwidth]{term_frequency-img/all_years_tf_change.pdf}
 \caption{Words with largest absolute frequency shifts before and after 2016 are on the right. We tagged all papers as having one from either or one of each. The top-left graph shows papers that have at least one word from that set of words as an annual percentage (some papers use both, so percentages do not add up to 100\%); the bottom one is the raw counts of all papers in the data.}
 \label{fig:tf}
 \end{figure*}
 
-After 2016, there is an explosion of the use of the word ``misinformation'' in academic literature. In 2011, the first year in our dataset, there were only 118 papers containing the term anywhere in their metadata. In 2023, there were 3380, or 28 times as many, and the post-2016 corpus contains 20 times as many papers as the pre-2016 one.
-
+After 2016, there is an explosion of the use of the word ``misinformation'' in academic literature. In 2011, there were only 118 papers containing the term anywhere in their metadata. In 2023, there were 3380, or 28 times as many, and the post-2016 corpus contains 20 times as many papers as the pre-2016 one.
 
 
 Looking at terms with the largest absolute frequency shift (Figure \ref{fig:tf}), the post-2016 words are those that we in 2026 expect in misinformation literature, like ``social media,'' ``pandemic,'' ``fake news,'' etc. As discussed in our introduction, these findings on the post-2016 explosion, as well as the topics of study (e.g., social media and the pandemic), are similar to those found in literature reviews~\cite{broda_misinformation_2024}, histories of misinformation~\cite{donovan_express_2025}, and academic summaries~\cite{posetti_short_2018} of the misinformation literature.
@@ -293,7 +297,29 @@ Most summaries of the field tell its history as shown in the second half of Figu
 
 \begin{table}[t]
 \footnotesize
-\input{network-img/tfidf.tex}
+\begin{tabular}{p{0.2\columnwidth} p{0.3\columnwidth} p{0.5\columnwidth}}
+\hline
+Community & Top Unigrams & Top Bigrams 
+\\
+\hline
+426 & governments \newline pandemic \newline trust \newline crises \newline business \newline unbuilding \newline organizations & business organizations \newline media governments \newline news media \newline pandemic research \newline health crises \newline arise 2024 \newline building unbuilding 
+\\
+\hline
+1277 & claim \newline task \newline claims \newline false \newline media \newline participation \newline social & claim task \newline social media \newline spread false \newline fake news \newline 2023 forum \newline 2023 primary \newline 2023 uncovering \\
+\hline
+1432 & ethical \newline debriefing \newline researchers \newline research \newline dialogue \newline deception \newline insurmountable & ethical practices \newline ethical research \newline adopting reporting \newline balance deception \newline benefits individual \newline challenges insurmountable \newline conducting ethical 
+\\
+\hline
+2350 & multimodal \newline dis \newline disciplines \newline review \newline computer \newline science \newline analysis & multimodal analysis \newline multimodal dis \newline computer science \newline 2020 start \newline analysis dis \newline attention academics \newline beyond words 
+\\
+\hline
+5282 & symbolic \newline pertinent \newline content \newline language \newline linguistic \newline representative \newline detection & pertinent symbolic \newline misleading content \newline content based \newline real world \newline accuracy also \newline additional training \newline aggregating representative 
+\\
+\hline
+6075 & democracy \newline knowledge \newline shared \newline discredited \newline frontier \newline countermeasures \newline undermining & attacks involves \newline campaigns undermining \newline citizens example \newline contribute countermeasures \newline countermeasures 2025 \newline democracy democracy \newline democracy relies \\
+\hline
+\end{tabular}
+
 \caption{Top TF-IDF terms for select communities. Note how the Loftus community's terms differ from those of the other communities, the rest of which seem more familiar to the post-2016 misinformation paradigm} 
 \label{tab:tfidf}
 \end{table}
@@ -393,7 +419,7 @@ We found, in agreement with the above, that these big communities of papers are 
     Although misinformation (i.e., information that is erroneous or misleading) can circulate exceedingly fast due to advances in social technologies and large-scale information cascades, the roots of fake news go back to the days before the Printing Revolution, when word-of-mouth was the primary method of news transmission. 
 \end{quote}
 
-In the Loftus community, however, we find a caveat that, to our knowledge, goes unacknowledged in other reviews and histories of misinformation. This is a strain of research that much predates 2016, one that was established prior to the beginning of our dataset (2011) and had played a prominent role in public life. 
+In the Loftus community, however, we find a caveat that, to our knowledge, goes unacknowledged in other reviews and histories of misinformation. This is a strain of research that much predates 2016, one that was established at the beginning of our dataset (1970s) and had played a prominent role in public life. 
 
 In Section~\ref{concept}, we will consider the one through line that unites this otherwise-disparate set of research, the concept of misinformation itself, with the accompanying way it models the world. In Section~\ref{history}, we will examine the historical context from which the concept emerges.
 
@@ -508,6 +534,10 @@ The authors acknowledge financial support from MassMutual Center of Excellence i
 
 All the code and data for this project can be found at \citet{gitrepo}.
 
-
 \bibliography{refs}
+
+\appendix
+
+
+
 \end{document}
